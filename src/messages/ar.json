@@ -1,7 +1,15 @@
 {
     "Index" :{
-        "title" : "مرحبا",
-        "content" : "This is the content of the Index Page"
+            "home" : "الرئيسية",
+            "about" :"حولنا",
+            "welcome": "مرحبا",
+            "features": "الميزات",
+            "login": "تسجيل الدخول",
+            "signUp": "تسجيل",
+            "studying": "  الدراسة",
+            "introTitle" :"عبر الإنترنت الآن أسهل بكثير",
+            "introDesc" :"رايحان هي منصة مثيرة للاهتمام تستطيع تعليمك بطريقة أكثر تفاعلا"
+
     }
     
 }

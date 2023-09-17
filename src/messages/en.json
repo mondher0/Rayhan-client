@@ -1,5 +1,16 @@
 {
-    "Index": {
-      "title": "Hello world!"
-    }
+  "Index" :{
+          "home" : "Home",
+          "about" :"About us",
+          "welcome": "Welcome",
+          "features": "Features",
+          "login": "login",
+          "signUp": "Sign Up",
+          "studying": "Studying",
+          "introTitle": "Online is now much easier",
+          "introDesc" :"Rayhane is an interesting platform that will teach you in more an interactive way"
+          
+
   }
+  
+}

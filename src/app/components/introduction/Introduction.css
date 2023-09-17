@@ -12,6 +12,10 @@
   color: var(--primary900);
   margin-right: 0.5rem;
 }
+
+.studying-reversed {
+  margin-left: 0.5rem;
+}
 .text .title {
   font-size: 40px;
   font-weight: bold;

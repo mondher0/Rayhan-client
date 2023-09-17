@@ -5,8 +5,20 @@ nav {
   gap: 17.423px;
   padding: 40px;
 }
+.nav-bar-reversed {
+  flex-direction: row-reverse;
+}
 nav .links {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  gap: 30px;
+}
+nav .reversed {
+  display: flex;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   list-style: none;
