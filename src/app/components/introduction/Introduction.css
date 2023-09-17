@@ -1,0 +1,70 @@
+.intro-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.text {
+  flex-basis: 550px;
+  margin: 30px 0 0 0;
+}
+.text .title span {
+  color: var(--primary900);
+  margin-right: 0.5rem;
+}
+.text .title {
+  font-size: 40px;
+  font-weight: bold;
+  color: #2f327d;
+  margin-top: 0;
+}
+.text .desc {
+  margin-top: 30px;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px;
+  color: var(--gray800);
+}
+
+.intro-container .intro-btns {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  margin-top: 50px;
+}
+@media screen and (min-width: 1700px) {
+  .text .title {
+    font-size: 65px;
+  }
+  .text .desc {
+    font-size: 25px;
+  }
+  .text {
+    flex-basis: 850px;
+  }
+}
+.intro {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+@media screen and (max-width: 1000px) {
+  .intro-container {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 550px) {
+  .text .title {
+    font-size: 30px;
+    text-align: center;
+  }
+  .text .desc {
+    font-size: 18px;
+    text-align: center;
+  }
+  .text {
+    flex-basis: 300px;
+  }
+}

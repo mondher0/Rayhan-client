@@ -1,6 +1,7 @@
 :root {
   --primary900: #00ddaf;
   --secondary500: #12224f;
+  --gray800: #243752;
 }
 * {
   box-sizing: border-box;
@@ -17,4 +18,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+.container {
+  padding: 40px;
 }
