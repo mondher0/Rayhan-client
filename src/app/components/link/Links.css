@@ -1,0 +1,13 @@
+.single-link {
+  color: var(--secondary500);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.44px;
+}
+@media screen and (max-width: 900px) {
+  .single-link {
+    font-size: 18px;
+  }
+}

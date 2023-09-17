@@ -1,3 +1,7 @@
+:root {
+  --primary900: #00ddaf;
+  --secondary500: #12224f;
+}
 * {
   box-sizing: border-box;
   padding: 0;
