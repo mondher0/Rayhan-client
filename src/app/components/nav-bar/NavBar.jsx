@@ -11,7 +11,7 @@ const NavBar = () => {
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />
       <ul className={locale === "ar" ? "links reversed" : "links"}>
-        <Links link="/" text={t("home")} />
+        <Links link="#" text={t("home")} />
         <Links link="#" text={t("about")} />
         <Links link="#" text={t("welcome")} />
         <Links link="#features" text={t("features")} />
