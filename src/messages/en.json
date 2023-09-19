@@ -12,7 +12,9 @@
           "trustedCompanies" :"Trusted by 5,000+ Companies In Algeria",
           "whatIs" : "What is",
           "rayhan" : "Rayhan?",
-          "whatIsDesc" :"Rayhane is a platform that allows educators to create online classes  whereby they can store the course materials online; manage assignments,quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place."
+          "whatIsDesc" :"Rayhane is a platform that allows educators to create online classes  whereby they can store the course materials online; manage assignments,quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place.",
+          "whatIsCard1":"FOR INSTRUCTORS",
+          "whatIsCard2":"FOR STUDENTS"
           
 
   }

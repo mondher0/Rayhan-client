@@ -39,6 +39,7 @@
   flex-direction: row;
   gap: 20px;
   align-items: center;
+
   margin-top: 50px;
 }
 @media screen and (min-width: 1700px) {
@@ -59,6 +60,9 @@
 }
 @media screen and (max-width: 1000px) {
   .intro-container {
+    justify-content: center;
+  }
+  .intro-container .intro-btns {
     justify-content: center;
   }
   .intro {

@@ -21,6 +21,19 @@
   font-size: 20px;
   text-align: center;
   width: 72%;
+  font-style: normal;
+  font-weight: 300;
+
+}
+
+.what-is-rayhan .what-is-rayhan-cards {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 @media screen and (max-width: 767px) {
   .what-is-rayhan .what-is-rayhan-title {
