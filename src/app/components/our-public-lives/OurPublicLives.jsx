@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 const OurPublicLives = () => {
   const t = useTranslations("Index");
   return (
-    <section className="container our-public-lives">
+    <section className="container our-public-lives" id="public">
       <div className="public-text">
         <h1 className="public-title">
           {t("ourPublic")} <span>{t("lives")}</span>

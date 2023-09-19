@@ -30,7 +30,7 @@ const WhatYouDo = () => {
           {t("whatyouDoTitle")} <span>{t("whatyouDoRayhan")}</span>
         </h1>
         <p className="what-you-do-desc">{t("whatYouDoDesc")}</p>
-        <a href="#">{t("learnMore")}</a>
+        <a href="#public">{t("learnMore")}</a>
       </div>
       <div className="what-you-do-img">
         <Image src={whatYouDoImg} alt="what you do" width={500} height={500} />
