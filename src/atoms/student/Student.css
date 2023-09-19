@@ -12,10 +12,16 @@
   left: 0;
   top: 0;
 }
-@media screen and (min-width: 1500px) {
-  .student {
+@media screen and (min-width: 1500px) and (min-width : 1699px){
+  .student, .student-reversed {
     width: 700px;
     height: 700px;
+  }
+}
+@media screen and (min-width: 1700px) {
+  .student {
+    width: 800px;
+    height: 800px;
     right: 150px;
   }
   .student-reversed {

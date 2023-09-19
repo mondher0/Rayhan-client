@@ -17,8 +17,11 @@
           "whatIsCard2":"FOR STUDENTS",
           "allInOne" : "All-In-One",
           "eLearning" : "e learning platforme.",
-          "allInOneDesc" : "Rayhane is one powerful online software suite that combines all the tools needed to run a successful school or office."
-          
+          "allInOneDesc" : "Rayhane is one powerful online software suite that combines all the tools needed to run a successful school or office.",
+          "whatyouDoTitle" :"Everything you can do in a physical classroom,",
+          "whatyouDoRayhan" :"you can do with Rayhane",
+          "whatYouDoDesc" : "Rayhane's school management software helps traditional and online schools and teachers manage scheduling, attendance, payments and virtual classrooms all in one secure cloud-based system.",
+          "learnMore" : "Learn More"
 
   }
   

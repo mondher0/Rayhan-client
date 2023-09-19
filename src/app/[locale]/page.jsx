@@ -4,6 +4,7 @@ import Introduction from "../components/introduction/Introduction";
 import TrustedCompanies from "../components/trusted-companies/TrustedCompanies";
 import WhatIsRayhan from "../components/what-is-rayhan/WhatIsRayhan";
 import AllInOne from "../components/all-in-one/AllInOne";
+import WhatYouDo from "../components/what-you-do/WhatYouDo";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -17,6 +18,7 @@ export default function Home() {
         <TrustedCompanies />
         <WhatIsRayhan />
         <AllInOne />
+        <WhatYouDo />
       </main>
     </>
   );
