@@ -1,0 +1,109 @@
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.features .features-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.features .features-text h1 {
+  color: var(--secondary700);
+  font-size: 30px;
+  text-align: center;
+  font-style: normal;
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -0.84px;
+}
+.features .features-text h1 span {
+  color: var(--primary900);
+}
+.features .features-text p {
+  color: var(--gray500);
+  font-size: 20px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 300;
+}
+.features .first-feature {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.features .first-feature .fist-feature-text {
+  width: 50%;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+}
+.features .first-feature .fist-feature-text h1 {
+  font-size: 47px;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: -0.84px;
+  color: var(--secondary700);
+}
+.features .first-feature .fist-feature-text h1 span {
+  color: var(--primary900);
+}
+.features .first-feature .fist-feature-text p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 30px;
+  color: var(--gray500);
+}
+@media screen and (max-width: 1078px) and (min-width: 1024px) {
+  .features .first-feature .fist-feature-text h1 {
+    font-size: 30px !important;
+  }
+  first-feature-img .image {
+    width: 100%;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .features .first-feature .fist-feature-text {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    align-items: center;
+  }
+  .features .first-feature .fist-feature-text h1 {
+    font-size: 27px;
+    text-align: center;
+  }
+  .features .first-feature .fist-feature-text p {
+    font-size: 16px;
+    text-align: center;
+  }
+  .first-feature-img .image {
+    width: 100%;
+    height: 300px;
+  }
+  .features .first-feature {
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 1800px) {
+  .first-feature-img .image {
+    width: 800px;
+    height: 300px;
+  }
+  .features .first-feature .fist-feature-text h1 {
+    font-size: 50px;
+  }
+  .features .first-feature .fist-feature-text p {
+    font-size: 20px;
+  }
+}

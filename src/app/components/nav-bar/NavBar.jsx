@@ -14,7 +14,7 @@ const NavBar = () => {
         <Links link="/" text={t("home")} />
         <Links link="#" text={t("about")} />
         <Links link="#" text={t("welcome")} />
-        <Links link="#" text={t("features")} />
+        <Links link="#features" text={t("features")} />
       </ul>
       <div className="nav-btns">
         <button className="outline">{t("login")}</button>
