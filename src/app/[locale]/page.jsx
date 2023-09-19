@@ -7,6 +7,7 @@ import AllInOne from "../components/all-in-one/AllInOne";
 import WhatYouDo from "../components/what-you-do/WhatYouDo";
 import Features from "../components/features/Features";
 import WhatTheySay from "../components/what-they-say/WhatTheySay";
+import OurPublicLives from "../components/our-public-lives/OurPublicLives";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -23,6 +24,7 @@ export default function Home() {
         <WhatYouDo />
         <Features />
         <WhatTheySay />
+        <OurPublicLives />
       </main>
     </>
   );
