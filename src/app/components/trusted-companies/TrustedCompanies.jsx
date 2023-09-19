@@ -1,10 +1,12 @@
 import CompaniesIcons from "@/atoms/companies-icons/CompaniesIcons";
 import "./TrustedCompanies.css";
+import { useTranslations } from "next-intl";
 
 const TrustedCompanies = () => {
+  const t = useTranslations("Index");
   return (
     <section className="trusted-companies">
-      <p className="trusted-text">Trusted by 5,000+ Companies In Algeria</p>
+      <p className="trusted-text">{t("trustedCompanies")}</p>
       <CompaniesIcons />
     </section>
   );
