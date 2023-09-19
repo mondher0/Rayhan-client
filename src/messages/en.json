@@ -9,7 +9,10 @@
           "studying": "Studying",
           "introTitle": "Online is now much easier",
           "introDesc" :"Rayhane is an interesting platform that will teach you in more an interactive way",
-          "trustedCompanies" :"Trusted by 5,000+ Companies In Algeria"
+          "trustedCompanies" :"Trusted by 5,000+ Companies In Algeria",
+          "whatIs" : "What is",
+          "rayhan" : "Rayhan?",
+          "whatIsDesc" :"Rayhane is a platform that allows educators to create online classes  whereby they can store the course materials online; manage assignments,quizzes and exams; monitor due dates; grade results and provide students with feedback all in one place."
           
 
   }

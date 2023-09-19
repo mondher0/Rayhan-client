@@ -1,0 +1,34 @@
+.what-is-rayhan {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.what-is-rayhan .what-is-rayhan-title {
+  color: var(--secondary700);
+  font-size: 30px;
+  text-align: center;
+  font-style: normal;
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -0.84px;
+}
+.what-is-rayhan .what-is-rayhan-title span {
+  color: var(--primary900);
+}
+.what-is-rayhan .what-is-rayhan-desc {
+  color: var(--gray500);
+  font-size: 20px;
+  text-align: center;
+  width: 72%;
+}
+@media screen and (max-width: 767px) {
+  .what-is-rayhan .what-is-rayhan-title {
+    font-size: 25px;
+    line-height: 40px;
+  }
+  .what-is-rayhan .what-is-rayhan-desc {
+    font-size: 14px;
+    width: 100%;
+  }
+}
