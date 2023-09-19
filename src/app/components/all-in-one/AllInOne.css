@@ -1,0 +1,35 @@
+.all-in-one {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.all-in-one .all-in-one-title {
+  color: var(--secondary700);
+  font-size: 30px;
+  text-align: center;
+  font-style: normal;
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -0.84px;
+}
+.all-in-one .all-in-one-title span {
+  color: var(--primary900);
+}
+.all-in-one .all-in-one-desc {
+  color: var(--gray500);
+  font-size: 20px;
+  text-align: center;
+  width: 72%;
+  font-style: normal;
+  font-weight: 300;
+}
+.all-in-one .all-in-one-cards {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+}
