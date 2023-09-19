@@ -10,7 +10,11 @@ const Introduction = () => {
   const t = useTranslations("Index");
   return (
     <section className="container intro">
-      <div className=" intro-container">
+      <div
+        className={
+          locale === "ar" ? "intro-container intro-container-reversed" : "intro-container"
+        }
+      >
         <div className="text">
           <h1 className="title">
             <span

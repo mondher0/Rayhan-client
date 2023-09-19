@@ -5,11 +5,23 @@
   right: 50px;
   top: 0;
 }
+.student-reversed {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 @media screen and (min-width: 1500px) {
   .student {
     width: 700px;
     height: 700px;
     right: 150px;
+  }
+  .student-reversed {
+    width: 700px;
+    height: 700px;
+    left: 0;
   }
 }
 @media screen and (max-width: 1000px) {

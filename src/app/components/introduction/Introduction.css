@@ -4,6 +4,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.intro-container-reversed {
+  flex-direction: row-reverse;
+}
 .text {
   flex-basis: 550px;
   margin: 30px 0 0 0;
