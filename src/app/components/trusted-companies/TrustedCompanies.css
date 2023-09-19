@@ -1,0 +1,20 @@
+.trusted-companies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.trusted-companies .trusted-text {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+  letter-spacing: 0.56px;
+  color: var(--gray500);
+}
+@media screen and (max-width: 430px) {
+  .trusted-companies .trusted-text {
+    font-size: 16px;
+  }
+}

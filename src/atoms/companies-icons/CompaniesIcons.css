@@ -1,0 +1,23 @@
+.companies-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 30px;
+}
+.amazon {
+  margin-top: 16px;
+}
+@media screen and (max-width: 767px) {
+  .companies-icons {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .companie-icon {
+    width: 70px;
+  }
+  .amazon {
+    margin-top: 11px;
+  }
+}

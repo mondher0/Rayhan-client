@@ -54,12 +54,15 @@
 }
 .intro {
   position: relative;
-  height: 100vh;
+  height: 70vh;
   overflow: hidden;
 }
 @media screen and (max-width: 1000px) {
   .intro-container {
     justify-content: center;
+  }
+  .intro {
+    height: auto;
   }
 }
 @media screen and (max-width: 550px) {
