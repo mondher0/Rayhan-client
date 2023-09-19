@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 const WhatYouDo = () => {
   const t = useTranslations("Index");
   return (
-    <section className="container what-you-do">
+    <section className="container what-you-do" id="welcome">
       <div className="what-you-do-text">
         <div className="welcome">
           <svg

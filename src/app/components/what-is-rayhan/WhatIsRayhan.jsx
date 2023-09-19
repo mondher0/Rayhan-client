@@ -7,7 +7,7 @@ import secondCard from "./second-card.png";
 const WhatIsRayhan = () => {
   const t = useTranslations("Index");
   return (
-    <section className="what-is-rayhan">
+    <section className="what-is-rayhan" id="about">
       <h3 className="what-is-rayhan-title">
         {t("whatIs")} <span className="rayhan">{t("rayhan")}</span>
       </h3>

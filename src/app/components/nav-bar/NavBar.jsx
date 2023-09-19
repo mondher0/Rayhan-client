@@ -12,13 +12,14 @@ const NavBar = () => {
       <Logo Click="nav-logo" />
       <ul className={locale === "ar" ? "links reversed" : "links"}>
         <Links link="#" text={t("home")} />
-        <Links link="#" text={t("about")} />
-        <Links link="#" text={t("welcome")} />
+        <Links link="#about" text={t("about")} />
+        <Links link="#welcome" text={t("welcome")} />
         <Links link="#features" text={t("features")} />
       </ul>
       <div className="nav-btns">
-        <button className="outline">{t("login")}</button>
-        <button className="inline">{t("signUp")}</button>
+        <button className="outline log">{t("login")}</button>
+        <button className="inline log">{t("signUp")}</button>
+        <button className="inline dow">{t("download")}</button>
       </div>
     </nav>
   );

@@ -16,6 +16,9 @@ nav .links {
   list-style: none;
   gap: 30px;
 }
+.dow {
+  display: none;
+}
 nav .reversed {
   display: flex;
   flex-direction: row-reverse;
@@ -71,6 +74,12 @@ nav .nav-btns .inline:hover {
 
 @media screen and (max-width: 850px) {
   nav .links {
+    display: none;
+  }
+  .dow {
+    display: block;
+  }
+  .log {
     display: none;
   }
   nav .nav-btns .outline,

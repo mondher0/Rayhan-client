@@ -18,8 +18,8 @@ const Footer = () => {
         <span className="span">About</span>
         <ul>
           <Links link="#" text="Home" />
-          <Links link="#" text="About" />
-          <Links link="#" text="Welcome" />
+          <Links link="#about" text="About" />
+          <Links link="#welcome" text="Welcome" />
           <Links link="#features" text="Features" />
         </ul>
       </div>
