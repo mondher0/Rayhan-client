@@ -1,0 +1,88 @@
+.main-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.login-form .welcome {
+  color: var(--secondary500);
+  font-size: 24.603px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.login-form .title {
+  font-size: 46.13px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  color: var(--secondary500);
+  margin-bottom: 3rem;
+}
+.login-form .form-control {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.login-form .form-control label {
+  font-size: 23.06px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--gray800);
+}
+.login-form .form-control .input-control {
+  width: 504.435px;
+  padding: 20px;
+  outline: none;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid var(--secondary600);
+  font-size: 18.49px;
+  margin-top: 10px;
+}
+.remember-me {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.remember-me label {
+  color: #2d3748;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.forgot-password {
+  color: #003f90;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+.forgot {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+@media screen and (max-width: 1400px) {
+  .login-form {
+    margin-top: 2rem;
+  }
+  .login-form .title {
+    font-size: 36.13px;
+  }
+  .login-image {
+    width: 600px;
+    height: 600px;
+  }
+}
