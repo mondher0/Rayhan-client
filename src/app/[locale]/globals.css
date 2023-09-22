@@ -28,3 +28,6 @@ a {
 .container {
   padding: 40px;
 }
+.hover:hover {
+  cursor: pointer;
+}

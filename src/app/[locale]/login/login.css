@@ -61,6 +61,21 @@
   font-weight: 400;
   line-height: normal;
 }
+.or {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+.or .or-text {
+  color: #70747e;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 .forgot-password {
   color: #003f90;
   font-style: normal;

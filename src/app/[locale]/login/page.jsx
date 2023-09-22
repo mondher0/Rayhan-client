@@ -2,6 +2,7 @@
 import NavBar from "@/app/components/nav-bar/NavBar";
 import "./login.css";
 import Image from "next/image";
+import loginLine from "./login-line.svg";
 
 const page = () => {
   return (
@@ -31,7 +32,12 @@ const page = () => {
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">Remember me</label>
               </div>
-              <p className="forgot-password">Forgot password?</p>
+              <p className="forgot-password hover">Forgot password?</p>
+            </div>
+            <div className="or">
+              <Image src={loginLine} alt="login line" width={150} height={10} />
+              <p className="or-text">Or login with</p>
+              <Image src={loginLine} alt="login line" width={150} height={10} />
             </div>
           </form>
         </div>
