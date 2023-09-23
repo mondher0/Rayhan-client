@@ -1,10 +1,10 @@
 "use client";
 import NavBar from "@/app/components/nav-bar/NavBar";
-import "../login.css";
+import "../../login/login.css";
 import Image from "next/image";
-import "./enter-code.css";
+import "../../login/enter-code/enter-code.css";
 
-const SetCodePage = () => {
+const AccoutVerificationPage = () => {
   return (
     <>
       <header>
@@ -12,7 +12,7 @@ const SetCodePage = () => {
       </header>
       <main className="main-form">
         <div className="login-form">
-          <h1 className="title title-reset">Reset password</h1>
+          <h1 className="title title-reset">Account verification</h1>
           <form>
             <div className="set-code">
               <input type="number" />
@@ -44,4 +44,4 @@ const SetCodePage = () => {
   );
 };
 
-export default SetCodePage;
+export default AccoutVerificationPage;
