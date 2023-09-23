@@ -28,7 +28,14 @@ const NavBar = () => {
         >
           {t("login")}
         </button>
-        <button className="inline log">{t("signUp")}</button>
+        <button
+          className="inline log"
+          onClick={() => {
+            router.push("/register");
+          }}
+        >
+          {t("signUp")}
+        </button>
         <button className="inline dow">{t("download")}</button>
       </div>
     </nav>
