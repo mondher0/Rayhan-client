@@ -6,60 +6,100 @@ import loginLine from "../login/login-line.svg";
 import LoginWithGoogle from "@/atoms/login-with-google/LoginWithGoogle";
 import LoginWithIos from "@/atoms/login-with-ios/LoginWithIos";
 import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 const RegisterPage = () => {
   const router = useRouter();
+  const t = useTranslations("Auth");
+  const locale = useLocale();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
-        <div className="login-form">
-          <h1 className="title">welcome, Sign up</h1>
+        <div
+          className={
+            locale === "ar" ? "login-form login-form-ar" : "login-form"
+          }
+        >
+          <h1 className="title">{t("SignUpTitle")}</h1>
           <form>
             <div className="input-container">
-              <div className="form-half-control">
-                <label htmlFor="first-name">first name</label>
+              <div
+                className={
+                  locale === "ar"
+                    ? "form-half-control form-half-control-ar"
+                    : "form-half-control"
+                }
+              >
+                <label htmlFor="first-name">{t("signUpFirstName")}</label>
                 <input type="text" id="first-name" className="input-control" />
               </div>
-              <div className="form-half-control">
-                <label htmlFor="last-name">last name</label>
+              <div
+                className={
+                  locale === "ar"
+                    ? "form-half-control form-half-control-ar"
+                    : "form-half-control"
+                }
+              >
+                <label htmlFor="last-name">{t("signUpLastName")}</label>
                 <input type="text" id="last-name" className="input-control" />
               </div>
             </div>
-            <div className="form-control">
-              <label htmlFor="phone-number">Phone number</label>
+            <div
+              className={
+                locale === "ar"
+                  ? "form-control form-control-ar"
+                  : "form-control"
+              }
+            >
+              <label htmlFor="phone-number">{t("signUpPhoneNumber")}</label>
               <input type="tel" id="phone-number" className="input-control" />
             </div>
-            <div className="form-control">
-              <label htmlFor="phone-number">Password</label>
+            <div
+              className={
+                locale === "ar"
+                  ? "form-control form-control-ar"
+                  : "form-control"
+              }
+            >
+              <label htmlFor="phone-number">{t("signUpPassword")}</label>
               <input
                 type="password"
                 id="phone-number"
                 className="input-control"
               />
             </div>
-            <div className="form-control">
-              <label htmlFor="referal code">referal code(optional)</label>
+            <div
+              className={
+                locale === "ar"
+                  ? "form-control form-control-ar"
+                  : "form-control"
+              }
+            >
+              <label htmlFor="referal code">{t("referralCode")}</label>
               <input
                 type="number"
                 id="referal code"
                 className="input-control"
               />
             </div>
-            <div className="forgot">
-              <div className="remember-me">
+            <div className={locale === "ar" ? "forgot forgot-ar" : "forgot"}>
+              <div
+                className={
+                  locale === "ar" ? "remember-me remember-me-ar" : "remember-me"
+                }
+              >
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">
-                  By Creating account, you are accepting{" "}
-                  <span className="terms">terms & conditions</span>
+                  {t("acceptTerms")} <span className="terms">{t("terms")}</span>
                 </label>
               </div>
             </div>
             <div className="or">
               <Image src={loginLine} alt="login line" width={150} height={10} />
-              <p className="or-text">Or sign up with</p>
+              <p className="or-text">{t("orSignUp")}</p>
               <Image src={loginLine} alt="login line" width={150} height={10} />
             </div>
             <div className="login-with">
@@ -71,17 +111,17 @@ const RegisterPage = () => {
               </div>
             </div>
             <button className="form-control-btn hover" type="submit">
-              Sign up
+              {t("signUpBtn")}
             </button>
             <p className="dont-have-account">
-              You have an account?{" "}
+              {t("signUpHave")}{" "}
               <span
                 className="go-to-register hover"
                 onClick={() => {
                   router.push("/login");
                 }}
               >
-                Login
+                {t("signUpLogin")}
               </span>
             </p>
           </form>

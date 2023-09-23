@@ -6,32 +6,51 @@ import { useState } from "react";
 import "./change-password.css";
 import checkCircle from "./check-circle.svg";
 import { useRouter } from "next/navigation";
+import { useTranslations, useLocale } from "next-intl";
 
 const ChangePassword = () => {
   const [succes, setSucces] = useState(false);
   const router = useRouter();
+  const t = useTranslations("Auth");
+  const locale = useLocale();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
-        {!succes ? (
-          <div className="login-form">
-            <h1 className="title">Reset Password</h1>
-            <p className="welcome">Choose a new password for your account</p>
+        {succes ? (
+          <div
+            className={
+              locale === "ar" ? "login-form login-form-ar" : "login-form"
+            }
+          >
+            <h1 className="title">{t("resetPassword")}</h1>
+            <p className="welcome">{t("chooseNewPassword")}</p>
 
             <form>
-              <div className="form-control">
-                <label htmlFor="phone-number">Your new password</label>
+              <div
+                className={
+                  locale === "ar"
+                    ? "form-control form-control-ar"
+                    : "form-control"
+                }
+              >
+                <label htmlFor="phone-number">{t("urNewPassword")}</label>
                 <input
                   type="password"
                   id="phone-number"
                   className="input-control"
                 />
               </div>
-              <div className="form-control">
-                <label htmlFor="phone-number">Confirm your new password</label>
+              <div
+                className={
+                  locale === "ar"
+                    ? "form-control form-control-ar"
+                    : "form-control"
+                }
+              >
+                <label htmlFor="phone-number">{t("confirmNewPassword")}</label>
                 <input
                   type="password"
                   id="phone-number"
@@ -39,7 +58,7 @@ const ChangePassword = () => {
                 />
               </div>
               <button className="form-control-btn hover" type="submit">
-                Send
+                {t("send")}
               </button>
             </form>
           </div>
@@ -53,14 +72,14 @@ const ChangePassword = () => {
                 height={100}
               />
             </span>
-            <h1 className="title">Password reset successfully</h1>
+            <h1 className="title">{t("success")}</h1>
             <button
               className="form-control-btn hover succes-btn"
               onClick={() => {
                 router.push("/login");
               }}
             >
-              Login
+              {t("loginBtn")}
             </button>
           </div>
         )}

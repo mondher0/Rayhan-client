@@ -5,6 +5,9 @@
   justify-content: center;
   margin-top: 10px;
 }
+.learning-procces-ar {
+  align-items: flex-end;
+}
 .learning-procces .learning-process-types {
   display: flex;
   flex-direction: row;

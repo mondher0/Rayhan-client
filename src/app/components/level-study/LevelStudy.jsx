@@ -4,23 +4,30 @@ import elementrySchool from "./elementary-school.svg";
 import highSchool from "./high-school.svg";
 import university from "./university.svg";
 import school from "./school.svg";
+import { useLocale, useTranslations } from "next-intl";
 
 const LevelStudy = ({ setRegisterProccesState }) => {
   const [style1, setStyle1] = useState();
   const [style2, setStyle2] = useState();
   const [style3, setStyle3] = useState();
   const [style4, setStyle4] = useState();
+  const t = useTranslations("Auth");
+  const locale = useLocale();
   return (
-    <div className="learning-procces">
-      <p className="learning-procces-desc">
-        Choose the learning process you want
-      </p>
+    <div
+      className={
+        locale === "ar"
+          ? "learning-procces learning-procces-ar"
+          : "learning-procces"
+      }
+    >
+      <p className="learning-procces-desc">{t("studyLevel")}</p>
       <div className="learning-process-types">
         <LearningType
           icon={elementrySchool}
           style={style1}
           setStyle={setStyle1}
-          text="Elementary School"
+          text={t("elementarySchool")}
           action={setRegisterProccesState}
           actionType="study-year"
         />
@@ -28,7 +35,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           icon={school}
           style={style2}
           setStyle={setStyle2}
-          text="Middle School"
+          text={t("middleSchool")}
           action={setRegisterProccesState}
           actionType="study-year"
         />
@@ -36,7 +43,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           icon={highSchool}
           style={style3}
           setStyle={setStyle3}
-          text="High School"
+          text={t("highSchool")}
           action={setRegisterProccesState}
           actionType="study-year"
         />
@@ -44,7 +51,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           icon={university}
           style={style4}
           setStyle={setStyle4}
-          text="University"
+          text={t("university")}
           action={setRegisterProccesState}
           actionType="study-year"
         />

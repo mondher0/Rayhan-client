@@ -6,18 +6,25 @@ import LearningProcces from "@/app/components/learning-procces/LearningProcces";
 import { useState } from "react";
 import LevelStudy from "@/app/components/level-study/LevelStudy";
 import StudyYear from "@/app/components/study-year/StudyYear";
+import { useLocale, useTranslations } from "next-intl";
 
 const RegisterProcces = () => {
   const [RegisterProccesState, setRegisterProccesState] =
     useState("learning-procces");
+  const t = useTranslations("Auth");
+  const locale = useLocale();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
-        <div className="login-form">
-          <h1 className="title">You are now part of the team!</h1>
+        <div
+          className={
+            locale === "ar" ? "login-form login-form-ar" : "login-form"
+          }
+        >
+          <h1 className="title">{t("partOfTeam")}</h1>
           {RegisterProccesState === "learning-procces" ? (
             <LearningProcces
               setRegisterProccesState={setRegisterProccesState}

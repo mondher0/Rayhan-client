@@ -12,6 +12,9 @@
   align-items: flex-start;
   justify-content: center;
 }
+.login-form-ar {
+  align-items: flex-end;
+}
 .login-form .welcome {
   color: var(--secondary500);
   font-size: 24.603px;
@@ -32,6 +35,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+.login-form .form-control-ar {
+  align-items: flex-end;
 }
 .login-form .form-control label {
   font-size: 23.06px;
@@ -91,6 +97,12 @@
   align-items: center;
   margin-top: 1rem;
 }
+.forgot-ar {
+  flex-direction: row-reverse;
+}
+.remember-me-ar {
+  flex-direction: row-reverse;
+}
 .login-with {
   display: flex;
   flex-direction: row;
@@ -138,6 +150,9 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+}
+.input-container .form-half-control-ar {
+  align-items: flex-end;
 }
 .input-container .form-half-control input {
   width: 250px;

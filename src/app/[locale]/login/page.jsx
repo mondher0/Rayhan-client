@@ -6,35 +6,58 @@ import loginLine from "./login-line.svg";
 import LoginWithGoogle from "@/atoms/login-with-google/LoginWithGoogle";
 import LoginWithIos from "@/atoms/login-with-ios/LoginWithIos";
 import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 
 const LoginPage = () => {
   const router = useRouter();
+  const t = useTranslations("Auth");
+  const locale = useLocale();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
-        <div className="login-form">
-          <p className="welcome">Welcome back</p>
-          <h1 className="title">Login to your account</h1>
+        <div
+          className={
+            locale === "ar" ? "login-form login-form-ar" : "login-form"
+          }
+        >
+          <p
+            className="welcome"
+          >
+            {t("LoginDesc")}
+          </p>
+          <h1 className="title">{t("LoginTitle")}</h1>
           <form>
-            <div className="form-control">
-              <label htmlFor="phone-number">Phone number</label>
+            <div
+              className={
+                locale === "ar"
+                  ? "form-control form-control-ar"
+                  : "form-control"
+              }
+            >
+              <label htmlFor="phone-number">{t("loginPhoneNumber")}</label>
               <input type="tel" id="phone-number" className="input-control" />
             </div>
-            <div className="form-control">
-              <label htmlFor="phone-number">Password</label>
+            <div
+              className={
+                locale === "ar"
+                  ? "form-control form-control-ar"
+                  : "form-control"
+              }
+            >
+              <label htmlFor="phone-number">{t("loginPassword")}</label>
               <input
                 type="password"
                 id="phone-number"
                 className="input-control"
               />
             </div>
-            <div className="forgot">
+            <div className={locale === "ar" ? "forgot forgot-ar" : "forgot"}>
               <div className="remember-me">
                 <input type="checkbox" id="remember-me" />
-                <label htmlFor="remember-me">Remember me</label>
+                <label htmlFor="remember-me">{t("loginRemember")}</label>
               </div>
               <p
                 className="forgot-password hover"
@@ -42,12 +65,12 @@ const LoginPage = () => {
                   router.push("/login/reset-password");
                 }}
               >
-                Forgot password?
+                {t("loginForget")}
               </p>
             </div>
             <div className="or">
               <Image src={loginLine} alt="login line" width={150} height={10} />
-              <p className="or-text">Or login with</p>
+              <p className="or-text">{t("orLogin")}</p>
               <Image src={loginLine} alt="login line" width={150} height={10} />
             </div>
             <div className="login-with">
@@ -59,17 +82,17 @@ const LoginPage = () => {
               </div>
             </div>
             <button className="form-control-btn hover" type="submit">
-              Login now
+              {t("loginBtn")}
             </button>
             <p className="dont-have-account">
-              are you new here ?{" "}
+              {t("loginDontHave")}{" "}
               <span
                 className="go-to-register hover"
                 onClick={() => {
                   router.push("/register");
                 }}
               >
-                Sign up
+                {t("loginSignUp")}
               </span>
             </p>
           </form>

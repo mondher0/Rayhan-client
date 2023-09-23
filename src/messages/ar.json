@@ -46,4 +46,58 @@
             "lives" : "العامة",
             "ourPublicDesc": "شاهد حياتنا العامة لتعرف جودة المعلمين والتقنيات العالية التي نمتلكها"
        
-}}
+},
+    "Auth": {
+            "LoginTitle" :"تسجيل الدخول إلى حسابك",
+            "LoginDesc" :"مرحبًا بعودتك",
+            "loginPhoneNumber" :"رقم الهاتف",
+            "loginPassword" :"كلمة السر",
+            "loginRemember" :"تذكرني",
+            "loginForget" :"هل نسيت كلمة السر؟",
+            "orLogin" :"أو تسجيل الدخول باستخدام",
+            "loginBtn" :"تسجيل الدخول",
+            "loginDontHave" :"هل انت جديد هنا؟",
+            "loginSignUp" :"اشتراك",
+            "resetPassword" :"إعادة تعيين كلمة المرور",
+            "chooseNewPassword" :"اختر كلمة مرور جديدة",
+            "urNewPassword" :"كلمة المرور الجديدة",
+            "confirmNewPassword" :"تأكيد كلمة المرور الجديدة",
+            "send" :"إرسال",
+            "success" :"تم إعادة تعيين كلمة المرور بنجاح",
+            "sendCode" :"إرسال الرمز",
+            "SignUpTitle" :"مرحبا ، قم بالتسجيل",
+            "signUpFirstName" :"الاسم",
+            "signUpLastName" :"اللقب",
+            "signUpPhoneNumber" :"رقم الهاتف",
+            "signUpPassword" :"كلمة السر",
+            "referralCode" :"كود مرسل من صديق (اختياري)",
+            "acceptTerms" :"بإنشاء حساب ، فأنت تقبل ",
+            "terms" :"الشروط والأحكام",
+            "orSignUp" : "أو اشترك مع",
+            "signUpBtn" :"اشتراك",
+            "signUpHave" :"هل لديك حساب؟",
+            "signUpLogin" :"تسجيل الدخول",
+            "accountVerify" :"تأكيد الحساب",
+            "resendCode" :"أعد إرسال الرمز",
+            "verifyCode" :"تأكيد",
+            "partOfTeam" :"!أنت الآن جزء من الفريق",
+            "learningProcess" :"اختر عملية التعلم التي تريدها",
+            "takwin" :"التكوين المهني",
+            "courses" :"الدورات",
+            "studyLevel" :"اختر مستوى الدراسة",
+            "elementarySchool" :"المدرسة الابتدائية",
+            "middleSchool" :"المدرسة المتوسطة",
+            "highSchool" :"المدرسة الثانوية",
+            "university" :"الجامعة",
+            "chooseStudyLevel" :"اختر مستوى الدراسة",
+            "firstYear" : "السنة الأولى",
+            "secondYear" : "السنة الثانية",
+            "thirdYear" : "السنة الثالثة",
+            "fourthYear" : "السنة الرابعة",
+            "fifthYear" : "السنة الخامسة"
+
+
+
+
+        }
+}
