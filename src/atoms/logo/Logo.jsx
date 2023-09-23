@@ -6,7 +6,6 @@ import "./Logo.css";
 
 const Logo = ({ Click }) => {
   const router = useRouter();
-  console.log(logo);
   return (
     <Image
       className="logo"
