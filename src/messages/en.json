@@ -45,10 +45,54 @@
           "ourPublic" : "Our Public",
           "lives" : "Lives",
           "ourPublicDesc": "See our public lives to know teachers quality and the high tecnologies that we have "
-
-
-
-
-  }
-  
+  },
+ "Auth": {
+          "LoginTitle": "Login to your account",
+          "LoginDesc": "Welcome back",
+          "loginPhoneNumber": "Phone number",
+          "loginPassword": "Password",
+          "loginRemember": "Remember me",
+          "loginForget": "Forgot your password?",
+          "orLogin": "Or log in using",
+          "loginBtn": "Login",
+          "loginDontHave": "New here?",
+          "loginSignUp": "Sign up",
+          "resetPassword": "Reset Password",
+          "chooseNewPassword": "Choose a new password",
+          "urNewPassword": "New password",
+          "confirmNewPassword": "Confirm new password",
+          "send": "Send",
+          "success": "Password reset successfully",
+          "sendCode": "Send code",
+          "SignUpTitle": "welcome, Sign up",
+          "signUpFirstName": "First Name",
+          "signUpLastName": "Last Name",
+          "signUpPhoneNumber": "Phone number",
+          "signUpPassword": "Password",
+          "referralCode": "Referral code (optional)",
+          "acceptTerms": "By creating an account, you accept the",
+          "terms": "Terms and Conditions",
+          "orSignUp": "Or sign up with",
+          "signUpBtn": "Sign up",
+          "signUpHave": "Already have an account?",
+          "signUpLogin": "Log in",
+          "accountVerify": "Account verification",
+          "resendCode": "Resend code",
+          "verifyCode": "Verify",
+          "partOfTeam": "You are now part of the team!",
+          "learningProcess": "Choose the learning process you want",
+          "takwin": "Takwin",
+          "courses": "Courses",
+          "studyLevel": "Choose the level of study",
+          "elementarySchool": "Elementary School",
+          "middleSchool": "Middle School",
+          "highSchool": "High School",
+          "university": "University",
+          "chooseStudyLevel": "Choose the level of study",
+          "firstYear": "First Year",
+          "secondYear": "Second Year",
+          "thirdYear": "Third Year",
+          "fourthYear": "Fourth Year",
+          "fifthYear": "Fifth Year"
+}
 }

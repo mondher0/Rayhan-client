@@ -45,10 +45,54 @@
           "ourPublic" : "Nos Vies",
           "lives" : "Publiques",
           "ourPublicDesc": "Voir nos vies publiques pour connaître la qualité des enseignants et les hautes technologies dont nous disposons "
-
-
-
-
-  }
-  
+  },
+  "Auth": {
+          "LoginTitle": "Connectez-vous à votre compte",
+          "LoginDesc": "Bienvenue de retour",
+          "loginPhoneNumber": "Numéro de téléphone",
+          "loginPassword": "Mot de passe",
+          "loginRemember": "Se souvenir de moi",
+          "loginForget": "Mot de passe oublié ?",
+          "orLogin": "Ou connectez-vous avec",
+          "loginBtn": "Se connecter",
+          "loginDontHave": "Nouveau ici ?",
+          "loginSignUp": "S'inscrire",
+          "resetPassword": "Réinitialiser le mot de passe",
+          "chooseNewPassword": "Choisissez un nouveau mot de passe",
+          "urNewPassword": "Nouveau mot de passe",
+          "confirmNewPassword": "Confirmer le nouveau mot de passe",
+          "send": "Envoyer",
+          "success": "Réinitialisation du mot de passe réussie",
+          "sendCode": "Envoyer le code",
+          "SignUpTitle": "Bienvenue, Inscrivez-vous",
+          "signUpFirstName": "Prénom",
+          "signUpLastName": "Nom de famille",
+          "signUpPhoneNumber": "Numéro de téléphone",
+          "signUpPassword": "Mot de passe",
+          "referralCode": "Code de parrainage (facultatif)",
+          "acceptTerms": "En créant un compte, vous acceptez les",
+          "terms": "Conditions générales",
+          "orSignUp": "Ou inscrivez-vous avec",
+          "signUpBtn": "S'inscrire",
+          "signUpHave": "Vous avez déjà un compte ?",
+          "signUpLogin": "Se connecter",
+          "accountVerify": "Vérification du compte",
+          "resendCode": "Renvoyer le code",
+          "verifyCode": "Vérifier",
+          "partOfTeam": "Vous faites maintenant partie de l'équipe !",
+          "learningProcess": "Choisissez le processus d'apprentissage que vous souhaitez",
+          "takwin": "Takwin",
+          "courses": "Cours",
+          "studyLevel": "Choisissez le niveau d'études",
+          "elementarySchool": "École primaire",
+          "middleSchool": "Collège",
+          "highSchool": "Lycée",
+          "university": "Université",
+          "chooseStudyLevel": "Choisissez le niveau d'études",
+          "firstYear": "Première année",
+          "secondYear": "Deuxième année",
+          "thirdYear": "Troisième année",
+          "fourthYear": "Quatrième année",
+          "fifthYear": "Cinquième année"
+}
 }

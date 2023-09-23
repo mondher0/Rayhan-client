@@ -19,7 +19,7 @@ const ChangePassword = () => {
         <NavBar />
       </header>
       <main className="main-form">
-        {succes ? (
+        {!succes ? (
           <div
             className={
               locale === "ar" ? "login-form login-form-ar" : "login-form"
