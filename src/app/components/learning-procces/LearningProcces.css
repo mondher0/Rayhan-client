@@ -1,0 +1,50 @@
+.learning-procces {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 10px;
+}
+.learning-procces .learning-process-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  width: 550px;
+}
+.learning-procces .learning-procces-desc {
+  color: var(--secondary500);
+  font-size: 24.603px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.learning-procces .learning-procces-type {
+  display: flex;
+  width: 248.115px;
+  height: 218.925px;
+  padding: 17.514px 13.135px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7.297px;
+  border-radius: 5.838px;
+  background: #fff;
+  box-shadow: 0px 0px 29.18998px 0px rgba(0, 0, 0, 0.08);
+}
+.learning-procces .selected {
+  border-radius: 4px;
+  border: 3px solid #0c2568;
+  background: var(--secondary-h-4, #e9efff);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.08);
+}
+.learning-procces .learning-procces-type p {
+  color: #838384;
+  font-size: 23.352px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}

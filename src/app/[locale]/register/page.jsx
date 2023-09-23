@@ -71,7 +71,7 @@ const RegisterPage = () => {
               </div>
             </div>
             <button className="form-control-btn hover" type="submit">
-              Login now
+              Sign up
             </button>
             <p className="dont-have-account">
               You have an account?{" "}
