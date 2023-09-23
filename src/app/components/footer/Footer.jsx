@@ -34,8 +34,8 @@ const Footer = () => {
       </div>
       <div className="get-our-app">
         <span className="span">Get Our App</span>
-        <Image src={footerPlayStore} alt="play store" width={200} height={60} />
-        <Image src={footerAppStore} alt="app store" width={200} height={60} />
+        <Image src={footerPlayStore} alt="play store" width={200} height={60} className="hover" />
+        <Image src={footerAppStore} alt="app store" width={200} height={60} className="hover" />
       </div>
     </footer>
   );
