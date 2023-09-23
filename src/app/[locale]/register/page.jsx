@@ -1,13 +1,13 @@
 "use client";
 import NavBar from "@/app/components/nav-bar/NavBar";
-import "./login.css";
+import "../login/login.css";
 import Image from "next/image";
-import loginLine from "./login-line.svg";
+import loginLine from "../login/login-line.svg";
 import LoginWithGoogle from "@/atoms/login-with-google/LoginWithGoogle";
 import LoginWithIos from "@/atoms/login-with-ios/LoginWithIos";
 import { useRouter } from "next/navigation";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const router = useRouter();
   return (
     <>
@@ -16,9 +16,18 @@ const LoginPage = () => {
       </header>
       <main className="main-form">
         <div className="login-form">
-          <p className="welcome">Welcome back</p>
-          <h1 className="title">Login to your account</h1>
+          <h1 className="title">welcome, Sign up</h1>
           <form>
+            <div className="input-container">
+              <div className="form-half-control">
+                <label htmlFor="first-name">first name</label>
+                <input type="text" id="first-name" className="input-control" />
+              </div>
+              <div className="form-half-control">
+                <label htmlFor="last-name">last name</label>
+                <input type="text" id="last-name" className="input-control" />
+              </div>
+            </div>
             <div className="form-control">
               <label htmlFor="phone-number">Phone number</label>
               <input type="tel" id="phone-number" className="input-control" />
@@ -31,23 +40,26 @@ const LoginPage = () => {
                 className="input-control"
               />
             </div>
+            <div className="form-control">
+              <label htmlFor="referal code">referal code(optional)</label>
+              <input
+                type="number"
+                id="referal code"
+                className="input-control"
+              />
+            </div>
             <div className="forgot">
               <div className="remember-me">
                 <input type="checkbox" id="remember-me" />
-                <label htmlFor="remember-me">Remember me</label>
+                <label htmlFor="remember-me">
+                  By Creating account, you are accepting{" "}
+                  <span className="terms">terms & conditions</span>
+                </label>
               </div>
-              <p
-                className="forgot-password hover"
-                onClick={() => {
-                  router.push("/login/reset-password");
-                }}
-              >
-                Forgot password?
-              </p>
             </div>
             <div className="or">
               <Image src={loginLine} alt="login line" width={150} height={10} />
-              <p className="or-text">Or login with</p>
+              <p className="or-text">Or sign up with</p>
               <Image src={loginLine} alt="login line" width={150} height={10} />
             </div>
             <div className="login-with">
@@ -62,14 +74,14 @@ const LoginPage = () => {
               Login now
             </button>
             <p className="dont-have-account">
-              are you new here ?{" "}
+              You have an account?{" "}
               <span
                 className="go-to-register hover"
                 onClick={() => {
-                  router.push("/register");
+                  router.push("/login");
                 }}
               >
-                Sign up
+                Login
               </span>
             </p>
           </form>
@@ -88,4 +100,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default RegisterPage;
