@@ -1,0 +1,103 @@
+.live {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.live-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background-image: url("/images/live-card-bg.png");
+  width: 550px;
+  height: 350px;
+  padding: 20px 40px;
+  position: relative;
+}
+.live-card .timer {
+  background-color: var(--primary900);
+  display: flex;
+  gap: 20px;
+  width: 336.552px;
+  height: 80px;
+  padding: 4px 12px;
+  justify-content: center;
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  align-items: center;
+  margin: auto;
+  border-radius: 10px;
+}
+.live-card .notimer {
+  background-color: transparent;
+}
+.live-card .live-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.live-card .live-details p {
+  color: #fff;
+  font-size: 23.286px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%; /* 32.6px */
+}
+.live-card .live-details span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--gray600);
+}
+.live-card .live-details .teacher-live-details {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.live-card .live-details .teacher-live-details .teacher-live-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.live-card .live-details .teacher-live-details .teacher-live-info .fn {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+.live-card .live-details .teacher-live-details .teacher-live-info .ln {
+  color: #9d9fa0;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 15px */
+}
+.live-btn {
+  display: flex;
+  height: 55px;
+  margin-left: 9px;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 10px;
+  background: var(--secondary700);
+  box-shadow: 0px 0px 14px 2px rgba(12, 37, 104, 0.25);
+  color: white;
+  width: 100%;
+  border: none;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}

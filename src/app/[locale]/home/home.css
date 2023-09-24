@@ -22,7 +22,7 @@ main {
   align-items: flex-start;
   justify-content: center;
   gap: 40px;
-  width: 500px
+  width: 500px;
 }
 .teachers {
   display: flex;
@@ -100,7 +100,8 @@ main {
   align-items: flex-start;
   width: 100%;
 }
-.course-cards {
+.course-cards,
+.rooms {
   margin-top: 20px;
   display: flex;
   flex-direction: row;
@@ -108,6 +109,15 @@ main {
   gap: 100px;
   align-items: center;
   justify-content: center;
+}
+.rooms {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center
 }
 @media screen and (max-width: 1450px) {
   .course-cards {

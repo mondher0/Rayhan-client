@@ -3,9 +3,10 @@ import { useState } from "react";
 import "../../[locale]/home/home.css";
 import SearchInput from "../search-input/SearchInput";
 import CourseCard from "../course-card/CourseCard";
+import Livecard from "../live-card/Livecard";
 
 const FeaturesCourses = () => {
-  const [recordeedClasses, setRecordedClasses] = useState(false);
+  const [recordeedClasses, setRecordedClasses] = useState(true);
   const [rooms, setRooms] = useState(false);
   const [recordedLives, setRecordedLives] = useState(false);
   const [toggle1, setToggle1] = useState("selected");
@@ -44,7 +45,7 @@ const FeaturesCourses = () => {
     <div className="features-courses">
       <div className="toggle-feature">
         <div
-          className={`toggle ${toggle1}`}
+          className={`hover toggle ${toggle1}`}
           onClick={() => {
             handleToggle("recordedClasses");
           }}
@@ -52,7 +53,7 @@ const FeaturesCourses = () => {
           Recorded Classes
         </div>
         <div
-          className={`toggle ${toggle2}`}
+          className={`hover toggle ${toggle2}`}
           onClick={() => {
             handleToggle("rooms");
           }}
@@ -60,7 +61,7 @@ const FeaturesCourses = () => {
           Live & Rooms Classes{" "}
         </div>
         <div
-          className={`toggle ${toggle3}`}
+          className={`hover toggle ${toggle3}`}
           onClick={() => {
             handleToggle("recordedLives");
           }}
@@ -74,12 +75,30 @@ const FeaturesCourses = () => {
           <option value="sort">Sort by: Latest</option>
         </select>
       </div>
-      <div className="course-cards">
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-        <CourseCard />
-      </div>
+      {recordeedClasses && (
+        <div className="course-cards">
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
+          <CourseCard />
+        </div>
+      )}
+      {rooms && (
+        <div className="rooms">
+          <Livecard btnText="Subscribe" verify="rooms"  />
+          <Livecard btnText="Subscribe" verify="rooms" />
+          <Livecard btnText="Subscribe" verify="rooms" />
+          <Livecard btnText="Subscribe" verify="rooms" />
+        </div>
+      )}
+      {recordedLives && (
+        <div className="rooms">
+          <Livecard btnText="Rewatch" />
+          <Livecard btnText="Rewatch" />
+          <Livecard btnText="Rewatch" />
+          <Livecard btnText="Rewatch" />
+        </div>
+      )}
     </div>
   );
 };
