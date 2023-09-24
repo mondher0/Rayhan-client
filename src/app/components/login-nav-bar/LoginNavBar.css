@@ -1,0 +1,14 @@
+.login-nav {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px !important;
+}
+.nav-reversed {
+  flex-direction: row-reverse;
+}
+.divider {
+  width: 1px;
+  height: 64px;
+  background-color: var(--gray400);
+}

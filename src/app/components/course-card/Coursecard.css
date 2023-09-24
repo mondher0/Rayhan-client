@@ -1,0 +1,75 @@
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+  background-color: white;
+  width:  fit-content;
+  border-radius: 10px;
+}
+
+.course-card .course-img-container {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+}
+.course-card .course-img-container .img-course {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 100%;
+}
+.course-data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-start;
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.course-data h1 {
+  color: #2b2b2b;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 43.68px; /* 125% */
+  letter-spacing: -0.524px;
+  margin: 0;
+}
+
+.course-data .name {
+  color: #70747e;
+  font-size: 15.288px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24.024px; /* 157.143% */
+  letter-spacing: 0.153px;
+}
+
+.course-card .course-data .rate-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.rate-price .rate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.course-card .course-data .rate-price .price {
+  display: flex;
+  padding: 4.368px 17.472px;
+  align-items: center;
+  gap: 8.736px;
+  border-radius: 4.368px;
+  background: #e6e8ec;
+  color: var(--gray800);
+  text-align: right;
+  font-size: 19.656px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28.392px; /* 144.444% */
+}

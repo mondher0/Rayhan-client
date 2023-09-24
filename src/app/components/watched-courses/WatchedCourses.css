@@ -1,0 +1,18 @@
+.courses {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: stretch;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.see-more {
+  color: var(--primary-h-1, #06b792);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 100% */
+  text-decoration-line: underline;
+  text-align: right;
+}
