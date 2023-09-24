@@ -1,0 +1,71 @@
+.popular-teacher-card {
+  width: 250px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+  margin-top: 20px;
+}
+.popular-teacher-card .teacher-img-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 98, 157, 1),
+    rgba(0, 94, 151, 1),
+    rgba(0, 83, 134, 1),
+    rgba(0, 65, 105, 1)
+  );
+  width: 100%;
+}
+.popular-teacher-card .teacher-info {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.popular-teacher-card .teacher-info .teacher-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  width: 100%;
+  color: #70747e;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.055px;
+}
+.popular-teacher-card .teacher-info .teacher-rating .ratings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+.popular-teacher-card .teacher-info h1 {
+  color: #1b1f2a;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 0.18px;
+}
+.popular-teacher-card .teacher-info p {
+  color: #70747e;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 157.143% */
+  letter-spacing: 0.14px;
+}

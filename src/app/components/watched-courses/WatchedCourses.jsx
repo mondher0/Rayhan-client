@@ -7,7 +7,7 @@ const WatchedCourses = () => {
       <WatchCourse />
       <WatchCourse />
       <WatchCourse />
-      <p className="see-more">See more</p>
+      <p className="see-more hover">See more</p>
     </div>
   );
 };

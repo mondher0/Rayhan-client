@@ -2,6 +2,7 @@ import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./home.css";
 import WatchedCourses from "@/app/components/watched-courses/WatchedCourses";
 import FeaturesCourses from "@/app/components/features-courses/FeaturesCourses";
+import PopularTeachers from "@/app/components/popular-teachers/PopularTeachers";
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
             </div>
             <div className="teachers">
               <h1 className="watched-title">Popular teachers</h1>
+              <PopularTeachers />
             </div>
           </div>
           <FeaturesCourses />

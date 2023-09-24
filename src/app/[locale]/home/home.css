@@ -16,6 +16,22 @@ main {
   padding: 5rem;
   gap: 100px;
 }
+.features .watched-and-teachers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  width: 500px
+}
+.teachers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  width: 500px;
+}
 .features .watched-and-teachers .watched .watched-title,
 .watched-title {
   color: #0a033c;
