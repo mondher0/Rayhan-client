@@ -3,7 +3,8 @@ import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "../subjects/subjects.css";
 import Pagination from "@/app/components/pagination/Pagination";
 
-const page = () => {
+const page = ({ searchParams }) => {
+  const { page } = searchParams;
   return (
     <>
       <header>
@@ -16,7 +17,7 @@ const page = () => {
           <AllTeachers />
         </section>
         <section className="pagination-bar">
-          <Pagination currentPage={page} url="/subjects" />
+          <Pagination currentPage={page} url="/teachers" />
         </section>
       </main>
     </>
