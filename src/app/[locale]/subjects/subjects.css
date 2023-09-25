@@ -1,0 +1,17 @@
+.hero {
+  width: 100%;
+  height: 350px;
+  flex-shrink: 0;
+  border: none;
+  background: #fd993d;
+}
+.subjects {
+  padding: 30px;
+}
+.subjects p {
+  color: var(--gray800);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+}
