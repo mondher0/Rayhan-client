@@ -1,5 +1,5 @@
 main {
-  background-color: #e6e8ec;
+  background: var(--gray-h-4, #f5f6f7);
 }
 .hero {
   width: 100%;
@@ -117,7 +117,7 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 @media screen and (max-width: 1450px) {
   .course-cards {

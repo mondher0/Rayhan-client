@@ -1,5 +1,5 @@
 main {
-  background-color: #e6e8ec;
+  background: var(--gray-h-4, #f5f6f7);
 }
 .hero {
   width: 100%;

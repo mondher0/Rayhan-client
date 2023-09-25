@@ -16,7 +16,7 @@ const SubjectCoursespage = ({ searchParams, params }) => {
       <main>
         <section className="hero"></section>
         <section className="subjects">
-          <p>Subjects</p>
+          <p>Subjects/{subjectCourses}</p>
           <AllCourses />
         </section>
         <section className="pagination-bar">
