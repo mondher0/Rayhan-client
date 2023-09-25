@@ -1,12 +1,13 @@
+import AllCourses from "@/app/components/all-courses/AllCourses";
 import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "./subjects.css";
-import AllSubjects from "@/app/components/all-subjects/AllSubjects";
+import "../subjects.css";
 import Pagination from "@/app/components/pagination/Pagination";
 
-const SubjectsPage = ({ searchParams }) => {
+const SubjectCoursespage = ({ searchParams, params }) => {
   const { page } = searchParams;
-  console.log("------------------ SubjectsPage ------------------");
-  console.log(page);
+  const { subjectCourses } = params;
+  console.log("------------------ SubjectCoursespage ------------------");
+  console.log(subjectCourses);
   return (
     <>
       <header>
@@ -16,14 +17,14 @@ const SubjectsPage = ({ searchParams }) => {
         <section className="hero"></section>
         <section className="subjects">
           <p>Subjects</p>
-          <AllSubjects />
+          <AllCourses />
         </section>
         <section className="pagination-bar">
-          <Pagination currentPage={page} url="/subjects" />
+          <Pagination currentPage={page} url={`/subjects/${subjectCourses}`} />
         </section>
       </main>
     </>
   );
 };
 
-export default SubjectsPage;
+export default SubjectCoursespage;

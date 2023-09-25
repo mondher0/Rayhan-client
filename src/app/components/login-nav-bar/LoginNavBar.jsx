@@ -19,16 +19,24 @@ const LoginNavBar = () => {
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />
       <ul className={locale === "ar" ? "links reversed" : "links"}>
-        <Links link="" text={t("home")} />
-        <Links link="" text={t("subjects")} />
+        <Links link="/home" text={t("home")} />
+        <Links link="/subjects?page=1" text={t("subjects")} />
         <Links link="" text={t("courses")} />
         <Links link="" text={t("teachers")} />
         <Links link="" text={t("offers")} />
       </ul>
-      <div className={
-        locale === "ar" ? "nav-btns login-nav nav-reversed" : "nav-btns login-nav"
-      }>
-        <IoIosNotificationsOutline size={30} color="#838E9E" className="hover" />
+      <div
+        className={
+          locale === "ar"
+            ? "nav-btns login-nav nav-reversed"
+            : "nav-btns login-nav"
+        }
+      >
+        <IoIosNotificationsOutline
+          size={30}
+          color="#838E9E"
+          className="hover"
+        />
         <div className="divider"></div>
         <div className="avatar">
           <Image src={avatar} alt="avatar" width={50} height={50} />
