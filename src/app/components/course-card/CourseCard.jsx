@@ -1,10 +1,15 @@
+"use client";
 import Image from "next/image";
 import "./Coursecard.css";
 import { AiFillStar } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 
 const CourseCard = () => {
+  const router = useRouter();
   return (
-    <div className="course-card hover">
+    <div className="course-card hover" onClick={() => {
+      router.push("/courses/5");
+    }}>
       <div className="course-img-container">
         <Image
           src="/images/flutter.png"

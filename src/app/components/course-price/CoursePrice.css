@@ -1,0 +1,76 @@
+.course-price {
+  display: flex;
+  width: 432px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.course-price .course-price-data {
+  display: flex;
+  padding: 24px 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+  background-color: white;
+}
+.course-price .course-price-data .course-price-datum {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.course-price .course-price-data .course-price-datum .stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.course-price .course-price-data .course-price-datum .resp {
+  color: var(--secondary700);
+  text-align: right;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.course-price .course-price-data .course-price-datum .span-price {
+  color: var(--gray500);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.course-price .course-price-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+.course-price .course-price-btns button {
+  display: flex;
+  height: 60px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 18px */
+  border-radius: 8px;
+}
+.course-price .course-price-btns .subscribe {
+  background-color: var(--secondary700);
+  color: white;
+  border: none;
+}
+.course-price .course-price-btns .view {
+  background-color: white;
+  color: var(--secondary700);
+  border: 1px solid var(--secondary700);
+}

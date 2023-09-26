@@ -10,3 +10,23 @@ main {
   line-height: 30px;
   margin-top: 20px;
 }
+.informations {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.content-title {
+  margin-top: 30px;
+  color: var(--secondary700);
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40.907px; /* 113.631% */
+  letter-spacing: -0.54px;
+}
+.rev {
+  padding: 30px;
+  background: var(--gray-h-4, #f5f6f7);
+}

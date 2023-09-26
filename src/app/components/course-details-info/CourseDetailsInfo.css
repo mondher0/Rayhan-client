@@ -1,0 +1,24 @@
+.course-details-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 60%;
+}
+.course-details-info .info-title {
+  margin-bottom: -40px;
+  color: var(--gray800);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 38px; /* 135.714% */
+}
+.course-details-info .info-desc {
+  color: var(--gray500);
+  /* Body/XL */
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 28px; /* 140% */
+}
