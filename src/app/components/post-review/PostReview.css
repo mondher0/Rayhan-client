@@ -1,0 +1,23 @@
+.post-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+.post-review .stars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.post-review .input-review {
+  width: 1624px;
+  height: 65px;
+  flex-shrink: 0;
+}
+.send {
+    background-color: transparent;
+    border: none;
+}

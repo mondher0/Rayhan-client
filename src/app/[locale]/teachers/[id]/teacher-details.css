@@ -1,5 +1,6 @@
 .teacher-details {
   padding: 30px;
+  background: var(--gray-h-4, #f5f6f7);
 }
 .teacher-details .title {
   color: var(--gray-h-2, #243752);
@@ -7,9 +8,15 @@
   font-style: normal;
   font-weight: 500;
   line-height: 30px;
+  margin-top: 20px;
 }
 .teacher-details .video {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 30;}
+  justify-content: space-evenly;
+  gap: 30px;
+  border-radius: 24.544px;
+  background: #efebf5;
+  padding: 20px;
+  margin-top: 20px;
+}

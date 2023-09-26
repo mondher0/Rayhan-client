@@ -1,0 +1,44 @@
+.teacher-review-card {
+  display: flex;
+  height: 264px;
+  padding: 10px 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 504px;
+  background-color: #fff;
+  border-radius: 12px;
+}
+.teacher-review-card .teacher-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+.teacher-review-card .teacher-info .teacher-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.teacher-review-card .teacher-info .teacher-name p {
+  color: #1b1f2a;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+}
+.teacher-review-card .teacher-info .teacher-name .starts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.teacher-review-card .review {
+  color: var(--gray800);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}

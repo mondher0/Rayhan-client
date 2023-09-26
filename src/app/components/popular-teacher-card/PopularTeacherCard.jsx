@@ -1,9 +1,17 @@
+"use client";
 import Image from "next/image";
 import "./PopularTeacherCard.css";
 import { AiFillStar } from "react-icons/ai";
+import { useRouter } from "next/navigation";
 const PopularTeacherCard = () => {
+  const router = useRouter();
   return (
-    <div className="popular-teacher-card hover">
+    <div
+      className="popular-teacher-card hover"
+      onClick={() => {
+        router.push("/teachers/1?page=1");
+      }}
+    >
       <div className="teacher-img-container">
         <Image
           src="/images/teacher.png"
