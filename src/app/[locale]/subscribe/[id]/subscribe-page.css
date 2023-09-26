@@ -1,0 +1,58 @@
+main {
+  background: var(--gray-h-4, #f5f6f7);
+  padding: 30px;
+}
+main .title {
+  color: var(--gray800);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+}
+.subscription-content {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  margin-top: 30px;
+  align-items: flex-start;
+}
+.subscription-content .subscription-course {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  justify-content: center;
+}
+.subscription-content .subscription-course .subscription-course-title {
+  color: var(--secondary700);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: -0.72px;
+}
+.subscription-content .subscription-course .subscription-price {
+  display: flex;
+  width: 100%;
+  padding: 24px 16px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-radius: 12px;
+  background: #fff;
+}
+.subscription-content .subscription-course .subscription-price span {
+  color: var(--gray500);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+@media screen and (max-width: 1800px) {
+  .subscription-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+}

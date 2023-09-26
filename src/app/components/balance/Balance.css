@@ -1,0 +1,35 @@
+.balance-input {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.balance-input input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--gray400);
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(28.441091537475586px);
+  padding: 20px;
+  outline: none;
+}
+.pay {
+  display: flex;
+  height: 60px;
+  padding: 20px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  background: var(--secondary700);
+  width: 400px;
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 18px */
+  border: none;
+}

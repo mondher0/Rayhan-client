@@ -1,0 +1,10 @@
+.balance-form-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  gap: 20px;
+}
+.balance-form-control .balance-half {
+    width: 100%;
+}
