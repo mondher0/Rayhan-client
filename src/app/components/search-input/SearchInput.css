@@ -32,3 +32,7 @@
   justify-content: center;
   border-radius: 8px;
 }
+.search-icon button {
+  background-color: transparent;
+  border: none;
+}

@@ -3,7 +3,7 @@
   background: var(--gray-h-4, #f5f6f7);
 }
 .teacher-details .title {
-  color: var(--gray-h-2, #243752);
+  color: var(--gray800);
   font-size: 28px;
   font-style: normal;
   font-weight: 500;

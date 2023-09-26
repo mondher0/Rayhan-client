@@ -21,7 +21,7 @@ const LoginNavBar = () => {
       <ul className={locale === "ar" ? "links reversed" : "links"}>
         <Links link="/home" text={t("home")} />
         <Links link="/subjects?page=1" text={t("subjects")} />
-        <Links link="" text={t("courses")} />
+        <Links link="/courses?page=1" text={t("courses")} />
         <Links link="/teachers?page=1" text={t("teachers")} />
         <Links link="" text={t("offers")} />
       </ul>

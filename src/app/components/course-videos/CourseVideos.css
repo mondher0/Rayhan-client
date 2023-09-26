@@ -1,0 +1,36 @@
+.course-videos {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  margin-top: 20px;
+  gap: 30px;
+  height: 600px;
+  overflow: scroll;
+}
+iframe {
+  position: sticky;
+  top: 0;
+}
+.course-videos .playlist-title {
+  color: var(--secondary700);
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40.907px; /* 146.097% */
+  letter-spacing: -0.42px;
+}
+.course-videos .course-playlist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+@media screen and (max-width: 1400px) {
+    iframe {
+        width: 1000px
+    }
+
+}
+    
