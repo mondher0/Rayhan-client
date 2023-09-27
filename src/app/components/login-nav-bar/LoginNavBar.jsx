@@ -23,7 +23,7 @@ const LoginNavBar = () => {
         <Links link="/subjects?page=1" text={t("subjects")} />
         <Links link="/courses?page=1" text={t("courses")} />
         <Links link="/teachers?page=1" text={t("teachers")} />
-        <Links link="" text={t("offers")} />
+        <Links link="/offers?page=1" text={t("offers")} />
       </ul>
       <div
         className={

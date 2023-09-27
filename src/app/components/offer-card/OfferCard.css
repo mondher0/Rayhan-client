@@ -1,0 +1,102 @@
+.offer-card {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding-bottom: 20px;
+
+}
+.offer-card .offers-cards {
+  height: 100%;
+}
+.offer-card .offer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+.offer-card .offer-text .offer-title {
+  color: var(--gray800);
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -0.84px;
+}
+.offer-card .offer-text .offer-goale {
+  color: var(--gray500);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: -0.72px;
+}
+.offer-card .offer-text .offer-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  color: var(--gray500);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.288px;
+}
+.offer-card .offer-text .offer-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.offer-card .offer-text .offer-price .offer-price-text {
+  color: #09a483;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+  letter-spacing: -0.48px;
+}
+.offer-card .offer-text .offer-price .see-more {
+  color: var(--secondary700);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.288px;
+  text-decoration-line: underline;
+}
+@media screen and (max-width: 1500px) {
+  .offer-card {
+    flex-direction: column;
+    gap: 0;
+  }
+  .offer-card .offer-text {
+    padding: 20px 20px 0 20px;
+  }
+  .offer-card .offer-text .offer-title {
+    font-size: 35px;
+    line-height: 44px;
+  }
+  .offer-card .offer-text .offer-goale {
+    font-size: 27px;
+    line-height: 36px;
+  }
+  .offer-card .offer-text .offer-time {
+    font-size: 17px;
+    line-height: 24px;
+  }
+  .offer-card .offer-text .offer-price .offer-price-text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .offer-card .offer-text .offer-price .see-more {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
