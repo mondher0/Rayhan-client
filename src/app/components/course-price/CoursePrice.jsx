@@ -1,7 +1,10 @@
+"use client";
+import { useRouter } from "next/navigation";
 import "./CoursePrice.css";
 import { AiFillStar } from "react-icons/ai";
 
 const CoursePrice = () => {
+  const router = useRouter();
   return (
     <div className="course-price">
       <div className="course-price-data">
@@ -37,8 +40,15 @@ const CoursePrice = () => {
         </div>
       </div>
       <div className="course-price-btns">
-        <button className="subscribe">Subscribe for the course</button>
-        <button className="view">Independant view of the course</button>
+        <button
+          className="subscribe hover"
+          onClick={() => {
+            router.push("/subscribe/5");
+          }}
+        >
+          Subscribe for the course
+        </button>
+        <button className="view hover">Independant view of the course</button>
       </div>
     </div>
   );

@@ -46,3 +46,8 @@
   line-height: normal;
   letter-spacing: 0.16px;
 }
+@media screen and (max-width: 1300px) {
+  .payment-method .payment-method-card {
+    padding: 10px;
+  }
+}
