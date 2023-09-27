@@ -17,6 +17,7 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: 30px;
+  margin-bottom: 20px;
 }
 .pagination-bar {
   padding: 30px;
