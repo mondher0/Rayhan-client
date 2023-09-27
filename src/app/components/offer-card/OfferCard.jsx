@@ -1,8 +1,11 @@
+"use client";
 import "./OfferCard.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { BiTimeFive } from "react-icons/bi";
 
 const OfferCard = () => {
+  const router = useRouter();
   return (
     <div className="offer-card">
       <Image
@@ -21,7 +24,14 @@ const OfferCard = () => {
         </span>
         <div className="offer-price">
           <p className="offer-price-text">12000Da</p>
-          <p className="see-more hover">SEE DETAILS</p>
+          <p
+            className="see-more hover"
+            onClick={() => {
+              router.push("/offers/1");
+            }}
+          >
+            SEE DETAILS
+          </p>
         </div>
       </div>
     </div>

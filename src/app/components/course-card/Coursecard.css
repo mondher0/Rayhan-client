@@ -4,10 +4,15 @@
   gap: 10px;
   align-items: flex-start;
   background-color: white;
-  width:  fit-content;
+  width: fit-content;
   border-radius: 10px;
 }
-
+.course-card-style {
+  border-radius: 16.75px;
+  border-right: 1px solid var(--gray-h-1, #b4bbc5);
+  border-bottom: 1px solid var(--gray-h-1, #b4bbc5);
+  border-left: 1px solid var(--gray-h-1, #b4bbc5);
+}
 .course-card .course-img-container {
   width: 100%;
   background-color: white;

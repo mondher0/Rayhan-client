@@ -1,0 +1,107 @@
+.single-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: fit-content;
+  gap: 30px;
+  background-color: #fff;
+  padding: 40px;
+}
+.single-offer-img {
+  width: 100%;
+}
+.single-offer .single-offer-desc {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.single-offer .single-offer-desc .single-offer-title {
+  color: var(--gray800);
+  font-size: 56px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 60px; /* 107.143% */
+  letter-spacing: -0.84px;
+}
+.single-offer .single-offer-desc .single-offer-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px;
+}
+.single-offer .single-offer-desc .single-offer-price span {
+  color: #09a483;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+  letter-spacing: -0.48px;
+}
+.single-offer .single-offer-desc .single-offer-price button {
+  display: flex;
+  width: 360px;
+  height: 55px;
+  padding: 15px 121px;
+  justify-content: space-between;
+
+  border-radius: 12px;
+  background: var(--secondary600);
+  box-shadow: 0px 0px 14px 2px rgba(12, 37, 104, 0.25);
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 18px */
+}
+.single-offer .the-offer {
+  color: var(--gray500);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: -0.72px;
+}
+.single-offer .offer-time {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.single-offer .offer-time p,
+.single-offer .offer-courses-text {
+  color: var(--gray500);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.288px;
+}
+@media screen and (max-width: 1500px) {
+  .single-offer .single-offer-desc .single-offer-title {
+    font-size: 40px;
+  }
+  .single-offer .single-offer-desc .single-offer-price span {
+    font-size: 24px;
+  }
+  .single-offer .single-offer-desc .single-offer-price button {
+    width: 300px;
+    height: 45px;
+    padding: 10px 100px;
+    font-size: 14px;
+  }
+  .single-offer .the-offer {
+    font-size: 35px;
+  }
+  .single-offer .offer-time p,
+  .single-offer .offer-courses-text {
+    font-size: 16px;
+  }
+  .single-offer-img {
+    height: 300px;
+  }
+}

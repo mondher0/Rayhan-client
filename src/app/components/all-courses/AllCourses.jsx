@@ -1,15 +1,15 @@
 import "../all-subjects/AllSubjects.css";
 import CourseCard from "../course-card/CourseCard";
 
-const AllCourses = () => {
+const AllCourses = ({style}) => {
   return (
     <div className="subjects-cards">
-      <CourseCard />
-      <CourseCard />
-      <CourseCard />
-      <CourseCard />
-      <CourseCard />
-      <CourseCard />
+      <CourseCard style={style}  />
+      <CourseCard style={style} />
+      <CourseCard style={style} />
+      <CourseCard style={style} />
+      <CourseCard style={style} />
+      <CourseCard style={style} />
     </div>
   );
 };
