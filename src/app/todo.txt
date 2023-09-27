@@ -1,2 +1,5 @@
 landing page :
 missing 2 sections not coding yet
+stories ui not coding yet
+live not coding yet
+Quizzes not coding yet
