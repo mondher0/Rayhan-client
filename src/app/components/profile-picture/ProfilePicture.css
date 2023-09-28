@@ -1,0 +1,46 @@
+.profile-pictures {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: white;
+}
+.profile-pictures .couverture-picture {
+  height: 250px;
+  align-self: stretch;
+  border-radius: 6px 6px 0px 0px;
+  background-image: url("/images/couverture-pic.png");
+}
+.profile-pictures .profile-picture {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+}
+.profile-pictures .profile-picture .profile-img-container {
+  border-radius: 7.41px;
+  border: 4.94px solid #fff;
+  margin-top: -55px;
+}
+.profile-pictures .profile-picture .profile-user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.profile-pictures .profile-picture .profile-user-info .nom {
+  color: var(--gray800);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px; /* 133.333% */
+}
+.profile-pictures .profile-picture .profile-user-info .phone-number {
+  color: var(--gray500);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 146.667% */
+}
