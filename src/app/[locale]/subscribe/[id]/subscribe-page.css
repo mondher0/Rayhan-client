@@ -56,3 +56,6 @@ main .title {
     justify-content: center;
   }
 }
+.ar {
+  direction: rtl;
+}

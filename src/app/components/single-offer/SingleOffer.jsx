@@ -2,8 +2,12 @@ import Image from "next/image";
 import "./SingleOffer.css";
 import { BiTimeFive } from "react-icons/bi";
 import AllCourses from "../all-courses/AllCourses";
+import { useLocale, useTranslations } from "next-intl";
 
 const SingleOffer = () => {
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
+
   return (
     <>
       <Image
@@ -19,7 +23,7 @@ const SingleOffer = () => {
           <div className="single-offer-price">
             <span>12000Da</span>
             <button type="button" className="hover">
-              Subscribe for the offer
+              {t("subscribeBtn")}
             </button>
           </div>
         </div>
@@ -28,9 +32,12 @@ const SingleOffer = () => {
           <BiTimeFive size={30} color="#838E9E" />
           <p>2 days left</p>
         </span>
-        <p className="offer-courses-text">
-          this offer will be applied in this courses :
-        </p>
+        <div className={
+          locale === "ar" ? "ar" : "p"
+        }>
+          <p className="offer-courses-text">{t("coursesOffer")}</p>
+        </div>
+
         <AllCourses style={true} />
       </div>
     </>

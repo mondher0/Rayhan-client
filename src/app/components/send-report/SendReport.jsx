@@ -1,9 +1,12 @@
+import { useTranslations } from "next-intl";
 import "./SendReport.css";
 
 const SendReport = () => {
+  const t = useTranslations("afterLogin");
+
   return (
     <div className="send-report">
-      <h1>Send report</h1>
+      <h1>{t("sendReportTitle")}</h1>
       <form>
         <textarea
           name="report"
@@ -12,7 +15,9 @@ const SendReport = () => {
           rows="20"
           placeholder="Write your report here"
         ></textarea>
-        <button type="submit" className="hover">Send</button>
+        <button type="submit" className="hover">
+          {t("sendBtn")}
+        </button>
       </form>
     </div>
   );

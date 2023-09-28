@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import "./OfferCard.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -6,6 +7,7 @@ import { BiTimeFive } from "react-icons/bi";
 
 const OfferCard = () => {
   const router = useRouter();
+  const t = useTranslations("afterLogin");
   return (
     <div className="offer-card">
       <Image
@@ -30,7 +32,7 @@ const OfferCard = () => {
               router.push("/offers/1");
             }}
           >
-            SEE DETAILS
+            {t("seeDetails")}
           </p>
         </div>
       </div>

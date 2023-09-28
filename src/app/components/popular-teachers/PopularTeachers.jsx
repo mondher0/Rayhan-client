@@ -1,7 +1,9 @@
+import { useTranslations } from "next-intl";
 import PopularTeacherCard from "../popular-teacher-card/PopularTeacherCard";
 import "./PopularTeachers.css";
 
 const PopularTeachers = () => {
+  const t = useTranslations("afterLogin");
   return (
     <>
       <div className="popular-teachers">
@@ -11,7 +13,7 @@ const PopularTeachers = () => {
         <PopularTeacherCard />
       </div>
       <div className="popular">
-        <p className="see-more hover">See more</p>
+        <p className="see-more hover">{t("seeMore")}</p>
       </div>
     </>
   );

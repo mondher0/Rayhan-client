@@ -11,6 +11,9 @@ main {
 .subjects {
   padding: 30px;
 }
+.rtl {
+  direction: rtl;
+}
 .subjects p {
   color: var(--gray800);
   font-size: 28px;
@@ -23,4 +26,7 @@ main {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.rev {
+  justify-content: flex-start;
 }

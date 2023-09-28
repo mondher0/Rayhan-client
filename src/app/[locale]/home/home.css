@@ -16,6 +16,9 @@ main {
   padding: 5rem;
   gap: 100px;
 }
+.reversed {
+  flex-direction: row-reverse !important;
+}
 .features .watched-and-teachers {
   display: flex;
   flex-direction: column;
@@ -99,6 +102,9 @@ main {
   align-self: stretch;
   align-items: flex-start;
   width: 100%;
+}
+.courses-reversed {
+  align-items: flex-end;
 }
 .course-cards,
 .rooms {

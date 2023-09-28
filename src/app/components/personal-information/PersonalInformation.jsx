@@ -1,31 +1,35 @@
+import { useTranslations } from "next-intl";
 import "./PersonalInformation.css";
 
 const PersonalInformation = () => {
+  const t = useTranslations("afterLogin");
   return (
     <div className="personal-information">
       <form>
         <div className="btn">
-          <button type="submit" className="hover">Edit</button>
+          <button type="submit" className="hover">
+            {t("edit")}
+          </button>
         </div>
 
         <div className="form-controle">
-          <label htmlFor="first-name">First Name</label>
+          <label htmlFor="first-name">{t("firstName")}</label>
           <input type="text" id="first-name" />
         </div>
         <div className="form-controle">
-          <label htmlFor="last-name">Last name</label>
+          <label htmlFor="last-name">{t("lastName")}</label>
           <input type="text" id="last-name" />
         </div>
         <div className="form-controle">
-          <label htmlFor="phone-number">Phone number</label>
+          <label htmlFor="phone-number">{t("phoneNumber")}</label>
           <input type="text" id="phone-number" />
         </div>
         <div className="form-controle">
-          <label htmlFor="old">Old password</label>
+          <label htmlFor="old">{t("oldPassword")}</label>
           <input type="password" id="old" />
         </div>
         <div className="form-controle">
-          <label htmlFor="new">New password</label>
+          <label htmlFor="new">{t("newPassword")}</label>
           <input type="password" id="new" />
         </div>
       </form>

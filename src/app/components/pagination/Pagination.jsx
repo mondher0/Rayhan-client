@@ -1,11 +1,11 @@
 import Link from "next/link";
 import "./Pagination.css";
+import { useTranslations } from "next-intl";
 
 const Pagination = ({ currentPage, url }) => {
-  console.log("------------------ current page ------------------");
-  console.log(currentPage);
   currentPage = parseInt(currentPage);
-  console.log("------------------ url page ------------------");
+  const t = useTranslations("afterLogin");
+
   console.log(url);
   return (
     <div className="pagination">
@@ -17,7 +17,7 @@ const Pagination = ({ currentPage, url }) => {
         }
         className="pre-next"
       >
-        Previous
+        {t("previous")}
       </Link>
       <Link
         href={`${url}?page=1`}
@@ -57,7 +57,7 @@ const Pagination = ({ currentPage, url }) => {
         }
         className="pre-next"
       >
-        Next
+        {t("next")}
       </Link>
     </div>
   );

@@ -6,21 +6,30 @@ import CoursePrice from "@/app/components/course-price/CoursePrice";
 import TeacherReviews from "@/app/components/teacher-reviews/TeacherReviews";
 import PostReview from "@/app/components/post-review/PostReview";
 import AllCourses from "@/app/components/all-courses/AllCourses";
+import { useLocale, useTranslations } from "next-intl";
 
 const CourseDetailsPage = () => {
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <>
       <header>
         <LoginNavBar />
       </header>
-      <main className="course-details">
-        <p className="title">Courses/Course details</p>
+      <main
+        className={
+          locale === "ar"
+            ? "course-details course-details-ar"
+            : "course-details"
+        }
+      >
+        <p className="title">{t("courseDetailsTitle")}</p>
         <CourseVideos />
         <section className="informations">
           <CourseDetailsInfo />
           <CoursePrice />
         </section>
-        <p className="content-title">Course Reviews</p>
+        <p className="content-title">{t("courseReviews")}</p>
       </main>
       <div className="rev">
         <TeacherReviews />
@@ -28,8 +37,14 @@ const CourseDetailsPage = () => {
       <div className="rev">
         <PostReview />
       </div>
-      <div className="rev">
-        <p className="content-title">Similar Course</p>
+      <div
+        className={
+          locale === "ar"
+            ? "rev rev-ar"
+            : "rev"
+        }
+      >
+        <p className="content-title">{t("similarCourses")}</p>
       </div>
       <div className="rev">
         <AllCourses />

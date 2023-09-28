@@ -38,7 +38,12 @@ const LoginNavBar = () => {
           className="hover"
         />
         <div className="divider"></div>
-        <div className="avatar">
+        <div
+          className="avatar hover"
+          onClick={() => {
+            router.push("/profile");
+          }}
+        >
           <Image src={avatar} alt="avatar" width={50} height={50} />
         </div>
         <FiLogOut size={30} color="#838E9E" className="hover" />

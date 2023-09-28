@@ -61,3 +61,6 @@
   line-height: normal;
   text-transform: capitalize;
 }
+.ar {
+  align-items: flex-end;
+}

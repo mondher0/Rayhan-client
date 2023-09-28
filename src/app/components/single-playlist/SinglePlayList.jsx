@@ -1,7 +1,9 @@
 import Image from "next/image";
 import "./SinglePlayList.css";
+import { useTranslations } from "next-intl";
 
 const SinglePlayList = () => {
+  const t = useTranslations("afterLogin");
   return (
     <>
       <div className="single-playlist">
@@ -16,7 +18,7 @@ const SinglePlayList = () => {
           <p className="duration">1:57</p>
         </div>
       </div>
-      <button className="playlist-btn">Rewatch</button>
+      <button className="playlist-btn">{t("rewatchBtn")}</button>
     </>
   );
 };

@@ -4,6 +4,7 @@ import "../../[locale]/home/home.css";
 import SearchInput from "../search-input/SearchInput";
 import CourseCard from "../course-card/CourseCard";
 import Livecard from "../live-card/Livecard";
+import { useLocale, useTranslations } from "next-intl";
 
 const FeaturesCourses = () => {
   const [recordeedClasses, setRecordedClasses] = useState(true);
@@ -12,6 +13,8 @@ const FeaturesCourses = () => {
   const [toggle1, setToggle1] = useState("selected");
   const [toggle2, setToggle2] = useState("");
   const [toggle3, setToggle3] = useState("");
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
 
   // handle toggle
   const handleToggle = (handler) => {
@@ -42,15 +45,25 @@ const FeaturesCourses = () => {
   };
 
   return (
-    <div className="features-courses">
-      <div className="toggle-feature">
+    <div
+      className={
+        locale === "ar"
+          ? "features-courses courses-reversed"
+          : "features-courses"
+      }
+    >
+      <div
+        className={
+          locale === "ar" ? "toggle-feature reversed" : "toggle-feature"
+        }
+      >
         <div
           className={`hover toggle ${toggle1}`}
           onClick={() => {
             handleToggle("recordedClasses");
           }}
         >
-          Recorded Classes
+          {t("recordedClasses")}
         </div>
         <div
           className={`hover toggle ${toggle2}`}
@@ -66,7 +79,7 @@ const FeaturesCourses = () => {
             handleToggle("recordedLives");
           }}
         >
-          Recorded Lives
+          {t("recordedLives")}
         </div>
       </div>
       <div className="filter">
@@ -85,18 +98,18 @@ const FeaturesCourses = () => {
       )}
       {rooms && (
         <div className="rooms">
-          <Livecard btnText="Subscribe" verify="rooms"  />
-          <Livecard btnText="Subscribe" verify="rooms" />
-          <Livecard btnText="Subscribe" verify="rooms" />
-          <Livecard btnText="Subscribe" verify="rooms" />
+          <Livecard btnText={t("subscribeBtn")} verify="rooms" />
+          <Livecard btnText={t("subscribeBtn")} verify="rooms" />
+          <Livecard btnText={t("subscribeBtn")} verify="rooms" />
+          <Livecard btnText={t("subscribeBtn")} verify="rooms" />
         </div>
       )}
       {recordedLives && (
         <div className="rooms">
-          <Livecard btnText="Rewatch" />
-          <Livecard btnText="Rewatch" />
-          <Livecard btnText="Rewatch" />
-          <Livecard btnText="Rewatch" />
+          <Livecard btnText={t("rewatchBtn")} />
+          <Livecard btnText={t("rewatchBtn")} />
+          <Livecard btnText={t("rewatchBtn")} />
+          <Livecard btnText={t("rewatchBtn")} />
         </div>
       )}
     </div>

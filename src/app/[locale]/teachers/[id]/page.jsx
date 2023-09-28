@@ -4,17 +4,22 @@ import PopularTeacherCard from "@/app/components/popular-teacher-card/PopularTea
 import TeacherCourses from "@/app/components/teacher-courses/TeacherCourses";
 import TeacherReviews from "@/app/components/teacher-reviews/TeacherReviews";
 import PostReview from "@/app/components/post-review/PostReview";
+import { useLocale, useTranslations } from "next-intl";
 
 const TeacherDetailsPage = ({ params, searchParams }) => {
   const { id } = params;
   const { page } = searchParams;
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <>
       <header>
         <LoginNavBar />
       </header>
-      <main className="teacher-details">
-        <p className="title">Teachers/Teacher details</p>
+      <main
+        className={locale === "ar" ? "teacher-details rtl" : "teacher-details"}
+      >
+        <p className="title">{t("teacherDetailsTitle")}</p>
         <section className="video">
           <PopularTeacherCard />
           <iframe
@@ -27,9 +32,9 @@ const TeacherDetailsPage = ({ params, searchParams }) => {
             allowfullscreen
           ></iframe>
         </section>
-        <p className="title">Teacher Courses</p>
+        <p className="title">{t("teacherCourses")}</p>
         <TeacherCourses id={id} currentPage={page} />
-        <p className="title">Teacher Reviews</p>
+        <p className="title">{t("teacherReviews")}</p>
         <TeacherReviews />
         <PostReview />
       </main>

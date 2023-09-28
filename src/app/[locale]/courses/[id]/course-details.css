@@ -30,3 +30,9 @@ main {
   padding: 30px;
   background: var(--gray-h-4, #f5f6f7);
 }
+.rev-ar {
+  direction: rtl;
+}
+.course-details-ar {
+  direction: rtl;
+}

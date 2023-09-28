@@ -3,8 +3,11 @@ import "./home.css";
 import WatchedCourses from "@/app/components/watched-courses/WatchedCourses";
 import FeaturesCourses from "@/app/components/features-courses/FeaturesCourses";
 import PopularTeachers from "@/app/components/popular-teachers/PopularTeachers";
+import { useLocale, useTranslations } from "next-intl";
 
 const HomePage = () => {
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <>
       <header>
@@ -12,14 +15,14 @@ const HomePage = () => {
       </header>
       <main>
         <section className="hero"></section>
-        <section className="features">
+        <section className={locale === "ar" ? "features reversed" : "features"}>
           <div className="watched-and-teachers">
             <div className="watched">
-              <h1 className="watched-title">Continue your courses</h1>
+              <h1 className="watched-title">{t("continueYourCourses")}</h1>
               <WatchedCourses />
             </div>
             <div className="teachers">
-              <h1 className="watched-title">Popular teachers</h1>
+              <h1 className="watched-title">{t("popularTeacher")}</h1>
               <PopularTeachers />
             </div>
           </div>

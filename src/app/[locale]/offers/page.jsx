@@ -2,9 +2,12 @@ import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./offers.css";
 import AllOffers from "@/app/components/all-offers/AllOffers";
 import Pagination from "@/app/components/pagination/Pagination";
+import { useLocale, useTranslations } from "next-intl";
 
 const OffresPage = ({ searchParams }) => {
   const { page } = searchParams;
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <>
       <header>
@@ -12,11 +15,13 @@ const OffresPage = ({ searchParams }) => {
       </header>
       <main>
         <section className="hero"></section>
-        <section className="offers">
-          <p>Offers</p>
+        <section className={locale === "ar" ? "offers rtl" : "offers"}>
+          <p>{t("offers")}</p>
           <AllOffers />
         </section>
-        <section className="pagination-bar">
+        <section
+          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
+        >
           <Pagination currentPage={page} url="/offers" />
         </section>
       </main>

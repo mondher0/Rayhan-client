@@ -2,22 +2,24 @@
 import { useRouter } from "next/navigation";
 import "./CoursePrice.css";
 import { AiFillStar } from "react-icons/ai";
+import { useTranslations } from "next-intl";
 
 const CoursePrice = () => {
+  const t = useTranslations("afterLogin");
   const router = useRouter();
   return (
     <div className="course-price">
       <div className="course-price-data">
         <div className="course-price-datum">
-          <span className="span-price">Price</span>
+          <span className="span-price">{t("price")}</span>
           <span className="span-price">11000Da</span>
         </div>
         <div className="course-price-datum">
-          <span className="span-price">Instructor</span>
+          <span className="span-price">{t("instructor")}</span>
           <span className="resp">Wade Warren</span>
         </div>
         <div className="course-price-datum">
-          <span className="span-price">Ratings</span>
+          <span className="span-price">{t("ratings")}</span>
           <span className="stars">
             <AiFillStar size={17} color="#FFD700" />
             <AiFillStar size={17} color="#FFD700" />
@@ -27,15 +29,15 @@ const CoursePrice = () => {
           </span>
         </div>
         <div className="course-price-datum">
-          <span className="span-price">Lessons</span>
+          <span className="span-price">{t("lessons")}</span>
           <span className="resp">30</span>
         </div>
         <div className="course-price-datum">
-          <span className="span-price">Quizzes</span>
+          <span className="span-price">{t("quizzes")}</span>
           <span className="resp">5</span>
         </div>
         <div className="course-price-datum">
-          <span className="span-price">Comments</span>
+          <span className="span-price">{t("comments")}</span>
           <span className="resp">20</span>
         </div>
       </div>
@@ -46,9 +48,11 @@ const CoursePrice = () => {
             router.push("/subscribe/5");
           }}
         >
-          Subscribe for the course
+          {t("subscribeBtn")}
         </button>
-        <button className="view hover">Independant view of the course</button>
+        <button className="view hover">
+          {t("Independant view of the course")}
+        </button>
       </div>
     </div>
   );

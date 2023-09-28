@@ -8,8 +8,10 @@ import finishedStat from "./finished-stat.svg";
 import rewardsStat1 from "./rewards-stat1.svg";
 import rewardsStat2 from "./rewards-stat2.svg";
 import ProfileFeatures from "../profile-features/ProfileFeatures";
+import { useTranslations } from "next-intl";
 
 const Profile = () => {
+  const t = useTranslations("afterLogin");
   return (
     <div className="profile">
       <ProfilePicture />
@@ -17,23 +19,23 @@ const Profile = () => {
         <StatistiqueContainer
           stat1={balanceStat}
           stat2={addStat}
-          text="My balance"
+          text={t("myBalance")}
           number="4000 DA"
         />
         <StatistiqueContainer
           stat1={rewardsStat1}
           stat2={rewardsStat2}
-          text="My rewards"
+          text={t("myReward")}
           number="2300 DA"
         />
         <StatistiqueContainer
           stat1={courseStat}
-          text="Course to continue"
+          text={t("courseToContinue")}
           number="13"
         />
         <StatistiqueContainer
           stat1={finishedStat}
-          text="Finished course"
+          text={t("finishedCourses")}
           number={22}
         />
       </div>

@@ -1,15 +1,15 @@
+import { useLocale, useTranslations } from "next-intl";
 import "./InviteFriends.css";
 
 const InviteFriends = () => {
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <div className="ivite-freinds">
-      <h1>Invite your friends and get balance</h1>
-      <p className="desc">
-        When your friend registers with your referral code, he benefits from our
-        awsome offers and you receive 300 DA to spend in courses !
-      </p>
-      <div className="form-controle">
-        <label htmlFor="first-name">Share this referral code</label>
+      <h1>{t("inviteTitle")}</h1>
+      <p className="desc">{t("inviteDesc")}</p>
+      <div className={locale === "ar" ? "form-controle ar" : "form-controle"}>
+        <label htmlFor="first-name">{t("shareReferralCode")}</label>
         <div className="copy">
           <input type="text" id="first-name" disabled value={121654} />
           <p></p>

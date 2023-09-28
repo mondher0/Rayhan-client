@@ -3,9 +3,12 @@ import "./courses.css";
 import SearchInput from "@/app/components/search-input/SearchInput";
 import AllCourses from "@/app/components/all-courses/AllCourses";
 import Pagination from "@/app/components/pagination/Pagination";
+import { useLocale, useTranslations } from "next-intl";
 
 const CoursesPage = ({ searchParams }) => {
   const { page } = searchParams;
+  const t = useTranslations("afterLogin");
+  const locale = useLocale();
   return (
     <>
       <header>
@@ -13,12 +16,14 @@ const CoursesPage = ({ searchParams }) => {
       </header>
       <main>
         <section className="hero"></section>
-        <section className="courses">
-          <p>Courses</p>
+        <section className={locale === "ar" ? "courses rtl" : "courses"}>
+          <p>{t("courses")}</p>
           <SearchInput />
           <AllCourses />
         </section>
-        <section className="pagination-bar">
+        <section
+          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
+        >
           <Pagination currentPage={page} url="/courses" />
         </section>
       </main>

@@ -1,21 +1,23 @@
 import "./Edhahbia.css";
 import "../balance/Balance.css";
+import { useTranslations } from "next-intl";
 const Edhahbia = ({ usecase }) => {
+  const t = useTranslations("afterLogin");
   return (
     <form className="balance-input">
       <div className="balance-form-control">
         <div className="balance-half">
-          <label htmlFor="name">Name in the card</label>
+          <label htmlFor="name">{t("name of the card")}</label>
           <input type="text" id="name" />
         </div>
         <div className="balance-half">
-          <label htmlFor="number">Number of the card</label>
+          <label htmlFor="number">{t("card number")}</label>
           <input type="text" id="number" />
         </div>
       </div>
       <div className="balance-form-control">
         <div className="balance-half">
-          <label htmlFor="expiry">Card expiry date</label>
+          <label htmlFor="expiry">{t("expiration date")}</label>
           <input type="text" id="expiry" />
         </div>
         <div className="balance-half">
@@ -25,12 +27,14 @@ const Edhahbia = ({ usecase }) => {
       </div>
       <div className="balance-form-control">
         <div className="balance-half">
-          <label htmlFor="Promo code (optionel)">Promo code (optionel)</label>
+          <label htmlFor="Promo code (optionel)">
+            {t("Promo code (optionel)")}
+          </label>
           <input type="text" id="promo" />
         </div>
       </div>
       <button className="pay hover" type="submit">
-        {usecase === "profile" ? "Edit" : "Subscibe in the course"}
+        {usecase === "profile" ? t("edit") : t("subscribeBtn")}
       </button>
     </form>
   );

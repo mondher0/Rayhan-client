@@ -11,6 +11,10 @@ main {
 .profile-section {
   padding: 30px;
 }
+.profile-section-ar {
+  padding: 30px;
+  direction: rtl;
+}
 .profile-section p {
   color: var(--gray800);
   font-size: 28px;

@@ -24,3 +24,6 @@ main {
   justify-content: flex-end;
   align-items: center;
 }
+.rtl {
+  direction: rtl;
+}

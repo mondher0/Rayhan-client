@@ -1,8 +1,9 @@
-import ReactPlayer from "react-player";
+import { useTranslations } from "next-intl";
 import SinglePlayList from "../single-playlist/SinglePlayList";
 import "./CourseVideos.css";
 
 const CourseVideos = () => {
+  const t = useTranslations("afterLogin");
   return (
     <section className="course-videos">
       <div className="ifram">
@@ -19,7 +20,7 @@ const CourseVideos = () => {
       </div>
 
       <div className="course-playlist">
-        <p className="playlist-title">Course Playlists</p>
+        <p className="playlist-title">{t("coursePlayList")}</p>
         <SinglePlayList />
         <SinglePlayList />
         <SinglePlayList />

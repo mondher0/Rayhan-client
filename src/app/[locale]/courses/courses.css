@@ -11,6 +11,9 @@ main {
 .courses {
   padding: 30px;
 }
+.rtl {
+  direction: rtl;
+}
 .courses p {
   color: var(--gray800);
   font-size: 28px;

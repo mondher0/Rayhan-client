@@ -12,6 +12,7 @@ import Edhahbia from "../edhahbia/Edhahbia";
 import Receipt from "../reciept/Receipt";
 import Cod from "../cod/Cod";
 import Rewards from "../rewards/Rewards";
+import { useTranslations } from "next-intl";
 
 const PaymentMethod = ({ useCase }) => {
   const [balanceCard, setBalanceCard] = useState(!useCase && "selected");
@@ -19,6 +20,7 @@ const PaymentMethod = ({ useCase }) => {
   const [codCard, setCodeCard] = useState("");
   const [rewardCard, setRewardCard] = useState("");
   const [recieptCard, setRecieptCard] = useState("");
+  const t = useTranslations("afterLogin");
 
   const selected = {
     borderRadius: "10px",
@@ -68,12 +70,12 @@ const PaymentMethod = ({ useCase }) => {
 
   return (
     <section className="payment-method">
-      {!useCase && <p className="title">Choose your payment method</p>}
+      {!useCase && <p className="title">{t("choose")}</p>}
       <div className="payment-method-card">
         {useCase === "profile" ? (
           <p className="title">Current Balance: 14000 DA</p>
         ) : (
-          <p className="title">Choose your payment method</p>
+          <p className="title">{t("choose")}</p>
         )}
         <div className="methods">
           {!useCase && (
@@ -85,7 +87,7 @@ const PaymentMethod = ({ useCase }) => {
               }}
             >
               <Image src={balance} width={50} height={50} />
-              My balance
+              {t("myBalance")}
             </div>
           )}
           <div
@@ -96,7 +98,7 @@ const PaymentMethod = ({ useCase }) => {
             }}
           >
             <Image src={edhahabia} width={50} height={50} />
-            Dahabia
+            {t("edhahabia")}
           </div>
           <div
             className="method hover"
@@ -106,7 +108,7 @@ const PaymentMethod = ({ useCase }) => {
             }}
           >
             <Image src={reciept} width={50} height={50} />
-            Import reciept
+            {t("reciept")}
           </div>
           <div
             className="method hover"
@@ -126,7 +128,7 @@ const PaymentMethod = ({ useCase }) => {
             }}
           >
             <Image src={reward} width={50} height={50} />
-            Rewards
+            {t("rewards")}
           </div>
         </div>
         {balanceCard && <Balance usecase={useCase} />}

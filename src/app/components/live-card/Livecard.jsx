@@ -3,8 +3,10 @@ import "./LiveCard.css";
 import { AiOutlineVideoCamera } from "react-icons/ai";
 import { BsStopwatch } from "react-icons/bs";
 import { AiOutlineCalendar } from "react-icons/ai";
+import { useLocale } from "next-intl";
 
 const Livecard = ({ btnText, verify }) => {
+  const locale = useLocale();
   return (
     <div className="live">
       <div className="live-card">
@@ -45,7 +47,9 @@ const Livecard = ({ btnText, verify }) => {
           </div>
         </div>
       </div>
-      <button className="live-btn hover">{btnText} 1200DA</button>
+      <button className="live-btn hover">
+        {locale === "ar" ? `1200DA ${btnText} ` : `${btnText} 1200DA`}
+      </button>
     </div>
   );
 };

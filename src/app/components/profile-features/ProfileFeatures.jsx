@@ -8,6 +8,7 @@ import Help from "../help/Help";
 import SendReport from "../send-report/SendReport";
 import TermsConditions from "../terms-conditions/TermsConditions";
 import { IoIosArrowForward } from "react-icons/io";
+import { useTranslations } from "next-intl";
 
 const ProfileFeatures = () => {
   const [chargeBalance, setChargeBalance] = useState("");
@@ -16,6 +17,7 @@ const ProfileFeatures = () => {
   const [help, setHelp] = useState("");
   const [sendReport, setSendReport] = useState("");
   const [termsAndConditions, setTermsAndConditions] = useState("");
+  const t = useTranslations("afterLogin");
 
   const style = {
     border: "1px solid , #C5D5FF",
@@ -85,7 +87,7 @@ const ProfileFeatures = () => {
             handleClick("Personal informations");
           }}
         >
-          <p>Personal information</p>
+          <p>{t("personalInformation")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -95,7 +97,7 @@ const ProfileFeatures = () => {
             handleClick("Charge my balance");
           }}
         >
-          <p>Charge my balance</p>
+          <p>{t("chargeMyBalance")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -104,7 +106,7 @@ const ProfileFeatures = () => {
             handleClick("Charge my balance");
           }}
         >
-          <p>withdraw my rewards</p>
+          <p>{t("widhDrawMyReward")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -114,7 +116,7 @@ const ProfileFeatures = () => {
             handleClick("Invite friends");
           }}
         >
-          <p>Invite friends</p>
+          <p>{t("inviteFriends")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -124,7 +126,7 @@ const ProfileFeatures = () => {
             handleClick("Help");
           }}
         >
-          <p>Help</p>
+          <p>{t("help")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -134,7 +136,7 @@ const ProfileFeatures = () => {
             handleClick("Send reports or Contact us");
           }}
         >
-          <p>Send reports</p>
+          <p>{t("sendReports")}</p>
           <IoIosArrowForward />
         </div>
         <div
@@ -144,7 +146,7 @@ const ProfileFeatures = () => {
             handleClick("Terms & Conditions");
           }}
         >
-          <p>Terms & Conditions</p>
+          <p>{t("termsAndConditions")}</p>
           <IoIosArrowForward />
         </div>
       </div>
