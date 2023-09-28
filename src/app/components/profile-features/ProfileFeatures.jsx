@@ -8,24 +8,146 @@ import InviteFriends from "../invite-friends/InviteFriends";
 import Help from "../help/Help";
 import SendReport from "../send-report/SendReport";
 import TermsConditions from "../terms-conditions/TermsConditions";
+import { IoIosArrowForward } from "react-icons/io";
 
 const ProfileFeatures = () => {
   const [chargeBalance, setChargeBalance] = useState("");
   const [invateFriends, setInvateFriends] = useState("");
-  const [personalInfo, setPersonalInfo] = useState("");
+  const [personalInfo, setPersonalInfo] = useState("selected");
   const [help, setHelp] = useState("");
   const [sendReport, setSendReport] = useState("");
-  const [termsAndConditions, setTermsAndConditions] = useState("selected");
+  const [termsAndConditions, setTermsAndConditions] = useState("");
+
+  const style = {
+    border: "1px solid , #C5D5FF",
+    background: "#E9EFFF",
+  };
+
+  // handle click on features
+  const handleClick = (feature) => {
+    if (feature === "Personal informations") {
+      setPersonalInfo("selected");
+      setChargeBalance("");
+      setInvateFriends("");
+      setHelp("");
+      setSendReport("");
+      setTermsAndConditions("");
+    } else if (feature === "Charge my balance") {
+      setChargeBalance("selected");
+      setPersonalInfo("");
+      setInvateFriends("");
+      setHelp("");
+      setSendReport("");
+      setTermsAndConditions("");
+    } else if (feature === "withdraw my rewards") {
+      setChargeBalance("selected");
+      setPersonalInfo("");
+      setInvateFriends("");
+      setHelp("");
+      setSendReport("");
+      setTermsAndConditions("");
+    } else if (feature === "Invite friends") {
+      setInvateFriends("selected");
+      setChargeBalance("");
+      setPersonalInfo("");
+      setHelp("");
+      setSendReport("");
+      setTermsAndConditions("");
+    } else if (feature === "Help") {
+      setHelp("selected");
+      setChargeBalance("");
+      setInvateFriends("");
+      setPersonalInfo("");
+      setSendReport("");
+      setTermsAndConditions("");
+    } else if (feature === "Send reports or Contact us") {
+      setSendReport("selected");
+      setChargeBalance("");
+      setInvateFriends("");
+      setHelp("");
+      setPersonalInfo("");
+      setTermsAndConditions("");
+    } else if (feature === "Terms & Conditions") {
+      setTermsAndConditions("selected");
+      setChargeBalance("");
+      setInvateFriends("");
+      setHelp("");
+      setSendReport("");
+      setPersonalInfo("");
+    }
+  };
   return (
     <div className="profile-features">
       <div className="features">
-        <SingleFeature text="Personal informations" />
-        <SingleFeature text="Charge my balance" />
-        <SingleFeature text="withdraw my rewards" />
-        <SingleFeature text="Invite friends" />
-        <SingleFeature text="Help" />
-        <SingleFeature text="Send reports or Contact us" />
-        <SingleFeature text="Terms & Conditions" />
+        <div
+          className="single-feature hover"
+          style={personalInfo ? style : {}}
+          onClick={() => {
+            handleClick("Personal informations");
+          }}
+        >
+          <p>Personal information</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          style={chargeBalance ? style : {}}
+          onClick={() => {
+            handleClick("Charge my balance");
+          }}
+        >
+          <p>Charge my balance</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          onClick={() => {
+            handleClick("Charge my balance");
+          }}
+        >
+          <p>withdraw my rewards</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          style={invateFriends ? style : {}}
+          onClick={() => {
+            handleClick("Invite friends");
+          }}
+        >
+          <p>Invite friends</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          style={help ? style : {}}
+          onClick={() => {
+            handleClick("Help");
+          }}
+        >
+          <p>Help</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          style={sendReport ? style : {}}
+          onClick={() => {
+            handleClick("Send reports or Contact us");
+          }}
+        >
+          <p>Send reports or Contact us</p>
+          <IoIosArrowForward />
+        </div>
+        <div
+          className="single-feature hover"
+          style={termsAndConditions ? style : {}}
+          onClick={() => {
+            handleClick("Terms & Conditions");
+          }}
+        >
+          <p>Terms & Conditions</p>
+          <IoIosArrowForward />
+        </div>
       </div>
       <div className="visual-features">
         {personalInfo && <PersonalInformation />}
