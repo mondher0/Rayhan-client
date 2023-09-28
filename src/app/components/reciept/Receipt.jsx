@@ -2,7 +2,7 @@ import Image from "next/image";
 import "./Receipt.css";
 import file from "./file.svg";
 
-const Receipt = () => {
+const Receipt = ({ usecase }) => {
   return (
     <form className="balance-input">
       <div className="form-recu">
@@ -18,7 +18,7 @@ const Receipt = () => {
       <label htmlFor="balance">Promo code (optionel)</label>
       <input type="text" id="balance" />
       <button className="pay hover" type="submit">
-        Subscibe in the course
+        {usecase === "profile" ? "Edit" : "Subscibe in the course"}
       </button>
     </form>
   );

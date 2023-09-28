@@ -9,7 +9,7 @@
   height: 250px;
   align-self: stretch;
   border-radius: 6px 6px 0px 0px;
-  background-image: url("/images/couverture-pic.png");
+  background-color: linear-gradient(180deg, #d487b9, #d264ae, #57a9f4);
 }
 .profile-pictures .profile-picture {
   display: flex;

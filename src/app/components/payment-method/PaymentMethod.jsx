@@ -13,9 +13,9 @@ import Receipt from "../reciept/Receipt";
 import Cod from "../cod/Cod";
 import Rewards from "../rewards/Rewards";
 
-const PaymentMethod = () => {
-  const [balanceCard, setBalanceCard] = useState("selected");
-  const [edhahbiaCard, setEdhahbiaCard] = useState("");
+const PaymentMethod = ({ useCase }) => {
+  const [balanceCard, setBalanceCard] = useState(!useCase && "selected");
+  const [edhahbiaCard, setEdhahbiaCard] = useState(useCase && "selected");
   const [codCard, setCodeCard] = useState("");
   const [rewardCard, setRewardCard] = useState("");
   const [recieptCard, setRecieptCard] = useState("");
@@ -68,20 +68,26 @@ const PaymentMethod = () => {
 
   return (
     <section className="payment-method">
-      <p className="payment-method-title">Payment method</p>
+      {!useCase && <p className="title">Choose your payment method</p>}
       <div className="payment-method-card">
-        <p className="title">Choose your payment method</p>
+        {useCase === "profile" ? (
+          <p className="title">Current Balance: 14000 DA</p>
+        ) : (
+          <p className="title">Choose your payment method</p>
+        )}
         <div className="methods">
-          <div
-            className="method hover"
-            style={balanceCard && selected}
-            onClick={() => {
-              handleSelect("balanceCard");
-            }}
-          >
-            <Image src={balance} width={50} height={50} />
-            My balance
-          </div>
+          {!useCase && (
+            <div
+              className="method hover"
+              style={balanceCard && selected}
+              onClick={() => {
+                handleSelect("balanceCard");
+              }}
+            >
+              <Image src={balance} width={50} height={50} />
+              My balance
+            </div>
+          )}
           <div
             className="method hover"
             style={edhahbiaCard ? selected : {}}
@@ -123,11 +129,11 @@ const PaymentMethod = () => {
             Rewards
           </div>
         </div>
-        {balanceCard && <Balance />}
-        {edhahbiaCard && <Edhahbia />}
-        {recieptCard && <Receipt />}
-        {codCard && <Cod />}
-        {rewardCard && <Rewards />}
+        {balanceCard && <Balance usecase={useCase} />}
+        {edhahbiaCard && <Edhahbia usecase={useCase} />}
+        {recieptCard && <Receipt usecase={useCase} />}
+        {codCard && <Cod usecase={useCase} />}
+        {rewardCard && <Rewards usecase={useCase} />}
       </div>
     </section>
   );

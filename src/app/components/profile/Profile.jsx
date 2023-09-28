@@ -7,6 +7,7 @@ import courseStat from "./course-stat.svg";
 import finishedStat from "./finished-stat.svg";
 import rewardsStat1 from "./rewards-stat1.svg";
 import rewardsStat2 from "./rewards-stat2.svg";
+import ProfileFeatures from "../profile-features/ProfileFeatures";
 
 const Profile = () => {
   return (
@@ -36,6 +37,7 @@ const Profile = () => {
           number={22}
         />
       </div>
+      <ProfileFeatures />
     </div>
   );
 };

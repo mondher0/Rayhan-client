@@ -5,6 +5,10 @@
   line-height: 56px; /* 116.667% */
   letter-spacing: -0.72px;
   color: var(--secondary700);
+
+}
+.payment-method  {
+  height: 100%;
 }
 .payment-method .payment-method-card {
   background-color: white;
@@ -15,6 +19,9 @@
   align-items: flex-start;
   gap: 20px;
   margin-top: 10px;
+  border-radius: 10px;
+  height: 100%;
+
 }
 .payment-method .payment-method-card .title {
   color: var(--gray800);

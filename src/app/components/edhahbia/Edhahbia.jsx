@@ -1,6 +1,6 @@
 import "./Edhahbia.css";
 import "../balance/Balance.css";
-const Edhahbia = () => {
+const Edhahbia = ({ usecase }) => {
   return (
     <form className="balance-input">
       <div className="balance-form-control">
@@ -30,7 +30,7 @@ const Edhahbia = () => {
         </div>
       </div>
       <button className="pay hover" type="submit">
-        Subscibe in the course
+        {usecase === "profile" ? "Edit" : "Subscibe in the course"}
       </button>
     </form>
   );

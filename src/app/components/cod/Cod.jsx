@@ -1,4 +1,4 @@
-const Cod = () => {
+const Cod = ({ usecase }) => {
   return (
     <form className="balance-input">
       <label htmlFor="balance">Your COD code</label>
@@ -6,7 +6,7 @@ const Cod = () => {
       <label htmlFor="balance">Promo code (optionel)</label>
       <input type="text" id="balance" />
       <button className="pay hover" type="submit">
-        Subscibe in the course
+        {usecase === "profile" ? "Edit" : "Subscibe in the course"}
       </button>
     </form>
   );
