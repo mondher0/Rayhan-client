@@ -5,6 +5,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 20px;
+  height: 616px;
 }
 .features {
   width: 500px;
@@ -13,4 +14,16 @@
   align-items: flex-start;
   justify-content: center;
   gap: 20px;
+  position: sticky;
+  top: 0;
+  
+}
+.visual-features {
+  width: 80%;
+  height: 100%;
+}
+@media screen and (max-width: 1500px) {
+  .visual-features {
+    width: unset;
+  }
 }

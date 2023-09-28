@@ -1,0 +1,65 @@
+.personal-information {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 100%;
+}
+.personal-information form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  justify-content: center;
+  gap: 10px;
+}
+.btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+.btn button {
+  color: var(--secondary700);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-transform: capitalize;
+  border: none;
+  background-color: transparent;
+}
+.personal-information form .form-controle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.personal-information form div input {
+  border-radius: 12px;
+  border: 1px solid var(--gray-h-2, #cdd2d8);
+  background: rgba(255, 255, 255, 0.24);
+  outline: none;
+  padding: 10px 20px;
+  width: 596px;
+  height: 72.062px;
+  flex-shrink: 0;
+  font-size: 20px;
+}
+.personal-information form div label {
+  color: var(--gray800);
+  font-size: 23.06px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media screen and (max-width: 1500px) {
+  .personal-information {
+    width: 1000px;
+  }
+}

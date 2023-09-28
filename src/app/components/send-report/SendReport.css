@@ -1,0 +1,53 @@
+.send-report {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 40px;
+  height: 100%;
+  gap: 60px;
+}
+.send-report h1 {
+  color: var(--secondary700);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: 56px; /* 116.667% */
+  letter-spacing: -0.72px;
+}
+.send-report form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.send-report textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--gray400);
+  background: rgba(255, 255, 255, 0.24);
+  backdrop-filter: blur(28.441091537475586px);
+  padding: 20px;
+  outline: none;
+}
+.send-report form button {
+  display: flex;
+  width: 360px;
+  padding: 15px 121px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  border: none;
+  background: var(--secondary600);
+  box-shadow: 0px 0px 14px 2px rgba(12, 37, 104, 0.25);
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%; /* 18px */
+}
