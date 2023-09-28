@@ -60,6 +60,6 @@
 }
 @media screen and (max-width: 1500px) {
   .personal-information {
-    width: 1000px;
+    width: 100%;
   }
 }

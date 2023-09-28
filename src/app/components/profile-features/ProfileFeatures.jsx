@@ -2,7 +2,6 @@
 import { useState } from "react";
 import PaymentMethod from "../payment-method/PaymentMethod";
 import PersonalInformation from "../personal-information/PersonalInformation";
-import SingleFeature from "../single-feature/SingleFeature";
 import "./ProfileFeatures.css";
 import InviteFriends from "../invite-friends/InviteFriends";
 import Help from "../help/Help";
@@ -135,7 +134,7 @@ const ProfileFeatures = () => {
             handleClick("Send reports or Contact us");
           }}
         >
-          <p>Send reports or Contact us</p>
+          <p>Send reports</p>
           <IoIosArrowForward />
         </div>
         <div
