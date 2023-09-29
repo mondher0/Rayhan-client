@@ -1,0 +1,33 @@
+.language-changer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  border-radius: 47px;
+  background: var(--gray-h-4, #f5f6f7);
+  padding: 10px;
+  position: relative;
+}
+.language-changer .languages {
+  position: absolute;
+  top: 119%;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  border: 1.08px solid rgba(237, 237, 237, 0.49);
+  background: var(--White, #fff);
+  box-shadow: -10px 48.59671px 140px 0px rgba(126, 123, 160, 0.2);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+.language-changer .languages .language {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}

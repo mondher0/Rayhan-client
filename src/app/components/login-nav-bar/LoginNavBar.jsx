@@ -12,12 +12,14 @@ import Image from "next/image";
 import "./LoginNavBar.css";
 import Notifications from "../notifications/Notifications";
 import { useState } from "react";
+import LanguageChanger from "../language-changer/LanguageChanger";
 
 const LoginNavBar = () => {
   const locale = useLocale();
   const t = useTranslations("Index");
   const router = useRouter();
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showLanguage, setShowLanguage] = useState(false);
   return (
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />
@@ -41,8 +43,21 @@ const LoginNavBar = () => {
           className="hover"
           onClick={() => {
             setShowNotifications(!showNotifications);
+            setShowLanguage(false);
           }}
         />
+        <div
+          onClick={() => {
+            setShowLanguage(!showLanguage);
+            setShowNotifications(false);
+          }}
+        >
+          <LanguageChanger
+            setShowLanguage={setShowLanguage}
+            showLanguage={showLanguage}
+            setShowNotifications={setShowLanguage}
+          />
+        </div>
         <div className="divider"></div>
         <div
           className="avatar hover"

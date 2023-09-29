@@ -17,6 +17,7 @@ const SubjectsPage = ({ searchParams }) => {
         <section className="hero"></section>
         <section className={locale === "ar" ? "subjects rtl" : "subjects"}>
           <p>{t("subjects")}</p>
+          <AllSubjects />
         </section>
         <section
           className={
