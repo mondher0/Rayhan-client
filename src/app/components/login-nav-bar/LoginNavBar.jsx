@@ -10,11 +10,14 @@ import { FiLogOut } from "react-icons/fi";
 import avatar from "./avatar.svg";
 import Image from "next/image";
 import "./LoginNavBar.css";
+import Notifications from "../notifications/Notifications";
+import { useState } from "react";
 
 const LoginNavBar = () => {
   const locale = useLocale();
   const t = useTranslations("Index");
   const router = useRouter();
+  const [showNotifications, setShowNotifications] = useState(false);
   return (
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />
@@ -36,6 +39,9 @@ const LoginNavBar = () => {
           size={30}
           color="#838E9E"
           className="hover"
+          onClick={() => {
+            setShowNotifications(!showNotifications);
+          }}
         />
         <div className="divider"></div>
         <div
@@ -47,6 +53,7 @@ const LoginNavBar = () => {
           <Image src={avatar} alt="avatar" width={50} height={50} />
         </div>
         <FiLogOut size={30} color="#838E9E" className="hover" />
+        {showNotifications && <Notifications />}
       </div>
     </nav>
   );
