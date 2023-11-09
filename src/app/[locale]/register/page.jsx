@@ -7,24 +7,46 @@ import LoginWithGoogle from "@/atoms/login-with-google/LoginWithGoogle";
 import LoginWithIos from "@/atoms/login-with-ios/LoginWithIos";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import useAuthContext from "@/hooks/useAuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/app/components/loader/Loader";
 
 const RegisterPage = () => {
   const router = useRouter();
   const t = useTranslations("Auth");
   const locale = useLocale();
+  const {
+    user,
+    setUser,
+    handleRegister,
+    verifyReferalCode,
+    getTempCode,
+    isLoading,
+  } = useAuthContext();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
+        <ToastContainer />
         <div
           className={
             locale === "ar" ? "login-form login-form-ar" : "login-form"
           }
         >
           <h1 className="title">{t("SignUpTitle")}</h1>
-          <form>
+          <form
+            onSubmit={(e) => {
+              if (user.referralCode) {
+                verifyReferalCode(e);
+              } else {
+                e.preventDefault();
+                getTempCode();
+              }
+            }}
+          >
             <div className="input-container">
               <div
                 className={
@@ -34,7 +56,16 @@ const RegisterPage = () => {
                 }
               >
                 <label htmlFor="first-name">{t("signUpFirstName")}</label>
-                <input type="text" id="first-name" className="input-control" />
+                <input
+                  type="text"
+                  id="first-name"
+                  className="input-control"
+                  onChange={(e) =>
+                    setUser({
+                      firstName: e.target.value,
+                    })
+                  }
+                />
               </div>
               <div
                 className={
@@ -44,7 +75,17 @@ const RegisterPage = () => {
                 }
               >
                 <label htmlFor="last-name">{t("signUpLastName")}</label>
-                <input type="text" id="last-name" className="input-control" />
+                <input
+                  type="text"
+                  id="last-name"
+                  className="input-control"
+                  onChange={(e) =>
+                    setUser({
+                      ...user,
+                      lastName: e.target.value,
+                    })
+                  }
+                />
               </div>
             </div>
             <div
@@ -55,7 +96,17 @@ const RegisterPage = () => {
               }
             >
               <label htmlFor="phone-number">{t("signUpPhoneNumber")}</label>
-              <input type="tel" id="phone-number" className="input-control" />
+              <input
+                type="tel"
+                id="phone-number"
+                className="input-control"
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    phoneNumber: e.target.value,
+                  })
+                }
+              />
             </div>
             <div
               className={
@@ -64,11 +115,12 @@ const RegisterPage = () => {
                   : "form-control"
               }
             >
-              <label htmlFor="phone-number">{t("signUpPassword")}</label>
+              <label htmlFor="password">{t("signUpPassword")}</label>
               <input
                 type="password"
-                id="phone-number"
+                id="password"
                 className="input-control"
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
               />
             </div>
             <div
@@ -80,9 +132,15 @@ const RegisterPage = () => {
             >
               <label htmlFor="referal code">{t("referralCode")}</label>
               <input
-                type="number"
+                type="text"
                 id="referal code"
                 className="input-control"
+                onChange={(e) =>
+                  setUser({
+                    ...user,
+                    referralCode: e.target.value,
+                  })
+                }
               />
             </div>
             <div className={locale === "ar" ? "forgot forgot-ar" : "forgot"}>
@@ -111,7 +169,7 @@ const RegisterPage = () => {
               </div>
             </div>
             <button className="form-control-btn hover" type="submit">
-              {t("signUpBtn")}
+              {isLoading ? <Loader /> : t("signUpBtn")}
             </button>
             <p className="dont-have-account">
               {t("signUpHave")}{" "}

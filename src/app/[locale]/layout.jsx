@@ -2,7 +2,8 @@ import "./globals.css";
 import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
-
+import AuthProvider from "@/context/auth-context";
+import axios from "axios";
 
 export const metadata = {
   title: "Rayhan",
@@ -21,12 +22,11 @@ export default async function RootLayout({ children, params }) {
   if (params.locale !== locale) {
     notFound();
   }
-
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <AuthProvider> {children}</AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

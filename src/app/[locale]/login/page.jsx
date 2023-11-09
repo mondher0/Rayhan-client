@@ -7,29 +7,31 @@ import LoginWithGoogle from "@/atoms/login-with-google/LoginWithGoogle";
 import LoginWithIos from "@/atoms/login-with-ios/LoginWithIos";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import useAuthContext from "@/hooks/useAuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/app/components/loader/Loader";
 
 const LoginPage = () => {
   const router = useRouter();
   const t = useTranslations("Auth");
   const locale = useLocale();
+  const { user, setUser, handleLogin, isLoading } = useAuthContext();
   return (
     <>
       <header>
         <NavBar />
       </header>
       <main className="main-form">
+        <ToastContainer />
         <div
           className={
             locale === "ar" ? "login-form login-form-ar" : "login-form"
           }
         >
-          <p
-            className="welcome"
-          >
-            {t("LoginDesc")}
-          </p>
+          <p className="welcome">{t("LoginDesc")}</p>
           <h1 className="title">{t("LoginTitle")}</h1>
-          <form>
+          <form onSubmit={handleLogin}>
             <div
               className={
                 locale === "ar"
@@ -38,7 +40,14 @@ const LoginPage = () => {
               }
             >
               <label htmlFor="phone-number">{t("loginPhoneNumber")}</label>
-              <input type="tel" id="phone-number" className="input-control" />
+              <input
+                type="tel"
+                id="phone-number"
+                className="input-control"
+                onChange={(e) => {
+                  setUser({ ...user, phoneNumber: e.target.value });
+                }}
+              />
             </div>
             <div
               className={
@@ -52,6 +61,9 @@ const LoginPage = () => {
                 type="password"
                 id="phone-number"
                 className="input-control"
+                onChange={(e) => {
+                  setUser({ ...user, password: e.target.value });
+                }}
               />
             </div>
             <div className={locale === "ar" ? "forgot forgot-ar" : "forgot"}>
@@ -82,7 +94,7 @@ const LoginPage = () => {
               </div>
             </div>
             <button className="form-control-btn hover" type="submit">
-              {t("loginBtn")}
+              {isLoading ? <Loader /> : t("loginBtn")}
             </button>
             <p className="dont-have-account">
               {t("loginDontHave")}{" "}
