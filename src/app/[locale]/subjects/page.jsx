@@ -1,34 +1,42 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./subjects.css";
-import AllSubjects from "@/app/components/all-subjects/AllSubjects";
-import Pagination from "@/app/components/pagination/Pagination";
-import { useLocale, useTranslations } from "next-intl";
+import { getToken } from "@/utils/lib";
+import { baseUrl } from "@/utils/constants";
+import Subjects from "./Subjects";
 
-const SubjectsPage = ({ searchParams }) => {
+const SubjectsPage = async ({ searchParams }) => {
   const { page } = searchParams;
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
-  return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section className={locale === "ar" ? "subjects rtl" : "subjects"}>
-          <p>{t("subjects")}</p>
-          <AllSubjects />
-        </section>
-        <section
-          className={
-            locale === "ar" ? "pagination-bar rtl rev" : "pagination-bar"
-          }
-        >
-          <Pagination currentPage={page} url="/subjects" />
-        </section>
-      </main>
-    </>
-  );
+
+  // get subjects from the server
+  const getSubjects = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/category/get?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const subjects = await response.json();
+      console.log(
+        "------------response from subjects page-----------",
+        subjects
+      );
+      return subjects.data;
+    } catch (error) {
+      console.log(
+        "--------------------error from subjects page-------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+
+  const subjects = await getSubjects();
+  console.log("------------subjects from subjects page-----------", subjects);
+  return <Subjects subjects={subjects?.data} currentPage={page} totalPage = {subjects?.total} />;
 };
 
 export default SubjectsPage;

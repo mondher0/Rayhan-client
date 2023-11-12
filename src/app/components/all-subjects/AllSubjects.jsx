@@ -1,15 +1,20 @@
 import SubjectCard from "../subject-card/SubjectCard";
 import "./AllSubjects.css";
 
-const AllSubjects = () => {
+const AllSubjects = ({ subjects }) => {
   return (
     <div className="subjects-cards">
-      <SubjectCard />
-      <SubjectCard />
-      <SubjectCard />
-      <SubjectCard />
-      <SubjectCard />
-      <SubjectCard />
+      {subjects?.map((subject) => {
+        return (
+          <SubjectCard
+            key={subject.id}
+            id={subject.id}
+            name={subject.name}
+            description={subject.description}
+            image={subject.image}
+          />
+        );
+      })}
     </div>
   );
 };
