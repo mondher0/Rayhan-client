@@ -44,6 +44,7 @@ const LoginPage = () => {
                 type="tel"
                 id="phone-number"
                 className="input-control"
+                required
                 onChange={(e) => {
                   setUser({ ...user, phoneNumber: e.target.value });
                 }}
@@ -56,11 +57,12 @@ const LoginPage = () => {
                   : "form-control"
               }
             >
-              <label htmlFor="phone-number">{t("loginPassword")}</label>
+              <label htmlFor="password">{t("loginPassword")}</label>
               <input
                 type="password"
-                id="phone-number"
+                id="password"
                 className="input-control"
+                required
                 onChange={(e) => {
                   setUser({ ...user, password: e.target.value });
                 }}

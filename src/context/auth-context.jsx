@@ -13,6 +13,11 @@ const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tempCode, setTempCode] = useState(null);
   const router = useRouter();
+  const [firstCode, setFirstCode] = useState("");
+  const [secondCode, setSecondCode] = useState("");
+  const [thirdCode, setThirdCode] = useState("");
+  const [fourthCode, setFourthCode] = useState("");
+  const [fifthCode, setFifthCode] = useState("");
 
   // verify  referal code
   const verifyReferalCode = async (e) => {
@@ -39,14 +44,17 @@ const AuthProvider = ({ children }) => {
 
   // get temp code
   const getTempCode = async () => {
-    const data = {
-      phone: user.phoneNumber, //required
-    };
     try {
       setIsLoading(true);
-      const response = await axios.post(
+      const resp = await axios.post(
         `${baseUrl}/auth/student/phone_verification`,
-        data
+        {
+          phone: user.phoneNumber,
+        }
+      );
+      console.log("--------------response from get temp code", resp);
+      const response = await axios.get(
+        `${baseUrl}/get_code_test?phone=${user.phoneNumber}`
       );
       console.log("--------------response from get temp code", response);
       setIsLoading(false);
@@ -59,12 +67,12 @@ const AuthProvider = ({ children }) => {
   };
 
   // confirm phone number
-  const confirmPhoneNumber = async (e) => {
-    e.preventDefault();
+  const confirmPhoneNumber = async () => {
     console.log(user);
+    console.log(firstCode + secondCode + thirdCode + fourthCode + fifthCode);
     const data = {
       phone: user.phoneNumber, //required
-      code: "203030330", //required
+      code: firstCode + secondCode + thirdCode + fourthCode + fifthCode, //required
     };
     console.log(data);
     setIsLoading(true);
@@ -75,10 +83,15 @@ const AuthProvider = ({ children }) => {
       );
       console.log("--------------response from confirm phone number", response);
       setIsLoading(false);
+      router.push("/register/register-procces");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.response.data.errors.code[0]);
       console.log("--------------error from confirm phone number", error);
+      toast.error(
+        error.response.data.errors.code[0]
+          ? error.response.data.errors.code[0]
+          : error.response.data.message
+      );
     }
   };
 
@@ -102,6 +115,7 @@ const AuthProvider = ({ children }) => {
       setCookie("token", response.data.data.token);
       console.log(getCookie("token"));
       setIsLoading(false);
+      router.push("/home");
     } catch (error) {
       setIsLoading(false);
       toast.error(error.response.data.message);
@@ -120,6 +134,16 @@ const AuthProvider = ({ children }) => {
         getTempCode,
         confirmPhoneNumber,
         handleLogin,
+        firstCode,
+        setFirstCode,
+        secondCode,
+        setSecondCode,
+        thirdCode,
+        setThirdCode,
+        fourthCode,
+        setFourthCode,
+        fifthCode,
+        setFifthCode,
       }}
     >
       {children}

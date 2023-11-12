@@ -8,11 +8,38 @@ import useAuthContext from "@/hooks/useAuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Loader from "@/app/components/loader/Loader";
+import { useRef } from "react";
 
 const AccoutVerificationPage = () => {
   const t = useTranslations("Auth");
   const locale = useLocale();
-  const { user, confirmPhoneNumber, isLoading } = useAuthContext();
+  const firstCodeRef = useRef(null);
+  const secondCodeRef = useRef(null);
+  const thirdCodeRef = useRef(null);
+  const fourthCodeRef = useRef(null);
+  const fifthCodeRef = useRef(null);
+
+  const handleCodeChange = (currentCode, nextCodeRef) => {
+    if (currentCode.length === 1) {
+      nextCodeRef.current.focus();
+    }
+  };
+  const {
+    user,
+    setUser,
+    confirmPhoneNumber,
+    isLoading,
+    firstCode,
+    setFirstCode,
+    secondCode,
+    setSecondCode,
+    thirdCode,
+    setThirdCode,
+    fourthCode,
+    setFourthCode,
+    fifthCode,
+    setFifthCode,
+  } = useAuthContext();
   console.log("--------------user from account verification", user);
   return (
     <>
@@ -27,17 +54,60 @@ const AccoutVerificationPage = () => {
           }
         >
           <h1 className="title title-reset">{t("accountVerify")}</h1>
-          <form onSubmit={confirmPhoneNumber}>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              setUser({
+                ...user,
+                code:
+                  firstCode + secondCode + thirdCode + fourthCode + fifthCode,
+              });
+              confirmPhoneNumber();
+            }}
+          >
             <div
               className={locale === "ar" ? "set-code set-code-ar" : "set-code"}
             >
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <input type="text" />
-              <button className="form-control-btn hover resend" type="submit">
+              <input
+                type="text"
+                onChange={(e) => {
+                  setFirstCode(e.target.value);
+                  handleCodeChange(e.target.value, secondCodeRef);
+                }}
+                ref={firstCodeRef}
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setSecondCode(e.target.value);
+                  handleCodeChange(e.target.value, thirdCodeRef);
+                }}
+                ref={secondCodeRef}
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setThirdCode(e.target.value);
+                  handleCodeChange(e.target.value, fourthCodeRef);
+                }}
+                ref={thirdCodeRef}
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setFourthCode(e.target.value);
+                  handleCodeChange(e.target.value, fifthCodeRef);
+                }}
+                ref={fourthCodeRef}
+              />
+              <input
+                type="text"
+                onChange={(e) => {
+                  setFifthCode(e.target.value);
+                }}
+                ref={fifthCodeRef}
+              />
+              <button className="form-control-btn hover resend" type="button">
                 {t("resendCode")}
               </button>
             </div>
