@@ -1,12 +1,12 @@
 import OfferCard from "../offer-card/OfferCard";
 import "./AllOffers.css";
 
-const AllOffers = () => {
+const AllOffers = ({ offers }) => {
   return (
     <div className="offers-cards">
-      <OfferCard />
-      <OfferCard />
-      <OfferCard />
+      {offers?.map((offer) => (
+        <OfferCard key={offer.id} offer={offer} />
+      ))}
     </div>
   );
 };

@@ -6,13 +6,7 @@ const AllSubjects = ({ subjects }) => {
     <div className="subjects-cards">
       {subjects?.map((subject) => {
         return (
-          <SubjectCard
-            key={subject.id}
-            id={subject.id}
-            name={subject.name}
-            description={subject.description}
-            image={subject.image}
-          />
+          <SubjectCard key={subject.id} id={subject.id} name={subject.name} />
         );
       })}
     </div>

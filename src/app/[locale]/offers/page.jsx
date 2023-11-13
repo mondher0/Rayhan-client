@@ -1,31 +1,43 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./offers.css";
-import AllOffers from "@/app/components/all-offers/AllOffers";
-import Pagination from "@/app/components/pagination/Pagination";
-import { useLocale, useTranslations } from "next-intl";
+import Offers from "./Offers";
+import { getToken } from "@/utils/lib";
+import { baseUrl } from "@/utils/constants";
 
-const OffresPage = ({ searchParams }) => {
+const OffresPage = async ({ searchParams }) => {
   const { page } = searchParams;
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
+
+  // get offers from the server
+  const getOffers = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/promotion/get?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const offers = await response.json();
+      console.log("------------response from offers page-----------", offers);
+      return offers.data;
+    } catch (error) {
+      console.log(
+        "--------------------error from offers page-------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const offers = await getOffers();
+  console.log("------------offers from offers page-----------", offers);
   return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section className={locale === "ar" ? "offers rtl" : "offers"}>
-          <p>{t("offers")}</p>
-          <AllOffers />
-        </section>
-        <section
-          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
-        >
-          <Pagination currentPage={page} url="/offers" />
-        </section>
-      </main>
-    </>
+    <Offers
+      currentPage={page}
+      totalPage={offers?.total}
+      offers={offers?.data}
+    />
   );
 };
 

@@ -1,6 +1,5 @@
 import Logo from "@/atoms/logo/Logo";
 
-
 const Loading = () => {
   return (
     <div

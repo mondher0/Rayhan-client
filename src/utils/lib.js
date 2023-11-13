@@ -5,3 +5,4 @@ export const getToken = () => {
   const token = cookies().get("token");
   return token.value;
 };
+

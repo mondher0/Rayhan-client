@@ -3,13 +3,13 @@ import { useRouter } from "next/navigation";
 import "./SubjectCard.css";
 import Image from "next/image";
 
-const SubjectCard = () => {
+const SubjectCard = ({ name, id }) => {
   const router = useRouter();
   return (
     <div
       className="subject-card hover"
       onClick={() => {
-        router.push("subjects/math?page=1");
+        router.push(`subjects/math?page=${id}`);
       }}
     >
       <Image
@@ -20,7 +20,7 @@ const SubjectCard = () => {
         className="img"
       />
       <div className="subject">
-        <span>Maths</span>
+        <span>{name}</span>
       </div>
     </div>
   );

@@ -4,10 +4,13 @@ import "./OfferCard.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { BiTimeFive } from "react-icons/bi";
+import { calculateDaysLeft } from "@/utils/utils";
 
-const OfferCard = () => {
+const OfferCard = ({ offer }) => {
   const router = useRouter();
   const t = useTranslations("afterLogin");
+  const { title, description, price, discount, image, expiration_date } = offer;
+  const leftDate = calculateDaysLeft(expiration_date);
   return (
     <div className="offer-card">
       <Image
@@ -18,11 +21,11 @@ const OfferCard = () => {
         className="offer-img"
       />
       <div className="offer-text">
-        <p className="offer-title">Get Three Courses at once !</p>
-        <p className="offer-goale">-30% Off</p>
+        <p className="offer-title">{title}!</p>
+        <p className="offer-goale">-{discount}% Off</p>
         <span className="offer-time">
           <BiTimeFive />
-          <p>2 days left</p>
+          <p>{leftDate}</p>
         </span>
         <div className="offer-price">
           <p className="offer-price-text">12000Da</p>

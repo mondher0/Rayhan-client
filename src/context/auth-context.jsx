@@ -118,7 +118,11 @@ const AuthProvider = ({ children }) => {
       router.push("/home");
     } catch (error) {
       setIsLoading(false);
-      toast.error(error.response.data.message);
+      toast.error(
+        error.response.data.message !== "undifined"
+          ? error.response.data.message
+          : "something went wrong"
+      );
       console.log("--------------error from handle login", error);
     }
   };
