@@ -36,7 +36,13 @@ const SubjectsPage = async ({ searchParams }) => {
 
   const subjects = await getSubjects();
   console.log("------------subjects from subjects page-----------", subjects);
-  return <Subjects subjects={subjects?.data} currentPage={page} totalPage = {subjects?.total} />;
+  return (
+    <Subjects
+      subjects={subjects?.data}
+      currentPage={page}
+      totalPage={subjects?.total}
+    />
+  );
 };
 
 export default SubjectsPage;

@@ -6,3 +6,4 @@ Quizzes not coding yet
 
 in promotions missed the courses of this promotion from api 
 in promotions missed the price of this promotion from api
+some misundestanding in promotion

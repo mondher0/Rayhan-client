@@ -1,32 +1,46 @@
-import AllTeachers from "@/app/components/all-teachers/AllTeachers";
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "../subjects/subjects.css";
-import Pagination from "@/app/components/pagination/Pagination";
-import { useLocale, useTranslations } from "next-intl";
+import { getToken } from "@/utils/lib";
+import Teachers from "./Teachers";
+import { baseUrl } from "@/utils/constants";
 
-const page = ({ searchParams }) => {
+const TeachersPage = async ({ searchParams }) => {
   const { page } = searchParams;
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
+
+  // get teachers from the server
+  const getTeachers = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/student/teacher/get?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const teachers = await response.json();
+      console.log(
+        "------------response from teachers page-----------",
+        teachers
+      );
+      return teachers.data;
+    } catch (error) {
+      console.log(
+        "--------------------error from teachers page-------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const teachers = await getTeachers();
+  console.log("------------teachers from teachers page-----------", teachers);
   return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section className={locale === "ar" ? "subjects rtl" : "subjects"}>
-          <p>{t("teachers")}</p>
-          <AllTeachers />
-        </section>
-        <section
-          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
-        >
-          <Pagination currentPage={page} url="/teachers" />
-        </section>
-      </main>
-    </>
+    <Teachers
+      currentPage={page}
+      teachers={teachers?.data}
+      totalPage={teachers?.total}
+    />
   );
 };
 
-export default page;
+export default TeachersPage;
