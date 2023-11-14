@@ -5,8 +5,9 @@ import { AiFillStar } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 const PopularTeacherCard = ({ teacher }) => {
   const router = useRouter();
-  const { user, comments, courses } = teacher;
-  const { last_name, first_name } = user;
+  console.log(teacher);
+  const { user, comments, courses, comments_count } = teacher;
+  const { last_name, first_name, id } = user;
   console.log("----------------from teahcer card-----------", courses);
 
   // calculate the moyen of the stars
@@ -27,7 +28,7 @@ const PopularTeacherCard = ({ teacher }) => {
     <div
       className="popular-teacher-card hover"
       onClick={() => {
-        router.push("/teachers/1?page=1");
+        router.push(`/teachers/${id}?page=1`);
       }}
     >
       <div className="teacher-img-container">
@@ -54,7 +55,7 @@ const PopularTeacherCard = ({ teacher }) => {
               <AiFillStar size={20} color="#FFD700" key={index} />
             ))}
           </div>
-          ({comments?.length})
+          ({comments_count})
         </div>
       </div>
     </div>

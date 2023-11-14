@@ -3,7 +3,6 @@ import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import AuthProvider from "@/context/auth-context";
-import axios from "axios";
 
 export const metadata = {
   title: "Rayhan",
