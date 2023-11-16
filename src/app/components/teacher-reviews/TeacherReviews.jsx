@@ -1,11 +1,11 @@
 import TeacherReviewCard from "../teacher-review-card/TeacherReviewCard";
 import "./TeacherReviews.css";
-const TeacherReviews = () => {
+const TeacherReviews = ({ reviews }) => {
   return (
     <section className="teacher-reviews">
-      <TeacherReviewCard />
-      <TeacherReviewCard />
-      <TeacherReviewCard />
+      {reviews?.data?.map((review) => (
+        <TeacherReviewCard key={review.id} review={review} />
+      ))}
     </section>
   );
 };

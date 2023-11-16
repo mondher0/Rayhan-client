@@ -4,19 +4,22 @@ import "./CoursePrice.css";
 import { AiFillStar } from "react-icons/ai";
 import { useTranslations } from "next-intl";
 
-const CoursePrice = () => {
+const CoursePrice = ({ price, user }) => {
   const t = useTranslations("afterLogin");
   const router = useRouter();
+  const { first_name, last_name } = user || {};
   return (
     <div className="course-price">
       <div className="course-price-data">
         <div className="course-price-datum">
           <span className="span-price">{t("price")}</span>
-          <span className="span-price">11000Da</span>
+          <span className="span-price">{price}Da</span>
         </div>
         <div className="course-price-datum">
           <span className="span-price">{t("instructor")}</span>
-          <span className="resp">Wade Warren</span>
+          <span className="resp">
+            {first_name} {last_name}
+          </span>
         </div>
         <div className="course-price-datum">
           <span className="span-price">{t("ratings")}</span>
@@ -51,7 +54,7 @@ const CoursePrice = () => {
           {t("subscribeBtn")}
         </button>
         <button className="view hover">
-          {t("Independant view of the course")}
+          {t("Independent view of the course")}
         </button>
       </div>
     </div>

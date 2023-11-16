@@ -1,6 +1,6 @@
 .teacher-review-card {
   display: flex;
-  height: 264px;
+  height: fit-content;
   padding: 10px 24px;
   flex-direction: column;
   align-items: flex-start;

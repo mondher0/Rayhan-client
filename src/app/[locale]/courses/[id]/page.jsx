@@ -1,56 +1,73 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "./course-details.css";
-import CourseVideos from "@/app/components/course-videos/CourseVideos";
-import CourseDetailsInfo from "@/app/components/course-details-info/CourseDetailsInfo";
-import CoursePrice from "@/app/components/course-price/CoursePrice";
-import TeacherReviews from "@/app/components/teacher-reviews/TeacherReviews";
-import PostReview from "@/app/components/post-review/PostReview";
-import AllCourses from "@/app/components/all-courses/AllCourses";
-import { useLocale, useTranslations } from "next-intl";
+import { getToken } from "@/utils/lib";
+import SingleCourse from "./SingleCourse";
+import { baseUrl } from "@/utils/constants";
 
-const CourseDetailsPage = () => {
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
-  return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main
-        className={
-          locale === "ar"
-            ? "course-details course-details-ar"
-            : "course-details"
+const CourseDetailsPage = async ({ params }) => {
+  const { id } = params;
+
+  // get course details from server
+  const getCourseDetails = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(`${baseUrl}/course/get/${id}`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const course = await response.json();
+      console.log(
+        "----------------------response from course details page----------------------",
+        course
+      );
+      return course.data;
+    } catch (error) {
+      console.log(
+        "----------------------from course details page----------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+
+  // get course reviews from server
+  const getCourseReviews = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/course/get/${id}/reviews?paginate=false`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      >
-        <p className="title">{t("courseDetailsTitle")}</p>
-        <CourseVideos />
-        <section className="informations">
-          <CourseDetailsInfo />
-          <CoursePrice />
-        </section>
-        <p className="content-title">{t("courseReviews")}</p>
-      </main>
-      <div className="rev">
-        <TeacherReviews />
-      </div>
-      <div className="rev">
-        <PostReview />
-      </div>
-      <div
-        className={
-          locale === "ar"
-            ? "rev rev-ar"
-            : "rev"
-        }
-      >
-        <p className="content-title">{t("similarCourses")}</p>
-      </div>
-      <div className="rev">
-        <AllCourses />
-      </div>
-    </>
+      );
+      const reviews = await response.json();
+      console.log(
+        "----------------------response from course reviews page----------------------",
+        reviews
+      );
+      return reviews.data;
+    } catch (error) {
+      console.log(
+        "----------------------from course reviews page----------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+
+  const courseData = getCourseDetails();
+  const reviewsData = getCourseReviews();
+
+  const [course, reviews] = await Promise.all([courseData, reviewsData]);
+  console.log("------------course from course details page-----------", course);
+  console.log(
+    "------------reviews from course details page-----------",
+    reviews
   );
+  return <SingleCourse course={course} reviews={reviews} />;
 };
 
 export default CourseDetailsPage;

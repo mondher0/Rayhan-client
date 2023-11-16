@@ -7,5 +7,7 @@ Quizzes not coding yet
 in promotions missed the courses of this promotion from api 
 in promotions missed the price of this promotion from api
 some misundestanding in promotion
-missing the course image and the price in the course subject page from server
+missing the course image in the course subject page from server
 search in courses page not integrated yet
+in course details missing the course content and reviews post and simulaire courses
+in course details missing the pagination in teacher reviews

@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 const CourseCard = ({ style, course }) => {
   const router = useRouter();
   console.log(course);
-  const { title, teacher } = course || {};
+  const { title, teacher, id, price } = course || {};
   let { total_rate } = course || {};
   const { user } = teacher || {};
   const { first_name, last_name } = user || {};
@@ -20,7 +20,7 @@ const CourseCard = ({ style, course }) => {
         style ? "course-card hover course-card-style" : "course-card hover"
       }
       onClick={() => {
-        router.push("/courses/5");
+        router.push(`/courses/${id}`);
       }}
     >
       <div className="course-img-container">
@@ -44,7 +44,7 @@ const CourseCard = ({ style, course }) => {
             ))}
             ({totalRate})
           </div>
-          <div className="price">30 000 DA</div>
+          <div className="price">{price} DA</div>
         </div>
       </div>
     </div>
