@@ -4,8 +4,16 @@ import "./Coursecard.css";
 import { AiFillStar } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 
-const CourseCard = ({ style }) => {
+const CourseCard = ({ style, course }) => {
   const router = useRouter();
+  console.log(course);
+  const { title, teacher } = course || {};
+  let { total_rate } = course || {};
+  const { user } = teacher || {};
+  const { first_name, last_name } = user || {};
+  const totalRate = total_rate;
+  total_rate = Array(total_rate || 0).fill(0);
+
   return (
     <div
       className={
@@ -25,15 +33,16 @@ const CourseCard = ({ style }) => {
         />
       </div>
       <div className="course-data">
-        <h1>Advanced course of Photoshop! </h1>
-        <p className="name">Abd El Madjid</p>
+        <h1>{title}! </h1>
+        <p className="name">
+          {first_name} {last_name}
+        </p>
         <div className="rate-price">
           <div className="rate">
-            <AiFillStar size={30} color="#FFD700" />
-            <AiFillStar size={30} color="#FFD700" />
-            <AiFillStar size={30} color="#FFD700" />
-            <AiFillStar size={30} color="#FFD700" />
-            (4.5)
+            {total_rate.map((index) => (
+              <AiFillStar size={20} color="#FFD700" key={index} />
+            ))}
+            ({totalRate})
           </div>
           <div className="price">30 000 DA</div>
         </div>

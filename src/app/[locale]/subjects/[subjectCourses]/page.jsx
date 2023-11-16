@@ -1,38 +1,55 @@
-import AllCourses from "@/app/components/all-courses/AllCourses";
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
+import { getToken } from "@/utils/lib";
 import "../subjects.css";
-import Pagination from "@/app/components/pagination/Pagination";
-import { useLocale, useTranslations } from "next-intl";
+import SubjectCourses from "./SubjectCourses";
+import { baseUrl } from "@/utils/constants";
 
-const SubjectCoursespage = ({ searchParams, params }) => {
+const SubjectCoursespage = async ({ searchParams, params }) => {
   const { page } = searchParams;
+  const { subject } = searchParams;
+  console.log("subject from subjectCourses page mondher", subject);
   const { subjectCourses } = params;
-  console.log("------------------ SubjectCoursespage ------------------");
-  console.log(subjectCourses);
-  const locale = useLocale();
-  const t = useTranslations("afterLogin");
+
+  // get courses
+  const getCourses = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/course/get/category/${subjectCourses}?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const courses = await response.json();
+      console.log(
+        "-----------------from SubjectCoursespage--------------------",
+        courses
+      );
+      return courses.data;
+    } catch (error) {
+      console.log(
+        "-----------------from SubjectCoursespage--------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const courses = await getCourses();
+  console.log(
+    "-----------------from SubjectCoursespage--------------------",
+    courses
+  );
   return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section className={locale === "ar" ? "subjects rtl" : "subjects"}>
-          <p>
-            {locale === "ar"
-              ? `${t("subjects")}/ ${subjectCourses}`
-              : `${t("subjects")}/ ${subjectCourses}`}
-          </p>
-          <AllCourses />
-        </section>
-        <section
-          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
-        >
-          <Pagination currentPage={page} url={`/subjects/${subjectCourses}`} />
-        </section>
-      </main>
-    </>
+    <SubjectCourses
+      subjectCourses={subjectCourses}
+      currentPage={page}
+      courses={courses?.data}
+      totalPage={courses?.total}
+      subjectName={subject}
+    />
   );
 };
 

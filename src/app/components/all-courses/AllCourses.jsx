@@ -1,15 +1,12 @@
 import "../all-subjects/AllSubjects.css";
 import CourseCard from "../course-card/CourseCard";
 
-const AllCourses = ({style}) => {
+const AllCourses = ({ style, courses }) => {
   return (
     <div className="subjects-cards">
-      <CourseCard style={style}  />
-      <CourseCard style={style} />
-      <CourseCard style={style} />
-      <CourseCard style={style} />
-      <CourseCard style={style} />
-      <CourseCard style={style} />
+      {courses?.map((course) => (
+        <CourseCard key={course.id} style={style} course={course} />
+      ))}
     </div>
   );
 };

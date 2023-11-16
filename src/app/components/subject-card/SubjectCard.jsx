@@ -9,7 +9,7 @@ const SubjectCard = ({ name, id }) => {
     <div
       className="subject-card hover"
       onClick={() => {
-        router.push(`subjects/math?page=${id}`);
+        router.push(`subjects/${id}?subject=${name}&page=1`);
       }}
     >
       <Image

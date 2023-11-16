@@ -6,8 +6,8 @@ import { useRouter } from "next/navigation";
 const PopularTeacherCard = ({ teacher }) => {
   const router = useRouter();
   console.log(teacher);
-  const { user, comments, courses, comments_count } = teacher;
-  const { last_name, first_name, id } = user;
+  const { user, comments, courses, comments_count } = teacher || {};
+  const { last_name, first_name, id } = user || {};
   console.log("----------------from teahcer card-----------", courses);
 
   // calculate the moyen of the stars
@@ -22,7 +22,7 @@ const PopularTeacherCard = ({ teacher }) => {
   let numberofStars = calculateMoyen(comments);
   numberofStars = parseInt(numberofStars);
   let rating = numberofStars;
-  numberofStars = Array(numberofStars).fill(0);
+  numberofStars = Array(numberofStars || 0).fill(0);
 
   return (
     <div
