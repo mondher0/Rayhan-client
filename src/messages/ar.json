@@ -101,6 +101,9 @@
             "fifthYear" : "السنة الخامسة"
         },
      "afterLogin" : {
+        "How much do you want to add" : "كم تريد إضافته؟",
+        "Money Withdrawal Request" : "طلب سحب الأموال",
+            "addToMyBalance" : "إضافة إلى رصيدي",
             "continueYourCourses" :"اكمل دروسك",
             "recordedClasses":"الدروس المسجلة",
             "recordedLives": "  مسجلةroomsلايفات",

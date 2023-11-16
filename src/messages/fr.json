@@ -100,6 +100,9 @@
           "fifthYear": "Cinquième année"
 },
 "afterLogin" : {
+        "How much do you want to add" : "Combien voulez-vous ajouter ?",
+        "Money Withdrawal Request" : "Demande de retrait d'argent",
+        "addToMyBalance" : "Ajouter à mon solde",
         "continueYourCourses" : "Poursuivez vos cours",
         "recordedClasses" : "Cours enregistrés",
         "recordedLives" : "Live enregistrés",

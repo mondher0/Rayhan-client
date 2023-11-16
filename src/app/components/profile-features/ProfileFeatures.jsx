@@ -9,6 +9,7 @@ import SendReport from "../send-report/SendReport";
 import TermsConditions from "../terms-conditions/TermsConditions";
 import { IoIosArrowForward } from "react-icons/io";
 import { useTranslations } from "next-intl";
+import Withdraw from "../Withdraw/Withdraw";
 
 const ProfileFeatures = () => {
   const [chargeBalance, setChargeBalance] = useState("");
@@ -17,6 +18,7 @@ const ProfileFeatures = () => {
   const [help, setHelp] = useState("");
   const [sendReport, setSendReport] = useState("");
   const [termsAndConditions, setTermsAndConditions] = useState("");
+  const [withDrawMyReward, setWithDrawMyReward] = useState("");
   const t = useTranslations("afterLogin");
 
   const style = {
@@ -33,6 +35,7 @@ const ProfileFeatures = () => {
       setHelp("");
       setSendReport("");
       setTermsAndConditions("");
+      setWithDrawMyReward("");
     } else if (feature === "Charge my balance") {
       setChargeBalance("selected");
       setPersonalInfo("");
@@ -40,8 +43,10 @@ const ProfileFeatures = () => {
       setHelp("");
       setSendReport("");
       setTermsAndConditions("");
+      setWithDrawMyReward("");
     } else if (feature === "withdraw my rewards") {
-      setChargeBalance("selected");
+      setWithDrawMyReward("selected");
+      setChargeBalance("");
       setPersonalInfo("");
       setInvateFriends("");
       setHelp("");
@@ -54,6 +59,7 @@ const ProfileFeatures = () => {
       setHelp("");
       setSendReport("");
       setTermsAndConditions("");
+      setWithDrawMyReward("");
     } else if (feature === "Help") {
       setHelp("selected");
       setChargeBalance("");
@@ -61,6 +67,7 @@ const ProfileFeatures = () => {
       setPersonalInfo("");
       setSendReport("");
       setTermsAndConditions("");
+      setWithDrawMyReward("");
     } else if (feature === "Send reports or Contact us") {
       setSendReport("selected");
       setChargeBalance("");
@@ -68,6 +75,7 @@ const ProfileFeatures = () => {
       setHelp("");
       setPersonalInfo("");
       setTermsAndConditions("");
+      setWithDrawMyReward("");
     } else if (feature === "Terms & Conditions") {
       setTermsAndConditions("selected");
       setChargeBalance("");
@@ -75,6 +83,7 @@ const ProfileFeatures = () => {
       setHelp("");
       setSendReport("");
       setPersonalInfo("");
+      setWithDrawMyReward("");
     }
   };
   return (
@@ -101,9 +110,10 @@ const ProfileFeatures = () => {
           <IoIosArrowForward />
         </div>
         <div
+          style={withDrawMyReward ? style : {}}
           className="single-feature hover"
           onClick={() => {
-            handleClick("Charge my balance");
+            handleClick("withdraw my rewards");
           }}
         >
           <p>{t("widhDrawMyReward")}</p>
@@ -157,6 +167,7 @@ const ProfileFeatures = () => {
         {help && <Help />}
         {sendReport && <SendReport />}
         {termsAndConditions && <TermsConditions />}
+        {withDrawMyReward && <Withdraw />}
       </div>
     </div>
   );
