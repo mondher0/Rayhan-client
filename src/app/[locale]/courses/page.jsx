@@ -1,33 +1,45 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "./courses.css";
-import SearchInput from "@/app/components/search-input/SearchInput";
-import AllCourses from "@/app/components/all-courses/AllCourses";
-import Pagination from "@/app/components/pagination/Pagination";
-import { useLocale, useTranslations } from "next-intl";
+import { baseUrl } from "@/utils/constants";
+import Courses from "./Courses";
+import { getToken } from "@/utils/lib";
 
-const CoursesPage = ({ searchParams }) => {
+const CoursesPage = async ({ searchParams }) => {
   const { page } = searchParams;
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
+
+  // get courses from server
+  const getCourses = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/course/get?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const courses = await response.json();
+      console.log(
+        "----------------------response from courses page----------------------",
+        courses
+      );
+      return courses.data;
+    } catch (error) {
+      console.log(
+        "----------------------from courses page----------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const courses = await getCourses();
+  console.log("------------courses from courses page-----------", courses);
   return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section className={locale === "ar" ? "courses rtl" : "courses"}>
-          <p>{t("courses")}</p>
-          <SearchInput />
-          <AllCourses />
-        </section>
-        <section
-          className={locale === "ar" ? "pagination-bar rtl" : "pagination-bar"}
-        >
-          <Pagination currentPage={page} url="/courses" />
-        </section>
-      </main>
-    </>
+    <Courses
+      currentPage={page}
+      courses={courses?.data}
+      totalPage={courses?.total}
+    />
   );
 };
 
