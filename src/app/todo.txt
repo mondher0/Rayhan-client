@@ -4,10 +4,24 @@ stories ui not coding yet
 live not coding yet
 Quizzes not coding yet
 
+// promotions :
 in promotions missed the courses of this promotion from api 
 in promotions missed the price of this promotion from api
 some misundestanding in promotion
+
+// courses of subjects :
 missing the course image in the course subject page from server
+
+// courses :
 search in courses page not integrated yet
 in course details missing the course content and reviews post and simulaire courses
 in course details missing the pagination in teacher reviews
+
+// profile :
+missing the statistics in profile page
+missing profile picture
+missing personal information
+missing edhahabia and receipt in charge balance
+
+//home :
+not integrated yet
