@@ -4,6 +4,10 @@ stories ui not coding yet
 live not coding yet
 Quizzes not coding yet
 
+// auth :
+some updates in register
+forgot password not integrated yet 
+
 // promotions :
 in promotions missed the courses of this promotion from api 
 in promotions missed the price of this promotion from api
