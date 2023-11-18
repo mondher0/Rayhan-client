@@ -45,7 +45,7 @@ const Withdraw = () => {
                   }
             }
           >
-            <Image src={withdrawIcon} width={50} height={50} />
+            <Image src={withdrawIcon} width={50} height={50} alt="withdraw" />
             {t("addToMyBalance")}
           </div>
           <div
@@ -59,7 +59,7 @@ const Withdraw = () => {
                   }
             }
           >
-            <Image src={requestIcon} width={50} height={50} />
+            <Image src={requestIcon} width={50} height={50} alt="request" />
             {t("Money Withdrawal Request")}
           </div>
         </div>
