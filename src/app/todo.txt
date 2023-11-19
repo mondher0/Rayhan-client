@@ -24,7 +24,7 @@ in course details missing the pagination in teacher reviews
 bug in pagination
 
 // payment :
-integrate just balance payment
+integrate just balance payment (simple bug to fix)
 
 // profile :
 missing the statistics in profile page
