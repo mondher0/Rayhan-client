@@ -6,7 +6,7 @@
   gap: 30px;
   height: 600px;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .ifram {

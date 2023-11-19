@@ -15,17 +15,25 @@ some misundestanding in promotion
 
 // courses of subjects :
 missing the course image in the course subject page from server
+bug in pagination
 
 // courses :
 search in courses page not integrated yet
 in course details missing the course content and reviews post and simulaire courses
 in course details missing the pagination in teacher reviews
+bug in pagination
+
+// payment :
+integrate just balance payment
 
 // profile :
 missing the statistics in profile page
 missing profile picture
 missing personal information
 missing edhahabia and receipt in charge balance
+
+// teachers :
+bugs to fix in teacher details
 
 //home :
 not integrated yet

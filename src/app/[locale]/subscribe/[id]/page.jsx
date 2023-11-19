@@ -1,33 +1,41 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "./subscribe-page.css";
-import PaymentMethod from "@/app/components/payment-method/PaymentMethod";
-import CourseCard from "@/app/components/course-card/CourseCard";
-import { useLocale, useTranslations } from "next-intl";
+import { baseUrl } from "@/utils/constants";
+import Subscribe from "./Subscribe";
+import { getToken } from "@/utils/lib";
 
-const SubscribePage = () => {
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
-  return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main className={locale === "ar" ? "ar" : ""}>
-        <p className="title">{t("subscriptions")}</p>
-        <div className="subscription-content">
-          <PaymentMethod />
-          <div className="subscription-course">
-            <p className="subscription-course-title">{t("orderDetails")}</p>
-            <CourseCard />
-            <div className="subscription-price">
-              <span>{t("price")}</span>
-              <span>11 000 DA</span>
-            </div>
-          </div>
-        </div>
-      </main>
-    </>
-  );
+const SubscribePage = async ({ params, searchParams }) => {
+  const { id } = params;
+  const { lesson } = searchParams;
+
+  console.log("----------------------from subscruibe", id);
+  console.log("----------------------from subscruibe", lesson);
+  // get course details from server
+  const getCourseDetails = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(`${baseUrl}/course/get/${id}`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const course = await response.json();
+      console.log(
+        "----------------------response from course details page----------------------",
+        course
+      );
+      return course.data;
+    } catch (error) {
+      console.log(
+        "----------------------from course details page----------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const course = await getCourseDetails();
+  console.log("----------------------from subscruibe", course);
+
+  return <Subscribe course={course} id={id} lesson={lesson} />;
 };
 
 export default SubscribePage;

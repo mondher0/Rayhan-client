@@ -6,6 +6,7 @@ const Pagination = ({ currentPage, url, totalPage }) => {
   currentPage = parseInt(currentPage);
   const t = useTranslations("afterLogin");
   totalPage = parseInt(totalPage);
+  console.log(totalPage);
 
   const renderPageLinks = () => {
     const links = [];

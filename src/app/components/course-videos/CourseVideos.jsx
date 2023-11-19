@@ -2,8 +2,9 @@ import { useTranslations } from "next-intl";
 import SinglePlayList from "../single-playlist/SinglePlayList";
 import "./CourseVideos.css";
 
-const CourseVideos = ({ title }) => {
+const CourseVideos = ({ title, course, independent, courseId }) => {
   const t = useTranslations("afterLogin");
+  const { lessons } = course || {};
   return (
     <section className="course-videos">
       <div className="ifram">
@@ -19,12 +20,15 @@ const CourseVideos = ({ title }) => {
 
       <div className="course-playlist">
         <p className="playlist-title">{t("coursePlayList")}</p>
-        <SinglePlayList />
-        <SinglePlayList />
-        <SinglePlayList />
-        <SinglePlayList />
-        <SinglePlayList />
-        <SinglePlayList />
+        {lessons?.map((lesson) => {
+          return (
+            <SinglePlayList
+              lesson={lesson}
+              independent={independent}
+              courseId={courseId}
+            />
+          );
+        })}
       </div>
     </section>
   );

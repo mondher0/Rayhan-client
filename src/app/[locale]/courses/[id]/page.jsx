@@ -67,7 +67,7 @@ const CourseDetailsPage = async ({ params }) => {
     "------------reviews from course details page-----------",
     reviews
   );
-  return <SingleCourse course={course} reviews={reviews} />;
+  return <SingleCourse course={course} reviews={reviews} courseId={id} />;
 };
 
 export default CourseDetailsPage;

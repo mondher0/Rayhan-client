@@ -14,7 +14,7 @@ import Cod from "../cod/Cod";
 import Rewards from "../rewards/Rewards";
 import { useTranslations } from "next-intl";
 
-const PaymentMethod = ({ useCase }) => {
+const PaymentMethod = ({ useCase, id, lesson }) => {
   const [balanceCard, setBalanceCard] = useState(!useCase && "selected");
   const [edhahbiaCard, setEdhahbiaCard] = useState(useCase && "selected");
   const [codCard, setCodeCard] = useState("");
@@ -131,7 +131,7 @@ const PaymentMethod = ({ useCase }) => {
             {t("rewards")}
           </div>
         </div>
-        {balanceCard && <Balance usecase={useCase} />}
+        {balanceCard && <Balance usecase={useCase} id={id} lesson={lesson} />}
         {edhahbiaCard && <Edhahbia usecase={useCase} />}
         {recieptCard && <Receipt usecase={useCase} />}
         {codCard && <Cod usecase={useCase} />}
