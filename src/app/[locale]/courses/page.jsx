@@ -34,7 +34,13 @@ const CoursesPage = async ({ searchParams }) => {
   };
   const courses = await getCourses();
   console.log("------------courses from courses page-----------", courses);
-  return <Courses currentPage={page} courses={courses} totalPage={2} />;
+  return (
+    <Courses
+      currentPage={page}
+      courses={courses.data}
+      totalPage={courses.meta.total}
+    />
+  );
 };
 
 export default CoursesPage;

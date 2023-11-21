@@ -5,6 +5,7 @@ import { getToken } from "@/utils/lib";
 const SubscribePage = async ({ params, searchParams }) => {
   const { id } = params;
   const { lesson } = searchParams;
+  const { enrollment } = searchParams;
 
   console.log("----------------------from subscruibe", id);
   console.log("----------------------from subscruibe", lesson);
@@ -35,7 +36,14 @@ const SubscribePage = async ({ params, searchParams }) => {
   const course = await getCourseDetails();
   console.log("----------------------from subscruibe", course);
 
-  return <Subscribe course={course} id={id} lesson={lesson} />;
+  return (
+    <Subscribe
+      course={course}
+      id={id}
+      lesson={lesson}
+      enrollment={enrollment}
+    />
+  );
 };
 
 export default SubscribePage;

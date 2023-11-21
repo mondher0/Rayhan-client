@@ -18,6 +18,9 @@ const CoursePrice = ({
   ratings,
   setIndependent,
   courseId,
+  enrollment,
+  isPaid,
+  isEnrolled,
 }) => {
   const t = useTranslations("afterLogin");
   const router = useRouter();
@@ -25,6 +28,25 @@ const CoursePrice = ({
   let index = 0;
   const [isLoading, setIsloading] = useState();
 
+  const enrollmentId = enrollment?.map((enroll) => {
+    console.log(enroll);
+    console.log(enroll.content_id);
+    console.log(courseId);
+    console.log(isEnrolled);
+    console.log(isPaid);
+    if (
+      enroll.content_id == courseId &&
+      isEnrolled === true &&
+      isPaid === false
+    ) {
+      console.log("good");
+      return enroll.id;
+    } else {
+      console.log("bad");
+      return false;
+    }
+  });
+  console.log(enrollmentId);
   // lesson enrollment
   const courseEnrollment = async () => {
     try {
@@ -37,11 +59,13 @@ const CoursePrice = ({
       );
       console.log(response);
       setIsloading(false);
-      router.push(`/subscribe/${courseId}`);
+      router.push(`/subscribe/${response.data.data.id}`);
     } catch (error) {
       console.log(error);
       setIsloading(false);
       toast.error(error.response.data.message);
+      console.log(enrollmentId[1]);
+      router.push(`/subscribe/${courseId}?enrollment=${enrollmentId[1]}`);
     }
   };
   return (

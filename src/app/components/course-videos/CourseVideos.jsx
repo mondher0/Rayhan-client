@@ -2,7 +2,7 @@ import { useTranslations } from "next-intl";
 import SinglePlayList from "../single-playlist/SinglePlayList";
 import "./CourseVideos.css";
 
-const CourseVideos = ({ title, course, independent, courseId }) => {
+const CourseVideos = ({ title, course, independent, courseId, enrollment }) => {
   const t = useTranslations("afterLogin");
   const { lessons } = course || {};
   return (
@@ -26,6 +26,7 @@ const CourseVideos = ({ title, course, independent, courseId }) => {
               lesson={lesson}
               independent={independent}
               courseId={courseId}
+              enrollment={enrollment}
             />
           );
         })}

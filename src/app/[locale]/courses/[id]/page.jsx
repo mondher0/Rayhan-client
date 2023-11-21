@@ -58,16 +58,60 @@ const CourseDetailsPage = async ({ params }) => {
     }
   };
 
+  // get enrollment data
+  const getEnrollmentData = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/enrollment/get?status=inactive`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const enrollment = await response.json();
+      console.log(
+        "---------------from enrollment--------------------------",
+        enrollment
+      );
+      return enrollment.data;
+    } catch (error) {
+      console.log(
+        "----------------------from enrollment -------------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+
   const courseData = getCourseDetails();
   const reviewsData = getCourseReviews();
+  const enrollmentData = getEnrollmentData();
 
-  const [course, reviews] = await Promise.all([courseData, reviewsData]);
+  const [course, reviews, enrollment] = await Promise.all([
+    courseData,
+    reviewsData,
+    enrollmentData,
+  ]);
   console.log("------------course from course details page-----------", course);
   console.log(
     "------------reviews from course details page-----------",
     reviews
   );
-  return <SingleCourse course={course} reviews={reviews} courseId={id} />;
+  console.log(
+    "------------enrollment from course details page second-----------",
+    enrollment
+  );
+  return (
+    <SingleCourse
+      course={course}
+      reviews={reviews}
+      courseId={id}
+      enrollment={enrollment}
+    />
+  );
 };
 
 export default CourseDetailsPage;

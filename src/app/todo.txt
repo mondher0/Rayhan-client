@@ -21,10 +21,9 @@ bug in pagination
 search in courses page not integrated yet
 in course details missing the course content and reviews post and simulaire courses
 in course details missing the pagination in teacher reviews
-bug in pagination
 
 // payment :
-integrate just balance payment (simple bug to fix)
+integrate just balance payment
 
 // profile :
 missing the statistics in profile page

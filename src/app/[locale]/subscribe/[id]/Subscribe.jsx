@@ -4,7 +4,7 @@ import PaymentMethod from "@/app/components/payment-method/PaymentMethod";
 import CourseCard from "@/app/components/course-card/CourseCard";
 import { useLocale, useTranslations } from "next-intl";
 
-const Subscribe = ({ course, id, lesson }) => {
+const Subscribe = ({ course, id, lesson, enrollment }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
   const { price } = course || {};
@@ -16,7 +16,7 @@ const Subscribe = ({ course, id, lesson }) => {
       <main className={locale === "ar" ? "ar" : ""}>
         <p className="title">{t("subscriptions")}</p>
         <div className="subscription-content">
-          <PaymentMethod id={id} lesson={lesson} />
+          <PaymentMethod id={id} lesson={lesson} enrollment={enrollment} />
           <div className="subscription-course">
             <p className="subscription-course-title">{t("orderDetails")}</p>
             <CourseCard course={course} />

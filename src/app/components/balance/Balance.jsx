@@ -8,7 +8,7 @@ import { baseUrl } from "@/utils/constants";
 import Loader from "../loader/Loader";
 import "react-toastify/dist/ReactToastify.css";
 
-const Balance = ({ usecase, id, lesson }) => {
+const Balance = ({ usecase, id, lesson, enrollment }) => {
   const t = useTranslations("afterLogin");
   const [isLoading, setIsLoading] = useState();
   const [promoCode, setPromoCode] = useState();
@@ -20,7 +20,7 @@ const Balance = ({ usecase, id, lesson }) => {
       console.log(lesson);
       console.log(id);
       const data = {
-        item_id: lesson ? parseInt(lesson) : parseInt(id),
+        item_id: lesson ? parseInt(lesson) : parseInt(enrollment),
         item_type: "enrollment",
       };
       console.log(data);

@@ -10,7 +10,7 @@ import AllCourses from "@/app/components/all-courses/AllCourses";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
-const SingleCourse = ({ course, reviews, courseId }) => {
+const SingleCourse = ({ course, reviews, courseId, enrollment }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
   const [independent, setIndependent] = useState(false);
@@ -24,6 +24,8 @@ const SingleCourse = ({ course, reviews, courseId }) => {
     teacher,
     total_rate,
     comments_count,
+    isEnrolled,
+    isPaid,
   } = course || {};
   const { user } = teacher || {};
   const lessons = course?.lessons?.length;
@@ -45,6 +47,7 @@ const SingleCourse = ({ course, reviews, courseId }) => {
           course={course}
           independent={independent}
           courseId={courseId}
+          enrollment={enrollment}
         />
         <section className="informations">
           <CourseDetailsInfo
@@ -59,6 +62,9 @@ const SingleCourse = ({ course, reviews, courseId }) => {
             lessons={lessons}
             setIndependent={() => setIndependent(true)}
             courseId={courseId}
+            enrollment={enrollment}
+            isPaid={isPaid}
+            isEnrolled={isEnrolled}
           />
         </section>
         <p className="content-title">{t("courseReviews")}</p>

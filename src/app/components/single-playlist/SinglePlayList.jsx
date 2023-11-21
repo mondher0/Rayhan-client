@@ -10,11 +10,28 @@ import { useState } from "react";
 import Loader from "../loader/Loader";
 import { useRouter } from "next/navigation";
 
-const SinglePlayList = ({ lesson, independent, courseId }) => {
+const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const t = useTranslations("afterLogin");
   const { id, title, type, price } = lesson || {};
   const [isLoading, setIsloading] = useState();
   const router = useRouter();
+
+  // filter the enrollment contain the lesson id
+  console.log(enrollment);
+  const enrollmentId = enrollment?.map((enroll) => {
+    if (
+      enroll.content_id == id &&
+      lesson.isEnrolled === true &&
+      lesson.isPaid === false
+    ) {
+      console.log("good");
+      return enroll.id;
+    } else {
+      console.log("bad");
+      return false;
+    }
+  });
+  console.log(enrollmentId);
 
   // lesson enrollment
   const lessonEnrollment = async () => {
@@ -28,10 +45,13 @@ const SinglePlayList = ({ lesson, independent, courseId }) => {
       );
       console.log(response);
       setIsloading(false);
-      router.push(`/subscribe/${courseId}?lesson=${id}`);
+      router.push(`/subscribe/${courseId}?lesson=${response.data.data.id}`);
     } catch (error) {
       console.log(error);
       setIsloading(false);
+      if (error.response.data.message === "you enrolled this before") {
+        router.push(`/subscribe/${courseId}?lesson=${enrollmentId[1]}`);
+      }
       toast.error(error.response.data.message);
     }
   };
@@ -53,14 +73,15 @@ const SinglePlayList = ({ lesson, independent, courseId }) => {
           <p className="duration">{type === "quiz" ? "Quizz" : "1:30"}</p>
         </div>
       </div>
-      {independent && (
-        <button
-          className="playlist-btn hover"
-          onClick={() => lessonEnrollment()}
-        >
-          {isLoading ? <Loader /> : t("subscribeBtn") + " " + price + "DA"}
-        </button>
-      )}
+      {independent &&
+        (lesson?.isPaid ? null : (
+          <button
+            className="playlist-btn hover"
+            onClick={() => lessonEnrollment()}
+          >
+            {isLoading ? <Loader /> : t("subscribeBtn") + " " + price + "DA"}
+          </button>
+        ))}
     </>
   );
 };
