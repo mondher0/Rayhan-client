@@ -21,6 +21,7 @@ bug in pagination
 search in courses page not integrated yet
 in course details missing the course content and reviews post and simulaire courses
 in course details missing the pagination in teacher reviews
+missing the course image 
 
 // payment :
 integrate just balance payment
@@ -32,7 +33,8 @@ missing personal information
 missing edhahabia and receipt in charge balance
 
 // teachers :
-bugs to fix in teacher details
+missing the teacher image in the teacher page from server
+missing add reviews in the teacher page from server
 
 //home :
 not integrated yet
