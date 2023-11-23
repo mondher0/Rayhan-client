@@ -10,7 +10,13 @@ import AllCourses from "@/app/components/all-courses/AllCourses";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
-const SingleCourse = ({ course, reviews, courseId, enrollment }) => {
+const SingleCourse = ({
+  course,
+  reviews,
+  courseId,
+  enrollment,
+  coursesByCategory,
+}) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
   const [independent, setIndependent] = useState(false);
@@ -79,7 +85,7 @@ const SingleCourse = ({ course, reviews, courseId, enrollment }) => {
         <p className="content-title">{t("similarCourses")}</p>
       </div>
       <div className="rev">
-        <AllCourses />
+        <AllCourses courses={coursesByCategory} />
       </div>
     </>
   );

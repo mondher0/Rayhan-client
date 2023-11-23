@@ -20,7 +20,7 @@ const CourseCard = ({ style, course }) => {
         style ? "course-card hover course-card-style" : "course-card hover"
       }
       onClick={() => {
-        router.push(`/courses/${id}`);
+        router.push(`/courses/${id}?category=${course?.category?.id}`);
       }}
     >
       <div className="course-img-container">

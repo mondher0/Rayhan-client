@@ -2,8 +2,9 @@ import { getToken } from "@/utils/lib";
 import SingleCourse from "./SingleCourse";
 import { baseUrl } from "@/utils/constants";
 
-const CourseDetailsPage = async ({ params }) => {
+const CourseDetailsPage = async ({ params, searchParams }) => {
   const { id } = params;
+  const { category } = searchParams;
 
   // get course details from server
   const getCourseDetails = async () => {
@@ -83,14 +84,44 @@ const CourseDetailsPage = async ({ params }) => {
     }
   };
 
+  // get courses by category
+  const getCoursesByCategory = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/course/get/category/${category}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const courses = await response.json();
+      console.log(
+        "----------------------from courses by category----------------------",
+        courses
+      );
+      return courses.data.data;
+    } catch (error) {
+      console.log(
+        "----------------------from courses by category----------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+
   const courseData = getCourseDetails();
   const reviewsData = getCourseReviews();
   const enrollmentData = getEnrollmentData();
+  const coursesByCategoryData = getCoursesByCategory();
 
-  const [course, reviews, enrollment] = await Promise.all([
+  const [course, reviews, enrollment, coursesByCategory] = await Promise.all([
     courseData,
     reviewsData,
     enrollmentData,
+    coursesByCategoryData,
   ]);
   console.log("------------course from course details page-----------", course);
   console.log(
@@ -107,6 +138,7 @@ const CourseDetailsPage = async ({ params }) => {
       reviews={reviews}
       courseId={id}
       enrollment={enrollment}
+      coursesByCategory={coursesByCategory}
     />
   );
 };
