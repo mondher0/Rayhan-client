@@ -34,15 +34,12 @@ const CourseDetailsPage = async ({ params }) => {
   const getCourseReviews = async () => {
     try {
       const token = getToken();
-      const response = await fetch(
-        `${baseUrl}/course/get/${id}/reviews?paginate=false`,
-        {
-          cache: "no-cache",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${baseUrl}/course/get/${id}/reviews`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const reviews = await response.json();
       console.log(
         "----------------------response from course reviews page----------------------",
