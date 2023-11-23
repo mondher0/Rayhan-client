@@ -1,23 +1,66 @@
+"use client";
 import "./PostReview.css";
-import { AiFillStar } from "react-icons/ai";
 import "../search-input/SearchInput.css";
 import { BsFillSendFill } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState } from "react";
+import { Rating } from "react-simple-star-rating";
+import Loader from "../loader/Loader";
+import axiosInstance from "@/utils/utils";
+import { baseUrl } from "@/utils/constants";
 
-const PostReview = () => {
+const PostReview = ({ canReviewCourse, courseId }) => {
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const onPointerEnter = () => console.log("Enter");
+  const onPointerLeave = () => console.log("Leave");
+  const onPointerMove = (value, index) => console.log(value, index);
+  const handleRating = (rate) => {
+    setRating(rate);
+    console.log(rate);
+  };
+  // handle submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!canReviewCourse) {
+      toast.error("You can't review this course");
+      return;
+    }
+    try {
+      setIsLoading(true);
+      const response = await axiosInstance.post(
+        `${baseUrl}/course/review/store`,
+        {
+          course_id: courseId,
+          content: comment,
+          stars: rating,
+        }
+      );
+      console.log(response);
+      setIsLoading(false);
+      toast.success("Comment added successfully");
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("Something went wrong");
+    }
+  };
   return (
     <section className="post-review">
+      <ToastContainer />
       <div className="stars">
-        <AiFillStar size={30} color="#FFD700" />
-        <AiFillStar size={30} color="#FFD700" />
-        <AiFillStar size={30} color="#FFD700" />
-        <AiFillStar size={30} color="#FFD700" />
-        <AiFillStar size={30} color="#FFD700" />
+        <Rating onClick={handleRating} />
       </div>
-      <form className="search-input">
-        <input type="text" placeholder="Your comment here..." />
+      <form className="search-input" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Your comment here..."
+          onChange={(e) => setComment(e.target.value)}
+        />
         <div className="search-icon">
           <button type="submit" className="send hover">
-            <BsFillSendFill size={25} color="#fff" />
+            {isLoading ? <Loader /> : <BsFillSendFill size={20} color="#fff" />}
           </button>
         </div>
       </form>

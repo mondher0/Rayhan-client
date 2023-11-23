@@ -29,6 +29,7 @@ const CoursePrice = ({
   const [isLoading, setIsloading] = useState();
 
   const enrollmentId = enrollment?.map((enroll) => {
+    console.log("mondher");
     console.log(enroll);
     console.log(enroll.content_id);
     console.log(courseId);
@@ -46,7 +47,8 @@ const CoursePrice = ({
       return false;
     }
   });
-  console.log(enrollmentId);
+  const newId = enrollmentId?.filter((id) => id !== false);
+
   // lesson enrollment
   const courseEnrollment = async () => {
     try {
@@ -65,7 +67,7 @@ const CoursePrice = ({
       setIsloading(false);
       toast.error(error.response.data.message);
       console.log(enrollmentId[1]);
-      router.push(`/subscribe/${courseId}?enrollment=${enrollmentId[1]}`);
+      router.push(`/subscribe/${courseId}?enrollment=${newId[0]}`);
     }
   };
   return (
@@ -104,14 +106,16 @@ const CoursePrice = ({
         </div>
       </div>
       <div className="course-price-btns">
-        <button
-          className="subscribe hover"
-          onClick={() => {
-            courseEnrollment();
-          }}
-        >
-          {isLoading ? <Loader /> : t("subscribeBtn")}
-        </button>
+        {isPaid ? null : (
+          <button
+            className="subscribe hover"
+            onClick={() => {
+              courseEnrollment();
+            }}
+          >
+            {isLoading ? <Loader /> : t("subscribeBtn")}
+          </button>
+        )}
         <button className="view hover" onClick={setIndependent}>
           {t("Independent view of the course")}
         </button>

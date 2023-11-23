@@ -32,6 +32,7 @@ const SingleCourse = ({
     comments_count,
     isEnrolled,
     isPaid,
+    canReviewCourse,
   } = course || {};
   const { user } = teacher || {};
   const lessons = course?.lessons?.length;
@@ -79,7 +80,7 @@ const SingleCourse = ({
         <TeacherReviews reviews={reviews} />
       </div>
       <div className="rev">
-        <PostReview />
+        <PostReview canReviewCourse={canReviewCourse} courseId={courseId} />
       </div>
       <div className={locale === "ar" ? "rev rev-ar" : "rev"}>
         <p className="content-title">{t("similarCourses")}</p>

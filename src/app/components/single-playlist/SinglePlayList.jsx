@@ -19,6 +19,10 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   // filter the enrollment contain the lesson id
   console.log(enrollment);
   const enrollmentId = enrollment?.map((enroll) => {
+    console.log(enroll.content_id);
+    console.log(id);
+    console.log(lesson.isEnrolled);
+    console.log(lesson.isPaid);
     if (
       enroll.content_id == id &&
       lesson.isEnrolled === true &&
@@ -31,7 +35,7 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
       return false;
     }
   });
-  console.log(enrollmentId);
+  const newId = enrollmentId?.filter((id) => id !== false);
 
   // lesson enrollment
   const lessonEnrollment = async () => {
@@ -50,7 +54,7 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
       console.log(error);
       setIsloading(false);
       if (error.response.data.message === "you enrolled this before") {
-        router.push(`/subscribe/${courseId}?lesson=${enrollmentId[1]}`);
+        router.push(`/subscribe/${courseId}?lesson=${newId[0]}`);
       }
       toast.error(error.response.data.message);
     }
