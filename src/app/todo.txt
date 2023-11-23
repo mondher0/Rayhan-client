@@ -19,8 +19,7 @@ bug in pagination
 
 // courses :
 search in courses page not integrated yet
-in course details missing the course content and reviews post
-in course details missing the pagination in teacher reviews
+in course details missing the course content
 missing the course image 
 
 // payment :
