@@ -6,9 +6,11 @@ import { useLocale, useTranslations } from "next-intl";
 import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./teacher-details.css";
 
-const SingleTeacher = () => {
+const SingleTeacher = ({ teacher, page, courses, totalPage }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
+  const { youtube_link, comments } = teacher || {};
+  console.log("---------------------comments---------------------", comments);
   return (
     <>
       <header>
@@ -19,11 +21,11 @@ const SingleTeacher = () => {
       >
         <p className="title">{t("teacherDetailsTitle")}</p>
         <section className="video">
-          <PopularTeacherCard />
+          <PopularTeacherCard teacher={teacher} />
           <iframe
             width="1114"
             height="683"
-            src="https://www.youtube.com/embed/7rtgVNrtE3o?si=DzXk9qmxCTD1qCLf"
+            src={youtube_link}
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -31,9 +33,13 @@ const SingleTeacher = () => {
           ></iframe>
         </section>
         <p className="title">{t("teacherCourses")}</p>
-        <TeacherCourses id={id} currentPage={page} />
+        <TeacherCourses
+          currentPage={page}
+          totalPage={totalPage}
+          courses={courses}
+        />
         <p className="title">{t("teacherReviews")}</p>
-        <TeacherReviews />
+        <TeacherReviews reviews={comments} />
         <PostReview />
       </main>
     </>

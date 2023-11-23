@@ -5,8 +5,8 @@ import { AiFillStar } from "react-icons/ai";
 const TeacherReviewCard = ({ review }) => {
   const { content, stars, student } = review;
   console.log(stars);
-  const { user } = student;
-  const { first_name, last_name } = user;
+  const { user } = student || {};
+  const { first_name, last_name } = user || {};
   const ratings = Array(parseInt(stars) || 0).fill(0);
   console.log(ratings);
 

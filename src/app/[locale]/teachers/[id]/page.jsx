@@ -31,12 +31,48 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
       throw new Error(error);
     }
   };
-  const teacher = await getTeacher();
-  console.log(
-    "------------teacher from teacher details page-----------",
-    teacher
+
+  // get teacher courses from the server
+  const getCourses = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(
+        `${baseUrl}/course/get/teacher/4?paginate=true&page=${page}`,
+        {
+          cache: "no-cache",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      const courses = await response.json();
+      console.log(
+        "------------response from teacher details page-----------",
+        courses
+      );
+      return courses.data;
+    } catch (error) {
+      console.log(
+        "--------------------error from teacher details page-------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
+  const teacherData = getTeacher();
+  const coursesData = getCourses();
+
+  const [teacher, courses] = await Promise.all([teacherData, coursesData]);
+  console.log("teacherData", teacher);
+  console.log("coursesData", courses);
+  return (
+    <SingleTeacher
+      teacher={teacher}
+      page={page}
+      courses={courses.data}
+      totalPage={courses.meta.total}
+    />
   );
-  return <div>hello</div>;
 };
 
 export default TeacherDetailsPage;
