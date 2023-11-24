@@ -9,12 +9,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 import Loader from "../loader/Loader";
 import { useRouter } from "next/navigation";
+import QuizModal from "../quiz-modal/QuizModal";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 
 const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const t = useTranslations("afterLogin");
   const { id, title, type, price } = lesson || {};
   const [isLoading, setIsloading] = useState();
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const closeModal = () => setOpen(false);
 
   // filter the enrollment contain the lesson id
   console.log(enrollment);
@@ -63,7 +68,14 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   console.log(independent);
   return (
     <>
-      <div className="single-playlist">
+      <div
+        className="single-playlist hover"
+        onClick={() => {
+          if (type === "quiz") {
+            setOpen(true);
+          }
+        }}
+      >
         <ToastContainer />
         <Image
           src={
@@ -87,6 +99,7 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
             {isLoading ? <Loader /> : t("subscribeBtn") + " " + price + "DA"}
           </button>
         ))}
+      <QuizModal open={open} onClose={closeModal} />
     </>
   );
 };
