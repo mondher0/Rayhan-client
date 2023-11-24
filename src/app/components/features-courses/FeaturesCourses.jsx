@@ -6,7 +6,8 @@ import CourseCard from "../course-card/CourseCard";
 import Livecard from "../live-card/Livecard";
 import { useLocale, useTranslations } from "next-intl";
 
-const FeaturesCourses = () => {
+const FeaturesCourses = ({ courses }) => {
+  console.log(courses);
   const [recordeedClasses, setRecordedClasses] = useState(true);
   const [rooms, setRooms] = useState(false);
   const [recordedLives, setRecordedLives] = useState(false);
@@ -90,10 +91,9 @@ const FeaturesCourses = () => {
       </div>
       {recordeedClasses && (
         <div className="course-cards">
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
-          <CourseCard />
+          {courses.slice(0, 4).map((course, index) => (
+            <CourseCard course={course} key={index} />
+          ))}
         </div>
       )}
       {rooms && (

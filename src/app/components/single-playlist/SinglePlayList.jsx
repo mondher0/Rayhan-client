@@ -39,6 +39,10 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
 
   // lesson enrollment
   const lessonEnrollment = async () => {
+    if (lesson.isEnrolled) {
+      router.push(`/subscribe/${courseId}?lesson=${newId[0]}`);
+      return;
+    }
     try {
       setIsloading(true);
       const response = await axiosInstance.post(
@@ -53,9 +57,6 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
     } catch (error) {
       console.log(error);
       setIsloading(false);
-      if (error.response.data.message === "you enrolled this before") {
-        router.push(`/subscribe/${courseId}?lesson=${newId[0]}`);
-      }
       toast.error(error.response.data.message);
     }
   };
@@ -66,15 +67,15 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
         <ToastContainer />
         <Image
           src={
-            type === "quiz" ? "/images/quiz.png" : "/images/playlist-image.png"
+            type === "quiz" ? "/images/quiz.png" : "/images/play-list-image.png"
           }
           alt="play-list-image"
           width={200}
           height={100}
         />
         <div className="details">
-          <p className="title">{type === "quiz" ? "Quizz" : title}</p>
-          <p className="duration">{type === "quiz" ? "Quizz" : "1:30"}</p>
+          <p className="title">{title}</p>
+          <p className="duration">{type === "quiz" ? "Quiz" : "1:30"}</p>
         </div>
       </div>
       {independent &&

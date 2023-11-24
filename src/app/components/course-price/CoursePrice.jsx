@@ -51,6 +51,10 @@ const CoursePrice = ({
 
   // lesson enrollment
   const courseEnrollment = async () => {
+    if (isEnrolled) {
+      router.push(`/subscribe/${courseId}?enrollment=${newId[0]}`);
+      return;
+    }
     try {
       setIsloading(true);
       const response = await axiosInstance.post(
@@ -66,8 +70,6 @@ const CoursePrice = ({
       console.log(error);
       setIsloading(false);
       toast.error(error.response.data.message);
-      console.log(enrollmentId[1]);
-      router.push(`/subscribe/${courseId}?enrollment=${newId[0]}`);
     }
   };
   return (

@@ -47,7 +47,7 @@ const SubjectCoursespage = async ({ searchParams, params }) => {
       subjectCourses={subjectCourses}
       currentPage={page}
       courses={courses?.data}
-      totalPage={courses?.total}
+      totalPage={courses?.meta.total}
       subjectName={subject}
     />
   );

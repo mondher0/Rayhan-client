@@ -36,4 +36,4 @@ missing the teacher image in the teacher page from server
 missing add reviews in the teacher page from server
 
 //home :
-not integrated yet
+continue watching not integrated yet
