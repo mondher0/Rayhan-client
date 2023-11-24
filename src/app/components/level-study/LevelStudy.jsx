@@ -30,6 +30,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           text={t("elementarySchool")}
           action={setRegisterProccesState}
           actionType="study-year"
+          type="Elementary school"
         />
         <LearningType
           icon={school}
@@ -38,6 +39,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           text={t("middleSchool")}
           action={setRegisterProccesState}
           actionType="study-year"
+          type="Middle  school"
         />
         <LearningType
           icon={highSchool}
@@ -46,6 +48,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           text={t("highSchool")}
           action={setRegisterProccesState}
           actionType="study-year"
+          type="High  school"
         />
         <LearningType
           icon={university}
@@ -54,6 +57,7 @@ const LevelStudy = ({ setRegisterProccesState }) => {
           text={t("university")}
           action={setRegisterProccesState}
           actionType="study-year"
+          type="University"
         />
       </div>
     </div>

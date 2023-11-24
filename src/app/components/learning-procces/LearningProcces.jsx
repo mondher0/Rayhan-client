@@ -28,6 +28,7 @@ const LearningProcces = ({ setRegisterProccesState }) => {
           text={t("takwin")}
           action={setRegisterProccesState}
           actionType="level-study"
+          takwin={true}
         />
         <LearningType
           icon={coursesIcon}

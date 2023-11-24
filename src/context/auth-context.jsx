@@ -18,6 +18,7 @@ const AuthProvider = ({ children }) => {
   const [thirdCode, setThirdCode] = useState("");
   const [fourthCode, setFourthCode] = useState("");
   const [fifthCode, setFifthCode] = useState("");
+  const [schoolType, setSchoolType] = useState("");
 
   // verify  referal code
   const verifyReferalCode = async (e) => {
@@ -87,18 +88,31 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       setIsLoading(false);
       console.log("--------------error from confirm phone number", error);
-      toast.error(
-        error.response.data.errors.code[0]
-          ? error.response.data.errors.code[0]
-          : error.response.data.message
-      );
+      toast.error("Something went wrong");
     }
   };
 
   // handle register
-  const handleRegister = (e) => {
-    e.preventDefault();
-    console.log(user);
+  const handleRegister = async (study_year) => {
+    try {
+      setIsLoading(true);
+      const data = {
+        first_name: user.firstName,
+        last_name: user.lastName,
+        phone: user.phoneNumber,
+        password: user.password,
+        phone_verification_code: user.code,
+        study_year: study_year,
+      };
+      const response = await axios.post(`${baseUrl}/auth/student/store`, data);
+      console.log("--------------response from handle register", response);
+      setIsLoading(false);
+      router.push("/login");
+    } catch (error) {
+      setIsLoading(false);
+      toast.error("something went wrong");
+      console.log("--------------error from handle register", error);
+    }
   };
 
   // handle login
@@ -148,6 +162,8 @@ const AuthProvider = ({ children }) => {
         setFourthCode,
         fifthCode,
         setFifthCode,
+        setSchoolType,
+        schoolType,
       }}
     >
       {children}

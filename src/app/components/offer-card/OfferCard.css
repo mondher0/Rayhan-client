@@ -6,7 +6,6 @@
   border-radius: 10px;
   padding-bottom: 20px;
   width: 90%;
-
 }
 .offer-card .offers-cards {
   height: 100%;
@@ -76,6 +75,7 @@
   .offer-card {
     flex-direction: column;
     gap: 0;
+    width: unset;
   }
   .offer-card .offer-text {
     padding: 20px 20px 0 20px;
