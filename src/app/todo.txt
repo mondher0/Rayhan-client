@@ -26,9 +26,9 @@ missing the course image
 integrate just balance payment
 
 // profile :
-missing the statistics in profile page
+missing the statistics in profile page(continue , finish courses) from back
 missing profile picture
-missing personal information
+missing personal information (EDIT)
 missing edhahabia and receipt in charge balance
 
 // teachers :
