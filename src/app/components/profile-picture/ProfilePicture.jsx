@@ -1,7 +1,8 @@
 import Image from "next/image";
 import "./ProfilePicture.css";
 
-const ProfilePicture = () => {
+const ProfilePicture = ({ userInfo }) => {
+  const { first_name, last_name, phone } = userInfo || {};
   return (
     <div className="profile-pictures">
       <div className="couverture-picture"></div>
@@ -16,8 +17,10 @@ const ProfilePicture = () => {
           />
         </div>
         <div className="profile-user-info">
-          <p className="nom">Mondher Mameri</p>
-          <p className="phone-number">0558604705</p>
+          <p className="nom">
+            {first_name} {last_name}
+          </p>
+          <p className="phone-number">{phone}</p>
         </div>
       </div>
     </div>

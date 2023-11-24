@@ -16,7 +16,7 @@ const Profile = ({ userInfo }) => {
   const t = useTranslations("afterLogin");
   return (
     <div className="profile">
-      <ProfilePicture />
+      <ProfilePicture userInfo={userInfo} />
       <div className="statistiques">
         <StatistiqueContainer
           stat1={balanceStat}
