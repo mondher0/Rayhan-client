@@ -14,12 +14,14 @@ import Cod from "../cod/Cod";
 import Rewards from "../rewards/Rewards";
 import { useTranslations } from "next-intl";
 
-const PaymentMethod = ({ useCase, id, lesson, enrollment }) => {
+const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
   const [balanceCard, setBalanceCard] = useState(!useCase && "selected");
   const [edhahbiaCard, setEdhahbiaCard] = useState(useCase && "selected");
   const [codCard, setCodeCard] = useState("");
   const [rewardCard, setRewardCard] = useState("");
   const [recieptCard, setRecieptCard] = useState("");
+  const { userable } = userInfo || {};
+  const { balance } = userable || {};
   const t = useTranslations("afterLogin");
 
   const selected = {
@@ -73,7 +75,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment }) => {
       {!useCase && <p className="title">{t("choose")}</p>}
       <div className="payment-method-card">
         {useCase === "profile" ? (
-          <p className="title">Current Balance: 14000 DA</p>
+          <p className="title">Current Balance: {balance} DA</p>
         ) : (
           <p className="title">{t("choose")}</p>
         )}

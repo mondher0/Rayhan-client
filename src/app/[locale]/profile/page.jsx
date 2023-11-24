@@ -1,28 +1,29 @@
-import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
-import "./profile.css";
-import Profile from "@/app/components/profile/Profile";
-import { useLocale, useTranslations } from "next-intl";
+import { getToken } from "@/utils/lib";
+import ProfileFather from "./Profile";
+import { baseUrl } from "@/utils/constants";
 
-const ProfilePage = () => {
-  const t = useTranslations("afterLogin");
-  const locale = useLocale();
+const ProfilePage = async () => {
+  // get user info
+  const getUserInfo = async () => {
+    const token = getToken();
+    try {
+      const response = await fetch(`${baseUrl}/user/info`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const userInfo = await response.json();
+      console.log("----------from profile--------------", userInfo);
+      return userInfo;
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
 
-  return (
-    <>
-      <header>
-        <LoginNavBar />
-      </header>
-      <main>
-        <section className="hero"></section>
-        <section
-          className={locale === "ar" ? "profile-section profile-section-ar" : "profile-section"}
-        >
-          <p className="title">{t("profile")}</p>
-          <Profile />
-        </section>
-      </main>
-    </>
-  );
+  const userInfo = await getUserInfo();
+  console.log("---------user info from profile---------------", userInfo);
+  return <ProfileFather userInfo={userInfo} />;
 };
 
 export default ProfilePage;

@@ -8,8 +8,10 @@ import Image from "next/image";
 import WithdrawForm from "../withdrawForm/WithdrawForm";
 import RequestForm from "../request-form/RequestForm";
 
-const Withdraw = () => {
+const Withdraw = ({ userInfo }) => {
   const t = useTranslations("afterLogin");
+  const { userable } = userInfo || {};
+  const { balance } = userable || {};
   const style = {
     border: "1px solid , #C5D5FF",
     background: "#E9EFFF",
@@ -32,7 +34,7 @@ const Withdraw = () => {
   return (
     <section className="payment-method">
       <div className="payment-method-card">
-        <p className="title">Current Balance: 14000 DA</p>
+        <p className="title">Current Balance: {balance} DA</p>
         <div className="methods" style={{ width: "100%" }}>
           <div
             className="method hover"

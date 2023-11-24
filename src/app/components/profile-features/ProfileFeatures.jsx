@@ -11,7 +11,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useTranslations } from "next-intl";
 import Withdraw from "../Withdraw/Withdraw";
 
-const ProfileFeatures = () => {
+const ProfileFeatures = ({ userInfo }) => {
   const [chargeBalance, setChargeBalance] = useState("");
   const [invateFriends, setInvateFriends] = useState("");
   const [personalInfo, setPersonalInfo] = useState("selected");
@@ -161,13 +161,15 @@ const ProfileFeatures = () => {
         </div>
       </div>
       <div className="visual-features">
-        {personalInfo && <PersonalInformation />}
-        {chargeBalance && <PaymentMethod useCase="profile" />}
-        {invateFriends && <InviteFriends />}
+        {personalInfo && <PersonalInformation userInfo={userInfo} />}
+        {chargeBalance && (
+          <PaymentMethod useCase="profile" userInfo={userInfo} />
+        )}
+        {invateFriends && <InviteFriends userInfo={userInfo} />}
         {help && <Help />}
         {sendReport && <SendReport />}
         {termsAndConditions && <TermsConditions />}
-        {withDrawMyReward && <Withdraw />}
+        {withDrawMyReward && <Withdraw userInfo={userInfo} />}
       </div>
     </div>
   );
