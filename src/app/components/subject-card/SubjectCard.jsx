@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import "./SubjectCard.css";
 import Image from "next/image";
 
-const SubjectCard = ({ name, id }) => {
+const SubjectCard = ({ name, id, image }) => {
   const router = useRouter();
   return (
     <div
@@ -13,7 +13,7 @@ const SubjectCard = ({ name, id }) => {
       }}
     >
       <Image
-        src="/images/subject-bg.png"
+        src={image ? image : "/images/subject-bg.png"}
         alt="math"
         width={550}
         height={360}

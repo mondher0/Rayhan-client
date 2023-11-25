@@ -6,7 +6,12 @@ const AllSubjects = ({ subjects }) => {
     <div className="subjects-cards">
       {subjects?.map((subject) => {
         return (
-          <SubjectCard key={subject.id} id={subject.id} name={subject.name} />
+          <SubjectCard
+            key={subject.id}
+            id={subject.id}
+            name={subject.name}
+            image={subject.image?.url}
+          />
         );
       })}
     </div>
