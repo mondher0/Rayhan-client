@@ -16,8 +16,8 @@ missing the course image in the course subject page from server
 
 // courses :
 search in courses page not integrated yet
-in course details missing the course content
 missing the course image 
+(little bug in the video)
 
 // payment :
 integrate just balance payment
