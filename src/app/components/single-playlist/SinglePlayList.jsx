@@ -21,21 +21,14 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const [lessonContent, setLessonContent] = useState();
 
   // filter the enrollment contain the lesson id
-  console.log(enrollment);
   const enrollmentId = enrollment?.map((enroll) => {
-    console.log(enroll.content_id);
-    console.log(id);
-    console.log(lesson.isEnrolled);
-    console.log(lesson.isPaid);
     if (
       enroll.content_id == id &&
       lesson.isEnrolled === true &&
       lesson.isPaid === false
     ) {
-      console.log("good");
       return enroll.id;
     } else {
-      console.log("bad");
       return false;
     }
   });
@@ -75,13 +68,17 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
         }
       );
       console.log(response);
-      setLessonContent(response.data.data.content.questions);
+      setLessonContent(response.data.data?.content?.questions);
     } catch (error) {
+      console.log(error);
       throw new Error(error);
     }
   };
 
   useEffect(() => {
+    if (!lesson?.isPaid) {
+      return;
+    }
     getLessonContent();
   }, []);
 
