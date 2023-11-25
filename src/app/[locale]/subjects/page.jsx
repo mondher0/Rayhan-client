@@ -40,7 +40,7 @@ const SubjectsPage = async ({ searchParams }) => {
     <Subjects
       subjects={subjects?.data}
       currentPage={page}
-      totalPage={subjects?.from}
+      totalPage={subjects?.last_page}
     />
   );
 };

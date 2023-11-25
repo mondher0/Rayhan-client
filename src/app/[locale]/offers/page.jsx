@@ -35,7 +35,7 @@ const OffresPage = async ({ searchParams }) => {
   return (
     <Offers
       currentPage={page}
-      totalPage={offers?.from}
+      totalPage={offers?.last_page}
       offers={offers?.data}
     />
   );

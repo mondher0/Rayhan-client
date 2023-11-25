@@ -37,6 +37,7 @@ const SingleTeacher = ({ teacher, page, courses, totalPage }) => {
           currentPage={page}
           totalPage={totalPage}
           courses={courses}
+          id={teacher?.user?.id}
         />
         <p className="title">{t("teacherReviews")}</p>
         <TeacherReviews reviews={comments} />
