@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import "./courseDetailsInfo.css";
+import "./CourseDetailsInfo";
 
 const CourseDetailsInfo = ({ description, destination }) => {
   const t = useTranslations("afterLogin");

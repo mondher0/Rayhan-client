@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import "./SinglePlayList.css";
+import "./SinglePlaylist.css";
 import { useTranslations } from "next-intl";
 import axiosInstance from "@/utils/utils";
 import { baseUrl } from "@/utils/constants";
