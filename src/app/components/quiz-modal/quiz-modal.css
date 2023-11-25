@@ -5,6 +5,10 @@
   padding: 28px;
   overflow-y: auto;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .modal-title {
   color: #092674;
@@ -93,4 +97,43 @@ input[type="radio"] {
   align-items: center;
   border: none;
   font-size: 18px;
+}
+.circel-progress {
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.success {
+  color: var(--secondary-1, #092674);
+  text-align: center;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.CircularProgressbar-path {
+  stroke: #092674 !important;
+}
+.CircularProgressbar-text {
+  fill: #092674 !important;
+}
+.faild {
+  color: #838e9e;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.results {
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }

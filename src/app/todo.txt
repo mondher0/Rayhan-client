@@ -5,6 +5,7 @@ live not coding yet
 
 // auth :
 forgot password not integrated yet 
+logout not integrated yet
 
 // promotions :
 in promotions missed the courses of this promotion from api 

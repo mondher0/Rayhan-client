@@ -11,6 +11,7 @@ const QuizProvider = ({ children }) => {
   const [questions, setQuestions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [percentage, setPercentage] = useState(0);
 
   // submit quiz
   const submitQuiz = async (lessonId) => {
@@ -56,6 +57,7 @@ const QuizProvider = ({ children }) => {
       console.log(response);
       setIsLoading(false);
       setSuccess(true);
+      setPercentage(response.data.data.score);
     } catch (error) {
       setIsLoading(false);
       setSuccess(false);
@@ -73,6 +75,8 @@ const QuizProvider = ({ children }) => {
         submitQuiz,
         isLoading,
         success,
+        percentage,
+        setSuccess,
       }}
     >
       {children}

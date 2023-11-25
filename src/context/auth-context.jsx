@@ -140,6 +140,10 @@ const AuthProvider = ({ children }) => {
       console.log("--------------error from handle login", error);
     }
   };
+  // handle logout
+  const handleLogout = () => {
+    router.push("/login");
+  };
   return (
     <AuthContext.Provider
       value={{
@@ -164,6 +168,7 @@ const AuthProvider = ({ children }) => {
         setFifthCode,
         setSchoolType,
         schoolType,
+        handleLogout,
       }}
     >
       {children}

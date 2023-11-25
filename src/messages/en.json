@@ -53,7 +53,7 @@
  "Auth": {
           "LoginTitle": "Login to your account",
           "LoginDesc": "Welcome back",
-          "loginPhoneNumber": "Phone number",
+          "loginPhoneNumber": "Email",
           "loginPassword": "Password",
           "loginRemember": "Remember me",
           "loginForget": "Forgot your password?",

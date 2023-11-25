@@ -54,7 +54,7 @@
     "Auth": {
             "LoginTitle" :"تسجيل الدخول إلى حسابك",
             "LoginDesc" :"مرحبًا بعودتك",
-            "loginPhoneNumber" :"رقم الهاتف",
+            "loginPhoneNumber" :"ايميل ",
             "loginPassword" :"كلمة السر",
             "loginRemember" :"تذكرني",
             "loginForget" :"هل نسيت كلمة السر؟",

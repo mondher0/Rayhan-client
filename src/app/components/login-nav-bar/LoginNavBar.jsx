@@ -13,6 +13,7 @@ import "./LoginNavBar.css";
 import Notifications from "../notifications/Notifications";
 import { useState } from "react";
 import LanguageChanger from "../language-changer/LanguageChanger";
+import useAuthContext from "@/hooks/useAuthContext";
 
 const LoginNavBar = () => {
   const locale = useLocale();
@@ -20,6 +21,7 @@ const LoginNavBar = () => {
   const router = useRouter();
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
+  const { handleLogout } = useAuthContext();
   return (
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />
@@ -67,7 +69,12 @@ const LoginNavBar = () => {
         >
           <Image src={avatar} alt="avatar" width={50} height={50} />
         </div>
-        <FiLogOut size={30} color="#838E9E" className="hover" />
+        <FiLogOut
+          size={30}
+          color="#838E9E"
+          className="hover"
+          onClick={handleLogout}
+        />
         {showNotifications && <Notifications />}
       </div>
     </nav>
