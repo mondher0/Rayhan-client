@@ -16,6 +16,8 @@ const SingleCourse = ({
   courseId,
   enrollment,
   coursesByCategory,
+  categoryId,
+  url,
 }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
@@ -55,6 +57,8 @@ const SingleCourse = ({
           independent={independent}
           courseId={courseId}
           enrollment={enrollment}
+          categoryId={categoryId}
+          url={url}
         />
         <section className="informations">
           <CourseDetailsInfo

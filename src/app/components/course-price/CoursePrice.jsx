@@ -65,7 +65,7 @@ const CoursePrice = ({
       );
       console.log(response);
       setIsloading(false);
-      router.push(`/subscribe/${response.data.data.id}`);
+      router.push(`/subscribe/${courseId}?enrollment=${response.data.data.id}`);
     } catch (error) {
       console.log(error);
       setIsloading(false);

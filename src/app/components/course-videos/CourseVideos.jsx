@@ -2,7 +2,15 @@ import { useTranslations } from "next-intl";
 import SinglePlayList from "../single-playlist/SinglePlayList";
 import "./CourseVideos.css";
 
-const CourseVideos = ({ title, course, independent, courseId, enrollment }) => {
+const CourseVideos = ({
+  title,
+  course,
+  independent,
+  courseId,
+  enrollment,
+  categoryId,
+  url,
+}) => {
   const t = useTranslations("afterLogin");
   const { lessons } = course || {};
   return (
@@ -10,7 +18,7 @@ const CourseVideos = ({ title, course, independent, courseId, enrollment }) => {
       <div className="ifram">
         <iframe
           title="naruto"
-          src="https://www.youtube.com/embed/QhBnZ6NPOY0"
+          src={url}
           allowFullScreen
           width={1000}
           height={500}
@@ -27,6 +35,7 @@ const CourseVideos = ({ title, course, independent, courseId, enrollment }) => {
               independent={independent}
               courseId={courseId}
               enrollment={enrollment}
+              categoryId={categoryId}
             />
           );
         })}

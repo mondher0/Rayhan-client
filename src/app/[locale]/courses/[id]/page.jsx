@@ -5,6 +5,7 @@ import { baseUrl } from "@/utils/constants";
 const CourseDetailsPage = async ({ params, searchParams }) => {
   const { id } = params;
   const { category } = searchParams;
+  const { url } = searchParams;
 
   // get course details from server
   const getCourseDetails = async () => {
@@ -139,6 +140,8 @@ const CourseDetailsPage = async ({ params, searchParams }) => {
       courseId={id}
       enrollment={enrollment}
       coursesByCategory={coursesByCategory}
+      categoryId={category}
+      url={url}
     />
   );
 };

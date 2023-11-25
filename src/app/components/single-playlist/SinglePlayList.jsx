@@ -11,7 +11,13 @@ import Loader from "../loader/Loader";
 import { useRouter } from "next/navigation";
 import QuizModal from "../quiz-modal/QuizModal";
 
-const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
+const SinglePlayList = ({
+  lesson,
+  independent,
+  courseId,
+  enrollment,
+  categoryId,
+}) => {
   const t = useTranslations("afterLogin");
   const { id, title, type, price } = lesson || {};
   const [isLoading, setIsloading] = useState();
@@ -19,6 +25,9 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   const [lessonContent, setLessonContent] = useState();
+  const [lessonImage, setLessonImage] = useState();
+  const [videoUrl, setVideoUrl] = useState();
+  const [loadImage, setLoadImage] = useState(false);
 
   // filter the enrollment contain the lesson id
   const enrollmentId = enrollment?.map((enroll) => {
@@ -61,6 +70,7 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   // get lesson content
   const getLessonContent = async () => {
     try {
+      setLoadImage(true);
       const response = await axiosInstance.get(
         `${baseUrl}/course/lesson/get/${id}`,
         {
@@ -68,9 +78,21 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
         }
       );
       console.log(response);
+      if (response.data.data?.type == "attachment") {
+        response.data.data?.attachments?.map((attachment) => {
+          if (attachment.type === "image") {
+            setLessonImage(attachment.url);
+          }
+          if (attachment.type === "video") {
+            setVideoUrl(attachment.url);
+          }
+        });
+      }
       setLessonContent(response.data.data?.content?.questions);
+      setLoadImage(false);
     } catch (error) {
       console.log(error);
+      setLoadImage(false);
       throw new Error(error);
     }
   };
@@ -87,28 +109,60 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
     <>
       <div
         className="single-playlist hover"
+        style={{
+          opacity: lesson?.isPaid ? 1 : 0.5,
+        }}
         onClick={() => {
+          if (!lesson?.isPaid) {
+            return;
+          }
           if (type === "quiz") {
             setOpen(true);
+          }
+          if (type === "attachment") {
+            router.push(
+              `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`
+            );
           }
         }}
       >
         <ToastContainer />
-        <Image
-          src={
-            type === "quiz" ? "/images/quiz.png" : "/images/play-list-image.png"
-          }
-          alt="play-list-image"
-          width={200}
-          height={100}
-        />
+        {loadImage ? (
+          <Loader />
+        ) : (
+          <Image
+            src={
+              type === "quiz"
+                ? "/images/quiz.png"
+                : lessonImage
+                ? lessonImage
+                : "/images/subject-bg.png"
+            }
+            alt="play-list-image"
+            width={200}
+            height={100}
+          />
+        )}
         <div className="details">
           <p className="title">{title}</p>
           <p className="duration">{type === "quiz" ? "Quiz" : "1:30"}</p>
         </div>
       </div>
       {independent &&
-        (lesson?.isPaid ? null : (
+        (lesson?.isPaid ? (
+          type === "attachment" ? (
+            <button
+              className="playlist-btn hover"
+              onClick={() =>
+                router.push(
+                  `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`
+                )
+              }
+            >
+              {t("rewatchBtn")}
+            </button>
+          ) : null
+        ) : (
           <button
             className="playlist-btn hover"
             onClick={() => lessonEnrollment()}
