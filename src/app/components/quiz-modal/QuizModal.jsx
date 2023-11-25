@@ -1,58 +1,154 @@
+import React, { useState } from "react";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
 import "./quiz-modal.css";
 import next from "./next.svg";
 import prev from "./previous.svg";
 import Image from "next/image";
+import useQuizContext from "@/hooks/useQuizContext";
+import Loader from "../loader/Loader";
 
-const QuizModal = ({ open, onClose }) => {
+const QuizModal = ({ open, onClose, courseId, lessonId, content }) => {
+  if (!content) return null;
+  const { questions, setQuestions, submitQuiz, isLoading, success } =
+    useQuizContext();
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  const goToNextQuestion = () => {
+    if (currentQuestionIndex < content.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const goToPreviousQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+
+  const currentQuestion = content[currentQuestionIndex] || {};
+  console.log(content);
+
   return (
     <Popup open={open} onClose={onClose} position="right center" modal>
-      <div className="modal-title">Quizz</div>
+      <div className="modal-title">Quiz</div>
       <div className="question-header">
         <div className="question-number">
-          Question:
-          <span
-            style={{
-              color: "#243752",
-            }}
-          >
-            1
-          </span>
+          Question:{" "}
+          <span style={{ color: "#243752" }}>{currentQuestionIndex + 1}</span>
         </div>
       </div>
       <div className="question-body">
-        <p className="question-title">question title</p>
+        <p className="question-title">{currentQuestion.title}</p>
         <div className="questions">
-          <div className="single-question">
-            <input type="checkbox" name="question" id="question" />
-            <label htmlFor="question">question</label>
-          </div>
-          <div className="single-question">
-            <input type="checkbox" name="question" id="question" />
-            <label htmlFor="question">question</label>
-          </div>
+          {currentQuestion.type === "MCQ"
+            ? currentQuestion.answers.map((answer, index) => (
+                <div key={index} className="single-question">
+                  <input
+                    type="checkbox"
+                    name={`question${currentQuestionIndex}-answer${index}`}
+                    id={`question${currentQuestionIndex}-answer${index}`}
+                    value={answer.id}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setQuestions([
+                          ...questions,
+                          {
+                            question_id: currentQuestion.id,
+                            answers: [{ id: answer.id }],
+                          },
+                        ]);
+                      } else {
+                        setQuestions(
+                          questions.filter(
+                            (question) => question.answers[0].id !== answer.id
+                          )
+                        );
+                      }
+                    }}
+                  />
+                  <label
+                    htmlFor={`question${currentQuestionIndex}-answer${index}`}
+                  >
+                    {answer.title}
+                  </label>
+                </div>
+              ))
+            : currentQuestion.type === "SCQ"
+            ? currentQuestion.answers.map((answer, index) => (
+                <div key={index} className="single-question">
+                  <input
+                    type="radio"
+                    name="question"
+                    id={`question${currentQuestionIndex}-answer${index}`}
+                    value={answer.id}
+                    onChange={() => {
+                      setQuestions((prevQuestions) => {
+                        const questionExists = prevQuestions.some(
+                          (question) =>
+                            question.question_id === currentQuestion.id
+                        );
+
+                        if (questionExists) {
+                          return prevQuestions.map((question) => {
+                            if (question.question_id === currentQuestion.id) {
+                              return {
+                                question_id: currentQuestion.id,
+                                answers: [{ id: answer.id }],
+                              };
+                            }
+                            return question;
+                          });
+                        } else {
+                          return [
+                            ...prevQuestions,
+                            {
+                              question_id: currentQuestion.id,
+                              answers: [{ id: answer.id }],
+                            },
+                          ];
+                        }
+                      });
+                    }}
+                  />
+                  <label
+                    htmlFor={`question${currentQuestionIndex}-answer${index}`}
+                  >
+                    {answer.title}
+                  </label>
+                </div>
+              ))
+            : null}
         </div>
-        <div className="question-footer">
-          <div className="hover">
-            <Image
-              src={prev}
-              alt="prev"
-              width={40}
-              height={40}
-              className="prev"
-            />
-          </div>
-          <div className="btn hover">Submit</div>
-          <div className="hover">
-            <Image
-              src={next}
-              alt="prev"
-              width={40}
-              height={40}
-              className="next"
-            />
-          </div>
+      </div>
+      <div className="question-footer">
+        <div className="hover" onClick={goToPreviousQuestion}>
+          <Image
+            src={prev}
+            alt="prev"
+            width={40}
+            height={40}
+            className="prev"
+          />
+        </div>
+        {currentQuestionIndex === content.length - 1 ? (
+          <button
+            className="btn hover"
+            onClick={() => {
+              submitQuiz(lessonId);
+            }}
+          >
+            {isLoading ? <Loader /> : "Submit"}
+          </button>
+        ) : null}
+        <div className="hover" onClick={goToNextQuestion}>
+          <Image
+            src={next}
+            alt="next"
+            width={40}
+            height={40}
+            className="next"
+          />
         </div>
       </div>
     </Popup>

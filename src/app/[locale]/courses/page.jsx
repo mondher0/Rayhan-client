@@ -38,7 +38,7 @@ const CoursesPage = async ({ searchParams }) => {
     <Courses
       currentPage={page}
       courses={courses.data}
-      totalPage={courses.meta.total}
+      totalPage={courses.meta.from}
     />
   );
 };

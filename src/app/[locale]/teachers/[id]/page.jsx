@@ -70,7 +70,7 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
       teacher={teacher}
       page={page}
       courses={courses.data}
-      totalPage={courses.meta.total}
+      totalPage={courses.meta.from}
     />
   );
 };

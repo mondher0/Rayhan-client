@@ -1,6 +1,6 @@
 "use client";
 import "./PaymentMethod.css";
-import balance from "./balance.svg";
+import balancee from "./balance.svg";
 import edhahabia from "./edhahabia.svg";
 import reciept from "./reciept.svg";
 import reward from "./reward.svg";
@@ -88,7 +88,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
                 handleSelect("balanceCard");
               }}
             >
-              <Image src={balance} width={50} height={50} />
+              <Image src={balancee} width={50} height={50} />
               {t("myBalance")}
             </div>
           )}
@@ -139,6 +139,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
+           
           />
         )}
         {edhahbiaCard && <Edhahbia usecase={useCase} />}

@@ -6,12 +6,10 @@ import axiosInstance from "@/utils/utils";
 import { baseUrl } from "@/utils/constants";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
 import { useRouter } from "next/navigation";
 import QuizModal from "../quiz-modal/QuizModal";
-import Popup from "reactjs-popup";
-import "reactjs-popup/dist/index.css";
 
 const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const t = useTranslations("afterLogin");
@@ -20,6 +18,7 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
+  const [lessonContent, setLessonContent] = useState();
 
   // filter the enrollment contain the lesson id
   console.log(enrollment);
@@ -65,6 +64,27 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
       toast.error(error.response.data.message);
     }
   };
+
+  // get lesson content
+  const getLessonContent = async () => {
+    try {
+      const response = await axiosInstance.get(
+        `${baseUrl}/course/lesson/get/${id}`,
+        {
+          lesson_id: id,
+        }
+      );
+      console.log(response);
+      setLessonContent(response.data.data.content.questions);
+    } catch (error) {
+      throw new Error(error);
+    }
+  };
+
+  useEffect(() => {
+    getLessonContent();
+  }, []);
+
   console.log(independent);
   return (
     <>
@@ -99,7 +119,13 @@ const SinglePlayList = ({ lesson, independent, courseId, enrollment }) => {
             {isLoading ? <Loader /> : t("subscribeBtn") + " " + price + "DA"}
           </button>
         ))}
-      <QuizModal open={open} onClose={closeModal} />
+      <QuizModal
+        open={open}
+        onClose={closeModal}
+        courseId={courseId}
+        lessonId={id}
+        content={lessonContent}
+      />
     </>
   );
 };

@@ -1,7 +1,7 @@
 .popup-content {
   margin: auto;
   background: rgb(255, 255, 255);
-  width: 25%;
+  width: 550px;
   padding: 28px;
   overflow-y: auto;
   border-radius: 20px;
@@ -91,4 +91,6 @@ input[type="radio"] {
   padding: 15px;
   justify-content: center;
   align-items: center;
+  border: none;
+  font-size: 18px;
 }

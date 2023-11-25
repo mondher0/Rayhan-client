@@ -3,6 +3,7 @@ import { useLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import AuthProvider from "@/context/auth-context";
+import QuizProvider from "@/context/quiz-context";
 
 export const metadata = {
   title: "Rayhan",
@@ -25,7 +26,9 @@ export default async function RootLayout({ children, params }) {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AuthProvider> {children}</AuthProvider>
+          <AuthProvider>
+            <QuizProvider>{children}</QuizProvider>
+          </AuthProvider>
         </NextIntlClientProvider>
       </body>
     </html>

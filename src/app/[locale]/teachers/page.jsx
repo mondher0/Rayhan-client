@@ -38,7 +38,7 @@ const TeachersPage = async ({ searchParams }) => {
     <Teachers
       currentPage={page}
       teachers={teachers?.data}
-      totalPage={teachers?.total}
+      totalPage={teachers?.from}
     />
   );
 };
