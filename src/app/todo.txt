@@ -34,3 +34,6 @@ missing add reviews in the teacher page from server
 
 //home :
 continue watching not integrated yet
+
+//quiz :
+missing the quiz result 
