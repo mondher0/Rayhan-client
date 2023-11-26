@@ -6,11 +6,10 @@ import { useLocale, useTranslations } from "next-intl";
 import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./teacher-details.css";
 
-const SingleTeacher = ({ teacher, page, courses, totalPage }) => {
+const SingleTeacher = ({ teacher, page, courses, totalPage, reviews }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
-  const { youtube_link, comments } = teacher || {};
-  console.log("---------------------comments---------------------", comments);
+  const { youtube_link } = teacher || {};
   return (
     <>
       <header>
@@ -40,7 +39,7 @@ const SingleTeacher = ({ teacher, page, courses, totalPage }) => {
           id={teacher?.user?.id}
         />
         <p className="title">{t("teacherReviews")}</p>
-        <TeacherReviews reviews={comments} />
+        <TeacherReviews reviews={reviews} />
         <PostReview />
       </main>
     </>

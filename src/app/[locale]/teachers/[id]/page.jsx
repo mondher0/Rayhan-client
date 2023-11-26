@@ -59,17 +59,49 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
       throw new Error(error);
     }
   };
+
+  // get teacher reviews from the server
+  const getTeacherReviews = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(`${baseUrl}/student/teacher/${id}/reviews`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const reviews = await response.json();
+      console.log(
+        "------------response from teacher reviews page-----------",
+        reviews
+      );
+      return reviews.data;
+    } catch (error) {
+      console.log(
+        "--------------------error from teacher reviews page-------------------",
+        error
+      );
+      throw new Error(error);
+    }
+  };
   const teacherData = getTeacher();
   const coursesData = getCourses();
+  const reviewsData = getTeacherReviews();
 
-  const [teacher, courses] = await Promise.all([teacherData, coursesData]);
+  const [teacher, courses, reviews] = await Promise.all([
+    teacherData,
+    coursesData,
+    reviewsData,
+  ]);
   console.log("teacherData", teacher);
   console.log("coursesData", courses);
+  console.log("reviewsData", reviews);
   return (
     <SingleTeacher
       teacher={teacher}
       page={page}
       courses={courses.data}
+      reviews={reviews}
       totalPage={courses.meta.last_page}
     />
   );
