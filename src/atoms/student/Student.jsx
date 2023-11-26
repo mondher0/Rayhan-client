@@ -1,4 +1,4 @@
-import student from "./student.svg";
+import student from "./student.png";
 import "./Student.css";
 import Image from "next/image";
 import { useLocale } from "next-intl";
