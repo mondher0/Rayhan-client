@@ -112,7 +112,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             <Image src={reciept} width={50} height={50} />
             {t("reciept")}
           </div>
-          <div
+          {/* <div
             className="method hover"
             style={codCard ? selected : {}}
             onClick={() => {
@@ -121,7 +121,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
           >
             <Image src={cod} width={50} height={50} />
             COD
-          </div>
+          </div> */}
           <div
             className="method hover"
             style={rewardCard ? selected : {}}
@@ -139,13 +139,33 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
-           
           />
         )}
-        {edhahbiaCard && <Edhahbia usecase={useCase} />}
-        {recieptCard && <Receipt usecase={useCase} />}
-        {codCard && <Cod usecase={useCase} />}
-        {rewardCard && <Rewards usecase={useCase} />}
+        {edhahbiaCard && (
+          <Edhahbia
+            usecase={useCase}
+            id={id}
+            lesson={lesson}
+            enrollment={enrollment}
+          />
+        )}
+        {recieptCard && (
+          <Receipt
+            usecase={useCase}
+            id={id}
+            lesson={lesson}
+            enrollment={enrollment}
+          />
+        )}
+        {/* {codCard && <Cod usecase={useCase} />} */}
+        {rewardCard && (
+          <Rewards
+            usecase={useCase}
+            id={id}
+            lesson={lesson}
+            enrollment={enrollment}
+          />
+        )}
       </div>
     </section>
   );

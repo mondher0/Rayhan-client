@@ -12,6 +12,7 @@ const Balance = ({ usecase, id, lesson, enrollment }) => {
   const t = useTranslations("afterLogin");
   const [isLoading, setIsLoading] = useState();
   const [promoCode, setPromoCode] = useState();
+
   // handle submit
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,9 +25,10 @@ const Balance = ({ usecase, id, lesson, enrollment }) => {
         item_type: "enrollment",
       };
       console.log(data);
+      promoCode && (data.promo_code_id = promoCode);
       const response = await axiosInstance.post(
         `${baseUrl}/payment/balance`,
-        data
+        data,
       );
       console.log(response);
       setIsLoading(false);
@@ -42,7 +44,11 @@ const Balance = ({ usecase, id, lesson, enrollment }) => {
     <form className="balance-input" onSubmit={handleSubmit}>
       <ToastContainer />
       <label htmlFor="balance">{t("Promo code (optionel)")}</label>
-      <input type="text" id="balance" />
+      <input
+        type="text"
+        id="balance"
+        onChange={(e) => setPromoCode(e.target.value)}
+      />
       <button className="pay hover" type="submit" disabled={isLoading}>
         {isLoading ? (
           <Loader />

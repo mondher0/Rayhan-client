@@ -7,7 +7,7 @@ import Loader from "../loader/Loader";
 import { baseUrl } from "@/utils/constants";
 import axiosInstance from "@/utils/utils";
 
-const Rewards = ({ usecase }) => {
+const Rewards = ({ usecase, id, lesson, enrollment }) => {
   const t = useTranslations("afterLogin");
   const [amount, setAmount] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -17,11 +17,11 @@ const Rewards = ({ usecase }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await axiosInstance .post(
+      const response = await axiosInstance.post(
         `${baseUrl}/student/withdraw/charge-balance/reward`,
         {
           amount: amount,
-        }
+        },
       );
       console.log(response);
       if (response.status) {
@@ -34,10 +34,38 @@ const Rewards = ({ usecase }) => {
       toast.error(error.response.data.message);
     }
   };
+
+  // handle submit
+  const handleSubmitRewards = async (e) => {
+    e.preventDefault();
+    console.log("here rewards payment");
+    try {
+      setIsLoading(true);
+      console.log(lesson);
+      console.log(id);
+      const data = {
+        item_id: lesson ? parseInt(lesson) : parseInt(enrollment),
+        item_type: "enrollment",
+      };
+      amount && (data.promo_code_id = amount);
+      console.log(data);
+      const response = await axiosInstance.post(
+        `${baseUrl}/payment/reward`,
+        data,
+      );
+      console.log(response);
+      router.push(response?.data?.data?.url);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+      setIsLoading(false);
+    }
+  };
   return (
     <form
       className="balance-input"
-      onSubmit={usecase === "profile" ? handleSubmit : null}
+      onSubmit={usecase === "profile" ? handleSubmit : handleSubmitRewards}
     >
       <ToastContainer />
       <label htmlFor="balance">{t("Promo code (optionel)")})</label>
