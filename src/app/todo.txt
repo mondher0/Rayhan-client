@@ -21,20 +21,17 @@ missing the course image
 (little bug in the video)
 
 // payment :
-integrate just balance payment
+integrate all payments but there is bugs
 
 // profile :
 missing the statistics in profile page(continue , finish courses) from back
 missing profile picture
 missing personal information (EDIT)
-missing edhahabia and receipt in charge balance
+bugs in  edhahabia and receipt in charge balance
 
 // teachers :
 missing the teacher image in the teacher page from server
-missing add reviews in the teacher page from server
+bug add reviews in the teacher page from server
 
 //home :
 continue watching not integrated yet
-
-//quiz :
-missing the quiz result 

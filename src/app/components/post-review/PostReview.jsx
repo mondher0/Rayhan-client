@@ -10,7 +10,7 @@ import Loader from "../loader/Loader";
 import axiosInstance from "@/utils/utils";
 import { baseUrl } from "@/utils/constants";
 
-const PostReview = ({ canReviewCourse, courseId }) => {
+const PostReview = ({ canReviewCourse, courseId, teacher, teacherId }) => {
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -36,7 +36,7 @@ const PostReview = ({ canReviewCourse, courseId }) => {
           course_id: courseId,
           content: comment,
           stars: rating,
-        }
+        },
       );
       console.log(response);
       setIsLoading(false);
@@ -46,13 +46,43 @@ const PostReview = ({ canReviewCourse, courseId }) => {
       toast.error("Something went wrong");
     }
   };
+
+  // handle submit teacher review
+  const handleSubmitTeacherReview = async (e) => {
+    e.preventDefault();
+    // if (!canReviewCourse) {
+    //   toast.error("You can't review this course");
+    //   return;
+    // }
+    try {
+      setIsLoading(true);
+      const response = await axiosInstance.post(
+        `${baseUrl}/student/teacher/review/store`,
+        {
+          teacher_id: teacherId,
+          content: comment,
+          stars: rating,
+        },
+      );
+      console.log(response);
+      setIsLoading(false);
+      toast.success("Comment added successfully");
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  };
   return (
     <section className="post-review">
       <ToastContainer />
       <div className="stars">
         <Rating onClick={handleRating} />
       </div>
-      <form className="search-input" onSubmit={handleSubmit}>
+      <form
+        className="search-input"
+        onSubmit={teacher ? handleSubmitTeacherReview : handleSubmit}
+      >
         <input
           type="text"
           placeholder="Your comment here..."

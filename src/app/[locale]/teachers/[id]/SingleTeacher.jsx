@@ -40,7 +40,7 @@ const SingleTeacher = ({ teacher, page, courses, totalPage, reviews }) => {
         />
         <p className="title">{t("teacherReviews")}</p>
         <TeacherReviews reviews={reviews} />
-        <PostReview />
+        <PostReview teacher={true} teacherId={teacher?.user?.id} />
       </main>
     </>
   );
