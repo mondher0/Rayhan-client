@@ -13,6 +13,7 @@ const PopularTeacherCard = ({ teacher }) => {
   // calculate the moyen of the stars
   const calculateMoyen = (comments) => {
     let sum = 0;
+    if (!comments?.length) return 0;
     comments?.map((comment) => {
       let star = parseInt(comment.stars);
       sum += star;
