@@ -5,12 +5,27 @@
   justify-content: center;
   position: relative;
   margin-top: 20px;
+  width: 548px;
+}
+.subject-card:hover .subject {
+  top: 0;
+  height: 100%;
+  border-radius: 24px;
+  transition: top 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+.subject-card:hover span {
+  position: absolute;
+  top: -32%;
+  right: 50%;
+  transform: translate(50%, -10%);
+  font-size: 38px;
+  transition: 0.5s ease-in-out;
 }
 .subject-card .subject {
   position: absolute;
   top: 60%;
   left: 0;
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 24px 24px;
   border-top: 1px solid var(--gray-1, #838e9e);
   background: rgba(34, 34, 34, 0.08);
   backdrop-filter: blur(8px);
@@ -24,8 +39,10 @@
   font-style: normal;
   font-weight: 600;
   text-align: center;
-
 }
 .subject-card .subject span {
-    margin-top: 50%;
+  margin-top: 50%;
+}
+.img {
+  border-radius: 24px;
 }

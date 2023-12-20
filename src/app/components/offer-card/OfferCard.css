@@ -17,6 +17,7 @@
   justify-content: center;
   gap: 20px;
   padding: 20px;
+  width: 100%;
 }
 .offer-card .offer-text .offer-title {
   color: var(--gray800);

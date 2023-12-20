@@ -7,7 +7,7 @@ const PopularTeacherCard = ({ teacher }) => {
   const router = useRouter();
   console.log(teacher);
   const { user, comments, courses, comments_count } = teacher || {};
-  const { last_name, first_name, id } = user || {};
+  const { last_name, first_name, id, image } = user || {};
   console.log("----------------from teahcer card-----------", courses);
 
   // calculate the moyen of the stars
@@ -34,7 +34,7 @@ const PopularTeacherCard = ({ teacher }) => {
     >
       <div className="teacher-img-container">
         <Image
-          src="/images/teacher.png"
+          src={image?.url}
           alt="teacher"
           width={200}
           height={200}

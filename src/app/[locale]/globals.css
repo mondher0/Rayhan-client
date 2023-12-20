@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 :root {
   --primary900: #00ddaf;
   --secondary700: #092674;
@@ -20,7 +21,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: "Inter", sans-serif;
+  font-family: "Lexend", sans-serif;
 }
 html {
   scroll-behavior: smooth;
