@@ -68,7 +68,7 @@ const Rewards = ({ usecase, id, lesson, enrollment }) => {
       onSubmit={usecase === "profile" ? handleSubmit : handleSubmitRewards}
     >
       <ToastContainer />
-      <label htmlFor="balance">{t("Promo code (optionel)")})</label>
+      <label htmlFor="balance">{t("How much do you want to add")}</label>
       <input
         type="text"
         id="balance"

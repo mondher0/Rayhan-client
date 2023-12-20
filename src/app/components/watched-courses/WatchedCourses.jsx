@@ -1,15 +1,24 @@
+"use client";
 import { useTranslations } from "next-intl";
 import WatchCourse from "../watch-course/WatchCourse";
 import "./WatchedCourses.css";
+import { useRouter } from "next/navigation";
 
-const WatchedCourses = () => {
+const WatchedCourses = ({ continueCourses }) => {
   const t = useTranslations("afterLogin");
+  console.log(continueCourses);
+  const router = useRouter();
   return (
     <div className="courses">
-      <WatchCourse />
-      <WatchCourse />
-      <WatchCourse />
-      <p className="see-more hover">{t("seeMore")}</p>
+      {continueCourses?.slice(0, 3).map((course) => (
+        <WatchCourse key={course._id} course={course} />
+      ))}
+      <p
+        className="see-more hover"
+        onClick={() => (window.location.href = "/courses?page=1")}
+      >
+        {t("seeMore")}
+      </p>
     </div>
   );
 };

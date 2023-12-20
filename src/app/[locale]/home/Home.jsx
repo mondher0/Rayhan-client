@@ -5,7 +5,7 @@ import FeaturesCourses from "@/app/components/features-courses/FeaturesCourses";
 import PopularTeachers from "@/app/components/popular-teachers/PopularTeachers";
 import { useLocale, useTranslations } from "next-intl";
 
-const Home = ({ courses, teachers }) => {
+const Home = ({ courses, teachers, continueCourses }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
   return (
@@ -19,7 +19,7 @@ const Home = ({ courses, teachers }) => {
           <div className="watched-and-teachers">
             <div className="watched">
               <h1 className="watched-title">{t("continueYourCourses")}</h1>
-              <WatchedCourses />
+              <WatchedCourses continueCourses={continueCourses} />
             </div>
             <div className="teachers">
               <h1 className="watched-title">{t("popularTeacher")}</h1>

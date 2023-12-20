@@ -112,16 +112,18 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             <Image src={reciept} width={50} height={50} />
             {t("reciept")}
           </div>
-          {/* <div
-            className="method hover"
-            style={codCard ? selected : {}}
-            onClick={() => {
-              handleSelect("codCard");
-            }}
-          >
-            <Image src={cod} width={50} height={50} />
-            COD
-          </div> */}
+          {useCase === "profile" && (
+            <div
+              className="method hover"
+              style={codCard ? selected : {}}
+              onClick={() => {
+                handleSelect("codCard");
+              }}
+            >
+              <Image src={cod} width={50} height={50} />
+              COD
+            </div>
+          )}
           <div
             className="method hover"
             style={rewardCard ? selected : {}}
@@ -157,7 +159,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             enrollment={enrollment}
           />
         )}
-        {/* {codCard && <Cod usecase={useCase} />} */}
+        {codCard && <Cod usecase={useCase} />}
         {rewardCard && (
           <Rewards
             usecase={useCase}

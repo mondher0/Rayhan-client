@@ -16,13 +16,13 @@ const HomePage = async () => {
       const courses = await response.json();
       console.log(
         "----------------------response from home page----------------------",
-        courses
+        courses,
       );
       return courses.data.data;
     } catch (error) {
       console.log(
         "----------------------from home page----------------------",
-        error
+        error,
       );
       throw new Error(error);
     }
@@ -44,7 +44,32 @@ const HomePage = async () => {
     } catch (error) {
       console.log(
         "--------------------error from home page-------------------",
-        error
+        error,
+      );
+      throw new Error(error);
+    }
+  };
+
+  // get continue courses from server
+  const getContinueCourses = async () => {
+    try {
+      const token = getToken();
+      const response = await fetch(`${baseUrl}/course/get/my-courses`, {
+        cache: "no-cache",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const courses = await response.json();
+      console.log(
+        "----------------------response from home page continue courses----------------------",
+        courses,
+      );
+      return courses.data.data;
+    } catch (error) {
+      console.log(
+        "----------------------from home page----------------------",
+        error,
       );
       throw new Error(error);
     }
@@ -52,9 +77,22 @@ const HomePage = async () => {
 
   const coursesData = getCourses();
   const teachersData = getTeachers();
-  const [courses, teachers] = await Promise.all([coursesData, teachersData]);
+  const continueCoursesData = getContinueCourses();
+  const [courses, teachers, continueCourses] = await Promise.all([
+    coursesData,
+    teachersData,
+    continueCoursesData,
+  ]);
 
-  return <Home courses={courses} teachers={teachers} />;
+  console.log("continueCourses", continueCourses);
+
+  return (
+    <Home
+      courses={courses}
+      teachers={teachers}
+      continueCourses={continueCourses}
+    />
+  );
 };
 
 export default HomePage;

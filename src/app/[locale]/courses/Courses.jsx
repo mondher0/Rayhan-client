@@ -1,3 +1,4 @@
+"use client";
 import LoginNavBar from "@/app/components/login-nav-bar/LoginNavBar";
 import "./courses.css";
 import SearchInput from "@/app/components/search-input/SearchInput";
@@ -8,6 +9,7 @@ import { useLocale, useTranslations } from "next-intl";
 const Courses = ({ currentPage, courses, totalPage }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
+  console.log(locale);
   return (
     <>
       <header>
