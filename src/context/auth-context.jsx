@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
       setIsLoading(true);
       const response = await axios.post(
         `${baseUrl}/auth/student/check_referral`,
-        data
+        data,
       );
       console.log("--------------response from verify referal code", response);
       setIsLoading(false);
@@ -51,13 +51,18 @@ const AuthProvider = ({ children }) => {
         `${baseUrl}/auth/student/phone_verification`,
         {
           phone: user.phoneNumber,
-        }
+        },
       );
       console.log("--------------response from get temp code", resp);
       const response = await axios.get(
-        `${baseUrl}/get_code_test?phone=${user.phoneNumber}`
+        `${baseUrl}/get_code_test?phone=${user.phoneNumber}`,
       );
       console.log("--------------response from get temp code", response);
+      setFirstCode(response.data.code[0]);
+      setSecondCode(response.data.code[1]);
+      setThirdCode(response.data.code[2]);
+      setFourthCode(response.data.code[3]);
+      setFifthCode(response.data.code[4]);
       setIsLoading(false);
       router.push("/register/account-verification");
     } catch (error) {
@@ -80,7 +85,7 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post(
         `${baseUrl}/auth/student/check_code`,
-        data
+        data,
       );
       console.log("--------------response from confirm phone number", response);
       setIsLoading(false);
@@ -135,7 +140,7 @@ const AuthProvider = ({ children }) => {
       toast.error(
         error.response.data.message !== "undifined"
           ? error.response.data.message
-          : "something went wrong"
+          : "something went wrong",
       );
       console.log("--------------error from handle login", error);
     }

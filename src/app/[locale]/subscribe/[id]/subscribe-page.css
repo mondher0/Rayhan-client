@@ -49,11 +49,21 @@ main .title {
   font-weight: 300;
   line-height: normal;
 }
-@media screen and (max-width: 1800px) {
+/* @media screen and (max-width: 1800px) {
   .subscription-content {
     flex-direction: column-reverse;
     align-items: center;
     justify-content: center;
+  }
+} */
+@media screen and (max-width: 1400px) {
+  .subscription-content {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
+  .subscription-content .subscription-course {
+    align-items: center;
   }
 }
 .ar {

@@ -8,6 +8,14 @@ const WatchedCourses = ({ continueCourses }) => {
   const t = useTranslations("afterLogin");
   console.log(continueCourses);
   const router = useRouter();
+  if (continueCourses.length === 0) {
+    return (
+      <div>
+        <p>No courses Yet</p>
+        
+      </div>
+    );
+  }
   return (
     <div className="courses">
       {continueCourses?.slice(0, 3).map((course) => (

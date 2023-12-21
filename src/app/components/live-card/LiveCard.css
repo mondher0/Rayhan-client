@@ -125,7 +125,7 @@
 @media screen and (max-width: 1720px) and (min-width: 1490px) {
   .live-card {
     width: 360px;
-    height: 250px;
+    height: 300px;
   }
   .live-card .timer {
     width: 250px;

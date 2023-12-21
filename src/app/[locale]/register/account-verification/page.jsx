@@ -74,6 +74,7 @@ const AccoutVerificationPage = () => {
                   setFirstCode(e.target.value);
                   handleCodeChange(e.target.value, secondCodeRef);
                 }}
+                value={firstCode}
                 ref={firstCodeRef}
               />
               <input
@@ -82,6 +83,7 @@ const AccoutVerificationPage = () => {
                   setSecondCode(e.target.value);
                   handleCodeChange(e.target.value, thirdCodeRef);
                 }}
+                value={secondCode}
                 ref={secondCodeRef}
               />
               <input
@@ -90,6 +92,7 @@ const AccoutVerificationPage = () => {
                   setThirdCode(e.target.value);
                   handleCodeChange(e.target.value, fourthCodeRef);
                 }}
+                value={thirdCode}
                 ref={thirdCodeRef}
               />
               <input
@@ -98,6 +101,7 @@ const AccoutVerificationPage = () => {
                   setFourthCode(e.target.value);
                   handleCodeChange(e.target.value, fifthCodeRef);
                 }}
+                value={fourthCode}
                 ref={fourthCodeRef}
               />
               <input
@@ -105,6 +109,7 @@ const AccoutVerificationPage = () => {
                 onChange={(e) => {
                   setFifthCode(e.target.value);
                 }}
+                value={fifthCode}
                 ref={fifthCodeRef}
               />
               <button className="form-control-btn hover resend" type="button">
