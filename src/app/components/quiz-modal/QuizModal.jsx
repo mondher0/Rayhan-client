@@ -43,7 +43,7 @@ const QuizModal = ({ open, onClose, courseId, lessonId, content }) => {
       <div className="modal-title">Quiz</div>
       {success ? (
         <div className="circel-progress">
-          <p className="success">Your score is :</p>
+          <p className="success">Your score is</p>
           <CircularProgressbar value={percentage} text={`${percentage}%`} />
           {percentage < 80 ? (
             <div className="results">
@@ -101,8 +101,8 @@ const QuizModal = ({ open, onClose, courseId, lessonId, content }) => {
                             setQuestions(
                               questions.filter(
                                 (question) =>
-                                  question.answers[0].id !== answer.id
-                              )
+                                  question.answers[0].id !== answer.id,
+                              ),
                             );
                           }
                         }}
@@ -125,7 +125,7 @@ const QuizModal = ({ open, onClose, courseId, lessonId, content }) => {
                           setQuestions((prevQuestions) => {
                             const questionExists = prevQuestions.some(
                               (question) =>
-                                question.question_id === currentQuestion.id
+                                question.question_id === currentQuestion.id,
                             );
 
                             if (questionExists) {

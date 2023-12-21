@@ -3,6 +3,21 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 30px;
   margin-top: 30px;
+}
+@media screen and (min-width: 1366px) and (max-width: 1450px) {
+  .subjects-cards {
+    gap: 60px;
+  }
+}
+@media screen and (min-width: 1450px) and (max-width: 1560) {
+  .subjects-cards {
+    gap: 60px;
+  }
+}
+@media screen and (min-width: 1560px) and (max-width: 1660px) {
+  .subjects-cards {
+    gap: 70px;
+  }
 }

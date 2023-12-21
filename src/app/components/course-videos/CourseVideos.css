@@ -38,8 +38,14 @@
   gap: 20px;
   width: 100%;
 }
+@media screen and (max-width: 1615px) and (min-width: 1400px) {
+  iframe {
+    width: 719px;
+  }
+}
+
 @media screen and (max-width: 1400px) {
   iframe {
-    width: 500px;
+    width: 620px;
   }
 }
