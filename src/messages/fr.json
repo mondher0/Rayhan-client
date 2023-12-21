@@ -153,7 +153,7 @@
         "firstName" : "Prénom",
         "lastName" : "Nom de famille",
         "phoneNumber" : "Numéro de téléphone",
-        "oldPassword" : "Ancien mot de passe",
+        "oldPassword" : "Confirmer  de passe",
         "newPassword" : "Nouveau mot de passe",
         "edit" : "Éditer",
         "choose" : "Choisissez votre mode de paiement",

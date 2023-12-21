@@ -44,3 +44,13 @@
   font-weight: 400;
   line-height: 22px; /* 146.667% */
 }
+.enter-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: var(--gray800);
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  opacity: 0;
+}
