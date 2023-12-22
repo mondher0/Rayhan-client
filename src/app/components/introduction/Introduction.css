@@ -175,3 +175,8 @@
     display: none;
   }
 }
+@media screen and (max-width: 1300px) {
+  .intro {
+    height: 100vh;
+  }
+}
