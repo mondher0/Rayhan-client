@@ -19,10 +19,10 @@ const SideBar = ({ isSidebarOpen, setIsSideBarOpen }) => {
         </button>
       </div>
       <ul className={locale === "ar" ? "aside-links reversed" : "aside-links"}>
-        <Links link="/" text={t("home")} />
-        <Links link="/#about" text={t("about")} />
-        <Links link="/#welcome" text={t("welcome")} />
-        <Links link="/#features" text={t("features")} />
+        <Links link="/" text={t("home")} setIsSideBarOpen={setIsSideBarOpen}/>
+        <Links link="/#about" text={t("about")} setIsSideBarOpen={setIsSideBarOpen}/>
+        <Links link="/#welcome" text={t("welcome")} setIsSideBarOpen={setIsSideBarOpen}/>
+        <Links link="/#features" text={t("features")} setIsSideBarOpen={setIsSideBarOpen}/>
       </ul>
       <div className="dow-container">
         <button className="aside-dow">{t("download")}</button>
