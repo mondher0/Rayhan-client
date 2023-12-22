@@ -40,6 +40,13 @@
     width: 400px;
   }
 }
+@media screen and (max-width: 1078px) {
+  .ratings {
+    width: 400px;
+    overflow-y: auto;
+    max-height: 100px;
+  }
+}
 .next-btn {
   border-radius: 50%;
   background: #fff;

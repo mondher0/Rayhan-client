@@ -4,7 +4,7 @@ nav {
   align-items: center;
   gap: 17.423px;
   padding: 40px;
-  background-color: #DDFFF8;
+  background-color: #ddfff8;
 }
 .nav-bar-reversed {
   flex-direction: row-reverse;
@@ -66,7 +66,7 @@ nav .nav-btns .inline:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 905px) {
   nav .nav-btns .outline,
   nav .nav-btns .inline {
     font-size: 18px;

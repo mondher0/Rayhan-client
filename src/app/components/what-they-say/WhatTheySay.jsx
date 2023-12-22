@@ -1,3 +1,4 @@
+"use client";
 import "../what-you-do/WhatYouDo.css";
 import Image from "next/image";
 import WhatTheySayImg from "./what-they-say.svg";
@@ -5,10 +6,20 @@ import { useLocale, useTranslations } from "next-intl";
 import "./what-they-say.css";
 import { IoStarSharp } from "react-icons/io5";
 import { IoIosArrowForward } from "react-icons/io";
+import { useState } from "react";
 
-const WhatTheySay = () => {
+const WhatTheySay = ({ reviews }) => {
   const t = useTranslations("Index");
   const locale = useLocale();
+  const [rates, setRates] = useState(reviews);
+
+  // handle next review
+  const handleNextReview = () => {
+    const newRates = [...rates];
+    const firstRate = newRates.shift();
+    newRates.push(firstRate);
+    setRates(newRates);
+  };
   return (
     <section className="container what-you-do add">
       <div className="what-you-do-text">
@@ -45,23 +56,19 @@ const WhatTheySay = () => {
           height={400}
           className="what"
         />
-        <div className="next-btn hover">
+        <div className="next-btn hover" onClick={handleNextReview}>
           <IoIosArrowForward color="#1EA4CE" />
         </div>
         <div className="ratings">
-          <p>
-            "Thank you so much for your help. It's exactly what I've been
-            looking for. You won't regret it. It really saves me time and
-            effort. Rayhane is exactly what learning algeria has been lacking."
-          </p>
+          <p>{rates[0]?.comment}</p>
           <div className="rate">
-            <p className="rate-text">Mondher Mameri</p>
+            <p className="rate-text">{rates[0]?.full_name}</p>
             <div className="stars">
-              <IoStarSharp color="#FBA333" />
-              <IoStarSharp color="#FBA333" />
-              <IoStarSharp color="#FBA333" />
-              <IoStarSharp color="#FBA333" />
-              <IoStarSharp color="#FBA333" />
+              {Array(parseInt(rates[0]?.stars))
+                .fill(0)
+                .map((index) => (
+                  <IoStarSharp size={20} color="#FFD700" key={index} />
+                ))}
             </div>
           </div>
         </div>
