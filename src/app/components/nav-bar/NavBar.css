@@ -46,6 +46,20 @@ nav .nav-btns .inline {
   border: 2px solid var(--primary900);
   transition: all 0.3s ease-in-out;
 }
+.aside-dow {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 32px; /* 133.333% */
+  letter-spacing: -0.288px;
+  background-color: white;
+  padding: 13px 20px;
+  background-color: var(--primary900);
+  color: white;
+  border-radius: 16px;
+  border: 2px solid var(--primary900);
+  transition: all 0.3s ease-in-out;
+}
 nav .nav-btns .outline {
   background-color: transparent;
   color: var(--primary900);
@@ -66,14 +80,14 @@ nav .nav-btns .inline:hover {
   cursor: pointer;
 }
 
-@media screen and (max-width: 905px) {
+@media screen and (max-width: 925px) {
   nav .nav-btns .outline,
   nav .nav-btns .inline {
     font-size: 18px;
   }
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 851px) {
   nav .links {
     display: none;
   }
@@ -88,5 +102,70 @@ nav .nav-btns .inline:hover {
     font-size: 16px;
     padding: 0 15px;
     height: 40px;
+  }
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+.close-btn {
+  font-size: 2rem;
+  background: transparent;
+  border-color: transparent;
+  color: var(--clr-primary-5);
+  transition: var(--transition);
+  cursor: pointer;
+  color: var(--clr-red-dark);
+  margin-top: 0.2rem;
+}
+.close-btn:hover {
+  color: var(--clr-red-light);
+}
+.logo {
+  justify-self: center;
+  height: 45px;
+}
+.aside-links {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 10px;
+}
+
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: all 0.3s linear;
+  transform: translate(-100%);
+  z-index: -1;
+}
+.show-sidebar {
+  transform: translate(0);
+  z-index: 999;
+}
+.cart-btn-wrapper {
+  margin: 2rem auto;
+}
+.dow-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 851px) {
+  .sidebar {
+    display: none;
+  }
+  .burger {
+    display: none;
   }
 }
