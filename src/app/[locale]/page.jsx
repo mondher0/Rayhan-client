@@ -9,6 +9,7 @@ import Features from "../components/features/Features";
 import WhatTheySay from "../components/what-they-say/WhatTheySay";
 import OurPublicLives from "../components/our-public-lives/OurPublicLives";
 import Footer from "../components/footer/Footer";
+import GetStarted from "../components/get-started/GetStarted";
 
 export default function Home() {
   const t = useTranslations("Index");
@@ -26,6 +27,7 @@ export default function Home() {
         <Features />
         <WhatTheySay />
         <OurPublicLives />
+        <GetStarted />
       </main>
       <Footer />
     </>
