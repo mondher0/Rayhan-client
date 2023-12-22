@@ -4,6 +4,12 @@ import PlayStore from "@/atoms/playstore/PlayStore";
 import AppStore from "@/atoms/appstore/AppStore";
 import { useTranslations } from "next-intl";
 import { useLocale } from "next-intl";
+import Image from "next/image";
+import hero1 from "./hero1.svg";
+import hero2 from "./hero2.svg";
+import hero3 from "./hero3.svg";
+import hero4 from "./hero4.svg";
+import hero5 from "./hero5.svg";
 
 const Introduction = () => {
   const locale = useLocale();
@@ -12,7 +18,9 @@ const Introduction = () => {
     <section className="container intro">
       <div
         className={
-          locale === "ar" ? "intro-container intro-container-reversed" : "intro-container"
+          locale === "ar"
+            ? "intro-container intro-container-reversed"
+            : "intro-container"
         }
       >
         <div className="text">
@@ -36,6 +44,42 @@ const Introduction = () => {
         </div>
       </div>
       <div className="intro-img">
+        <Image
+          src={hero1}
+          alt="intro-bg"
+          className="intro-bg1"
+          width={300}
+          height={105}
+        />
+        <Image
+          src={hero2}
+          alt="intro-bg"
+          className="intro-bg2"
+          width={300}
+          height={105}
+        />
+        <Image
+          src={hero3}
+          alt="intro-bg"
+          className="intro-bg3"
+          width={300}
+          height={105}
+        />
+        <Image
+          src={hero4}
+          alt="intro-bg"
+          className="intro-bg4"
+          width={300}
+          height={105}
+        />
+        <Image
+          src={hero5}
+          alt="intro-bg"
+          className="intro-bg5"
+          width={300}
+          height={105}
+        />
+
         <Student />
       </div>
     </section>

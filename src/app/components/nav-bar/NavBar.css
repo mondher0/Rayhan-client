@@ -4,6 +4,7 @@ nav {
   align-items: center;
   gap: 17.423px;
   padding: 40px;
+  background-color: #DDFFF8;
 }
 .nav-bar-reversed {
   flex-direction: row-reverse;
