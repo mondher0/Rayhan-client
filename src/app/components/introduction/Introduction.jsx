@@ -47,35 +47,35 @@ const Introduction = () => {
         <Image
           src={hero1}
           alt="intro-bg"
-          className="intro-bg1"
+          className={locale === "ar" ? "intro-bg1-reversed" : "intro-bg1"}
           width={300}
           height={105}
         />
         <Image
           src={hero2}
           alt="intro-bg"
-          className="intro-bg2"
+          className={locale === "ar" ? "intro-bg2-reversed" : "intro-bg2"}
           width={300}
           height={105}
         />
         <Image
           src={hero3}
           alt="intro-bg"
-          className="intro-bg3"
+          className={locale === "ar" ? "intro-bg3-reversed" : "intro-bg3"}
           width={300}
           height={105}
         />
         <Image
           src={hero4}
           alt="intro-bg"
-          className="intro-bg4"
+          className={locale === "ar" ? "intro-bg4-reversed" : "intro-bg4"}
           width={300}
           height={105}
         />
         <Image
           src={hero5}
           alt="intro-bg"
-          className="intro-bg5"
+          className={locale === "ar" ? "intro-bg5-reversed" : "intro-bg5"}
           width={300}
           height={105}
         />
