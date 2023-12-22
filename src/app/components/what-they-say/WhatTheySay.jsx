@@ -2,12 +2,15 @@ import "../what-you-do/WhatYouDo.css";
 import Image from "next/image";
 import WhatTheySayImg from "./what-they-say.svg";
 import { useLocale, useTranslations } from "next-intl";
+import "./what-they-say.css";
+import { IoStarSharp } from "react-icons/io5";
+import { IoIosArrowForward } from "react-icons/io";
 
 const WhatTheySay = () => {
   const t = useTranslations("Index");
   const locale = useLocale();
   return (
-    <section className="container what-you-do">
+    <section className="container what-you-do add">
       <div className="what-you-do-text">
         <div className="welcome">
           <svg
@@ -38,9 +41,30 @@ const WhatTheySay = () => {
         <Image
           src={WhatTheySayImg}
           alt="what you do"
-          width={500}
-          height={500}
+          width={400}
+          height={400}
+          className="what"
         />
+        <div className="next-btn hover">
+          <IoIosArrowForward color="#1EA4CE" />
+        </div>
+        <div className="ratings">
+          <p>
+            "Thank you so much for your help. It's exactly what I've been
+            looking for. You won't regret it. It really saves me time and
+            effort. Rayhane is exactly what learning algeria has been lacking."
+          </p>
+          <div className="rate">
+            <p className="rate-text">Mondher Mameri</p>
+            <div className="stars">
+              <IoStarSharp color="#FBA333" />
+              <IoStarSharp color="#FBA333" />
+              <IoStarSharp color="#FBA333" />
+              <IoStarSharp color="#FBA333" />
+              <IoStarSharp color="#FBA333" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
