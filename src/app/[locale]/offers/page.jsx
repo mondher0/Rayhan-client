@@ -11,7 +11,7 @@ const OffresPage = async ({ searchParams }) => {
     try {
       const token = getToken();
       const response = await fetch(
-        `${baseUrl}/promotion/get?paginate=true&page=${page}`,
+        `${baseUrl}/offer/get?paginate=true&page=${page}`,
         {
           cache: "no-cache",
           headers: {

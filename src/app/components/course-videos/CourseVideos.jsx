@@ -1,6 +1,8 @@
+"use client";
 import { useTranslations } from "next-intl";
 import SinglePlayList from "../single-playlist/SinglePlayList";
 import "./CourseVideos.css";
+import ReactPlayer from "react-player";
 
 const CourseVideos = ({
   title,
@@ -13,6 +15,9 @@ const CourseVideos = ({
 }) => {
   const t = useTranslations("afterLogin");
   const { lessons } = course || {};
+
+  // embed video url
+  const embedUrl = url?.replace("watch", "embed");
   return (
     <section className="course-videos">
       <div className="ifram">

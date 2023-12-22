@@ -78,7 +78,7 @@
   position: absolute;
   top: 32px;
   right: 301px;
-}qr
+}
 @media (max-width: 950px) {
   .get-started {
     flex-direction: column;

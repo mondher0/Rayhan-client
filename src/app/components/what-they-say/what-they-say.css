@@ -47,6 +47,14 @@
     max-height: 100px;
   }
 }
+@media screen and (max-width: 595px) {
+  .ratings {
+    left: -35px;
+  }
+  .next-btn {
+    left: 250px!important;
+  }
+}
 .next-btn {
   border-radius: 50%;
   background: #fff;
