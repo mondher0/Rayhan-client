@@ -4,10 +4,15 @@ import "../login.css";
 import Image from "next/image";
 import "./reset-password.css";
 import { useLocale, useTranslations } from "next-intl";
+import useAuthContext from "@/hooks/useAuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Loader from "@/app/components/loader/Loader";
 
 const SendCodePage = () => {
   const t = useTranslations("Auth");
   const locale = useLocale();
+  const { user, setUser, isLoading, handleForgotPassword } = useAuthContext();
   return (
     <>
       <header>
@@ -19,8 +24,9 @@ const SendCodePage = () => {
             locale === "ar" ? "login-form login-form-ar" : "login-form"
           }
         >
+          <ToastContainer />
           <h1 className="title">{t("resetPassword")}</h1>
-          <form>
+          <form onSubmit={handleForgotPassword}>
             <div
               className={
                 locale === "ar"
@@ -29,10 +35,17 @@ const SendCodePage = () => {
               }
             >
               <label htmlFor="phone-number">{t("loginPhoneNumber")}</label>
-              <input type="tel" id="phone-number" className="input-control" />
+              <input
+                type="tel"
+                id="phone-number"
+                className="input-control"
+                onChange={(e) => {
+                  setUser({ ...user, phoneNumber: e.target.value });
+                }}
+              />
             </div>
             <button className="form-control-btn hover reset" type="submit">
-              {t("sendCode")}
+              {isLoading ? <Loader /> : t("sendCode")}
             </button>
           </form>
         </div>

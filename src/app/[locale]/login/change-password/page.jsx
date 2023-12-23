@@ -7,9 +7,12 @@ import "./change-password.css";
 import checkCircle from "./check-circle.svg";
 import { useRouter } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
+import { ToastContainer } from "react-toastify";
+import useAuthContext from "@/hooks/useAuthContext";
+import Loader from "@/app/components/loader/Loader";
 
 const ChangePassword = () => {
-  const [succes, setSucces] = useState(false);
+  const { user, setUser, resetPassword, isLoading, succes } = useAuthContext();
   const router = useRouter();
   const t = useTranslations("Auth");
   const locale = useLocale();
@@ -28,7 +31,7 @@ const ChangePassword = () => {
             <h1 className="title">{t("resetPassword")}</h1>
             <p className="welcome">{t("chooseNewPassword")}</p>
 
-            <form>
+            <form onSubmit={resetPassword}>
               <div
                 className={
                   locale === "ar"
@@ -36,11 +39,15 @@ const ChangePassword = () => {
                     : "form-control"
                 }
               >
+                <ToastContainer />
                 <label htmlFor="phone-number">{t("urNewPassword")}</label>
                 <input
                   type="password"
                   id="phone-number"
                   className="input-control"
+                  onChange={(e) => {
+                    setUser({ ...user, password: e.target.value });
+                  }}
                 />
               </div>
               <div
@@ -55,10 +62,13 @@ const ChangePassword = () => {
                   type="password"
                   id="phone-number"
                   className="input-control"
+                  onChange={(e) => {
+                    setUser({ ...user, password_confirmation: e.target.value });
+                  }}
                 />
               </div>
               <button className="form-control-btn hover" type="submit">
-                {t("send")}
+                {isLoading ? <Loader /> : t("send")}
               </button>
             </form>
           </div>
