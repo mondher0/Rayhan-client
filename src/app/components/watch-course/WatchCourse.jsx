@@ -11,7 +11,7 @@ const WatchCourse = ({ course }) => {
   const { user } = teacher || {};
   const { first_name, last_name } = user || {};
   const [progress, setProgress] = useState(0);
-  const [courseLecture, setCourseLecture] = useState();
+  const [currentLesson, setCurrentLesson] = useState(0);
   const router = useRouter();
 
   // calculate the progress of the course
@@ -20,7 +20,13 @@ const WatchCourse = ({ course }) => {
     if (lessons.length === 0) {
       return;
     }
+
     lessons.forEach((lesson) => {
+      if (!lesson.isPassed) {
+        if (!currentLesson) {
+          setCurrentLesson(lesson.title);
+        }
+      }
       if (lesson.isPassed) {
         progress += 1;
       }
@@ -50,7 +56,7 @@ const WatchCourse = ({ course }) => {
         <p className="teacher-name">
           {first_name} {last_name}
         </p>
-        <p className="course-content">lecture 5 | How to create a class</p>
+        <p className="course-content">lecture | {currentLesson}</p>
         <div className="course-progress-container">
           <progress
             className="course-progress"

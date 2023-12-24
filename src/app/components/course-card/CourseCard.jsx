@@ -12,7 +12,7 @@ const CourseCard = ({ style, course }) => {
   const { user } = teacher || {};
   const { first_name, last_name } = user || {};
   const totalRate = total_rate;
-  total_rate = Array(total_rate || 0).fill(0);
+  total_rate = Array(parseInt(total_rate) || 0).fill(0);
 
   return (
     <div
@@ -42,7 +42,7 @@ const CourseCard = ({ style, course }) => {
             {total_rate.map((index) => (
               <AiFillStar size={20} color="#FFD700" key={index} />
             ))}
-            ({totalRate})
+            ({parseInt(totalRate) || 0})
           </div>
           <div className="price">{price} DA</div>
         </div>

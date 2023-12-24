@@ -28,6 +28,7 @@ const SinglePlayList = ({
   const [lessonImage, setLessonImage] = useState();
   const [videoUrl, setVideoUrl] = useState();
   const [loadImage, setLoadImage] = useState(false);
+  const [attachments, setAttachments] = useState();
 
   // filter the enrollment contain the lesson id
   const enrollmentId = enrollment?.map((enroll) => {
@@ -55,7 +56,7 @@ const SinglePlayList = ({
         `${baseUrl}/enrollment/lesson`,
         {
           lesson_id: id,
-        }
+        },
       );
       console.log(response);
       setIsloading(false);
@@ -75,10 +76,11 @@ const SinglePlayList = ({
         `${baseUrl}/course/lesson/get/${id}`,
         {
           lesson_id: id,
-        }
+        },
       );
       console.log(response);
       if (response.data.data?.type == "attachment") {
+        setAttachments(response.data.data?.attachments);
         response.data.data?.attachments?.map((attachment) => {
           if (attachment.type === "image") {
             setLessonImage(attachment.url);
@@ -120,8 +122,11 @@ const SinglePlayList = ({
             setOpen(true);
           }
           if (type === "attachment") {
+            // router.push(
+            //   `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`,
+            // );
             router.push(
-              `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`
+              `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"`,
             );
           }
         }}
@@ -154,8 +159,11 @@ const SinglePlayList = ({
             <button
               className="playlist-btn hover"
               onClick={() =>
+                // router.push(
+                //   `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`,
+                // )
                 router.push(
-                  `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`
+                  `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"F`,
                 )
               }
             >
