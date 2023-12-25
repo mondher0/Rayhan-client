@@ -10,9 +10,10 @@ import rewardsStat2 from "./rewards-stat2.svg";
 import ProfileFeatures from "../profile-features/ProfileFeatures";
 import { useTranslations } from "next-intl";
 
-const Profile = ({ userInfo }) => {
+const Profile = ({ userInfo, generalStat }) => {
   const { userable } = userInfo || {};
   const { reward, balance } = userable || {};
+  const { finished_courses, all_courses } = generalStat || {};
   const t = useTranslations("afterLogin");
   return (
     <div className="profile">
@@ -33,12 +34,12 @@ const Profile = ({ userInfo }) => {
         <StatistiqueContainer
           stat1={courseStat}
           text={t("courseToContinue")}
-          number="13"
+          number={all_courses}
         />
         <StatistiqueContainer
           stat1={finishedStat}
           text={t("finishedCourses")}
-          number={22}
+          number={finished_courses}
         />
       </div>
       <ProfileFeatures userInfo={userInfo} />

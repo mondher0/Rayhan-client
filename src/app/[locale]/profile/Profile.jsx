@@ -3,7 +3,7 @@ import "./profile.css";
 import Profile from "@/app/components/profile/Profile";
 import { useLocale, useTranslations } from "next-intl";
 
-const ProfileFather = ({ userInfo }) => {
+const ProfileFather = ({ userInfo, generalStat }) => {
   const t = useTranslations("afterLogin");
   const locale = useLocale();
   return (
@@ -21,7 +21,7 @@ const ProfileFather = ({ userInfo }) => {
           }
         >
           <p className="title">{t("profile")}</p>
-          <Profile userInfo={userInfo} />
+          <Profile userInfo={userInfo} generalStat={generalStat} />
         </section>
       </main>
     </>
