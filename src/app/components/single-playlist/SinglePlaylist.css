@@ -40,3 +40,12 @@
   font-weight: 600;
   line-height: 100%; /* 18px */
 }
+.lesson-cover {
+  width: 200px;
+  height: 100px;
+  border-radius: 6.077px;
+  background: var(--Primary-1, #00ddaf);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
