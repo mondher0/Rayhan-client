@@ -73,11 +73,11 @@
   text-decoration-line: underline;
 }
 @media screen and (max-width: 1500px) {
-  .offer-card {
+  /* .offer-card {
     flex-direction: column;
     gap: 0;
     width: unset;
-  }
+  } */
   .offer-card .offer-text {
     padding: 20px 20px 0 20px;
   }

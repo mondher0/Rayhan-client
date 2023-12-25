@@ -9,7 +9,7 @@ import Loader from "../loader/Loader";
 import axiosInstance from "@/utils/utils";
 import { baseUrl } from "@/utils/constants";
 
-const Receipt = ({ usecase, id, lesson, enrollment }) => {
+const Receipt = ({ usecase, id, lesson, enrollment, offerId }) => {
   const t = useTranslations("afterLogin");
   const [isLoading, setIsLoading] = useState();
   const [promoCode, setPromoCode] = useState();
@@ -26,9 +26,13 @@ const Receipt = ({ usecase, id, lesson, enrollment }) => {
       formData.append("passbook", passbook);
       formData.append(
         "item_id",
-        lesson ? parseInt(lesson) : parseInt(enrollment),
+        lesson
+          ? parseInt(lesson)
+          : offerId
+          ? parseInt(offerId)
+          : parseInt(enrollment),
       );
-      formData.append("item_type", "enrollment");
+      formData.append("item_type", offerId ? "offer" : "enrollment");
       promoCode && formData.append("promo_code_id", promoCode);
       const response = await axiosInstance.post(
         `${baseUrl}/payment/bank-transfer`,

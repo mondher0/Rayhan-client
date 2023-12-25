@@ -7,7 +7,7 @@ import Loader from "../loader/Loader";
 import { baseUrl } from "@/utils/constants";
 import axiosInstance from "@/utils/utils";
 
-const Rewards = ({ usecase, id, lesson, enrollment }) => {
+const Rewards = ({ usecase, id, lesson, enrollment, offerId }) => {
   const t = useTranslations("afterLogin");
   const [amount, setAmount] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -44,8 +44,12 @@ const Rewards = ({ usecase, id, lesson, enrollment }) => {
       console.log(lesson);
       console.log(id);
       const data = {
-        item_id: lesson ? parseInt(lesson) : parseInt(enrollment),
-        item_type: "enrollment",
+        item_id: lesson
+          ? parseInt(lesson)
+          : offerId
+          ? parseInt(offerId)
+          : parseInt(enrollment),
+        item_type: offerId ? "offer" : "enrollment",
       };
       amount && (data.promo_code_id = amount);
       console.log(data);

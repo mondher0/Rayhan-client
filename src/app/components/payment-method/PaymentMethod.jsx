@@ -14,7 +14,14 @@ import Cod from "../cod/Cod";
 import Rewards from "../rewards/Rewards";
 import { useTranslations } from "next-intl";
 
-const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
+const PaymentMethod = ({
+  useCase,
+  id,
+  lesson,
+  enrollment,
+  userInfo,
+  offerId,
+}) => {
   const [balanceCard, setBalanceCard] = useState(!useCase && "selected");
   const [edhahbiaCard, setEdhahbiaCard] = useState(useCase && "selected");
   const [codCard, setCodeCard] = useState("");
@@ -141,6 +148,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
+            offerId={offerId}
           />
         )}
         {edhahbiaCard && (
@@ -149,6 +157,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
+            offerId={offerId}
           />
         )}
         {recieptCard && (
@@ -157,6 +166,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
+            offerId={offerId}
           />
         )}
         {codCard && <Cod usecase={useCase} />}
@@ -166,6 +176,7 @@ const PaymentMethod = ({ useCase, id, lesson, enrollment, userInfo }) => {
             id={id}
             lesson={lesson}
             enrollment={enrollment}
+            offerId={offerId}
           />
         )}
       </div>

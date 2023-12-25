@@ -8,7 +8,7 @@ const OfferDetails = async ({ params }) => {
   const getSingleOffer = async () => {
     try {
       const token = getToken();
-      const response = await fetch(`${baseUrl}/promotion/get/${id}`, {
+      const response = await fetch(`${baseUrl}/offer/get/${id}`, {
         cache: "no-cache",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ const OfferDetails = async ({ params }) => {
     } catch (error) {
       console.log(
         "------------------error from getSingleOffer------------------",
-        error
+        error,
       );
       throw new Error(error);
     }

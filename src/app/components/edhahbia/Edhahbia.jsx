@@ -8,7 +8,7 @@ import Loader from "../loader/Loader";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-const Edhahbia = ({ usecase, id, lesson, enrollment }) => {
+const Edhahbia = ({ usecase, id, lesson, enrollment, offerId }) => {
   const t = useTranslations("afterLogin");
   const [isLoading, setIsLoading] = useState();
   const [promoCode, setPromoCode] = useState();
@@ -22,8 +22,12 @@ const Edhahbia = ({ usecase, id, lesson, enrollment }) => {
       console.log(lesson);
       console.log(id);
       const data = {
-        item_id: lesson ? parseInt(lesson) : parseInt(enrollment),
-        item_type: "enrollment",
+        item_id: lesson
+          ? parseInt(lesson)
+          : offerId
+          ? parseInt(offerId)
+          : parseInt(enrollment),
+        item_type: offerId ? "offer" : "enrollment",
       };
       promoCode && (data.promo_code_id = promoCode);
       console.log(data);
