@@ -40,21 +40,19 @@ export async function middleware(request) {
   } else {
     isValid = false;
   }
-  if (
-    (request.url.includes("/login") ||
-      request.url.includes("/register") ||
-      request.nextUrl.pathname === "/") &&
-    isValid
-  ) {
+  if (!isValid && !request.url.includes("/login")) {
+    if (request.nextUrl.pathname !== "/") {
+      return NextResponse.redirect(new URL("/login", request.url));
+    }
+  }
+  if (isValid && request.url.includes("/login")) {
     return NextResponse.redirect(new URL("/home", request.url));
   }
-  if (
-    !isValid &&
-    (!request.url.includes("/login") ||
-      !request.url.includes("/register") ||
-      request.nextUrl.pathname !== "/")
-  ) {
-    return NextResponse.redirect(new URL("/login", request.url));
+  if (isValid && request.url.includes("/register")) {
+    return NextResponse.redirect(new URL("/home", request.url));
+  }
+  if (isValid && request.nextUrl.pathname === "/") {
+    return NextResponse.redirect(new URL("/home", request.url));
   }
 
   return intlMiddleware(request);

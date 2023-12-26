@@ -22,6 +22,7 @@ const LoginNavBar = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showLanguage, setShowLanguage] = useState(false);
   const { handleLogout } = useAuthContext();
+
   return (
     <nav className={locale === "ar" ? "nav-bar-reversed" : ""}>
       <Logo Click="nav-logo" />

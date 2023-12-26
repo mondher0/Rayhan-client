@@ -10,7 +10,7 @@
   background: var(--White, #fff);
   box-shadow: -10px 48.59671px 140px 0px rgba(126, 123, 160, 0.2);
   padding: 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 100;
 }
 .ar {

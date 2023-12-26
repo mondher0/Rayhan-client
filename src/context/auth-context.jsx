@@ -5,6 +5,7 @@ import { createContext, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { deleteCookie, getCookie, setCookie } from "cookies-next";
+import axiosInstance from "@/utils/utils";
 
 export const AuthContext = createContext();
 
@@ -256,7 +257,10 @@ const AuthProvider = ({ children }) => {
   };
 
   // handle logout
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    const response = await axiosInstance.post(`${baseUrl}/auth/student/logout`);
+    console.log("--------------response from handle logout", response);
+    deleteCookie("token");
     router.push("/login");
   };
   return (
