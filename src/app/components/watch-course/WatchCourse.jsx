@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 
 const WatchCourse = ({ course }) => {
   console.log(course);
-  const { lessons, title, teacher, id, category } = course || {};
+  const { lessons, title, teacher, id, image } = course || {};
+  const { url } = image || {};
   const { user } = teacher || {};
   const { first_name, last_name } = user || {};
   const [progress, setProgress] = useState(0);
@@ -45,7 +46,7 @@ const WatchCourse = ({ course }) => {
       }}
     >
       <Image
-        src="/images/flutter.png"
+        src={url || "/images/flutter.png"}
         alt="Flutter"
         width={100}
         height={150}

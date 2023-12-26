@@ -3,31 +3,31 @@ import Courses from "./Courses";
 import { getToken } from "@/utils/lib";
 
 const CoursesPage = async ({ searchParams }) => {
-  const { page } = searchParams;
+  const { page, q } = searchParams;
 
   // get courses from server
   const getCourses = async () => {
     try {
       const token = getToken();
       const response = await fetch(
-        `${baseUrl}/course/get?paginate=true&page=${page}`,
+        `${baseUrl}/course/get?paginate=true&page=${page}&${q ? `q=${q}` : ""}`,
         {
           cache: "no-cache",
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       const courses = await response.json();
       console.log(
         "----------------------response from courses page----------------------",
-        courses
+        courses,
       );
       return courses.data;
     } catch (error) {
       console.log(
         "----------------------from courses page----------------------",
-        error
+        error,
       );
       throw new Error(error);
     }

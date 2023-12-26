@@ -7,7 +7,8 @@ import { useRouter } from "next/navigation";
 const CourseCard = ({ style, course }) => {
   const router = useRouter();
   console.log(course);
-  const { title, teacher, id, price } = course || {};
+  const { title, teacher, id, price, image } = course || {};
+  const { url } = image || {};
   let { total_rate } = course || {};
   const { user } = teacher || {};
   const { first_name, last_name } = user || {};
@@ -25,15 +26,15 @@ const CourseCard = ({ style, course }) => {
     >
       <div className="course-img-container">
         <Image
-          src="/images/flutter.png"
-          alt="Flutter"
+          src={url || "/images/flutter.png"}
+          alt={title}
           width={450}
           height={200}
           className="img-course"
         />
       </div>
       <div className="course-data">
-        <h1>{title}! </h1>
+        <h1>{title} </h1>
         <p className="name">
           {first_name} {last_name}
         </p>
