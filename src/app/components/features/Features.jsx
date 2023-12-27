@@ -22,6 +22,15 @@ const Features = () => {
         <p className="features-desc">{t("ourFeaturesDesc")}</p>
       </div>
       <div className="first-feature">
+        <div className="first-feature-img">
+          <Image
+            src={classroom}
+            alt="first feature"
+            width={500}
+            height={500}
+            className="image"
+          />
+        </div>
         <div className="fist-feature-text">
           <h1>
             <span>{t("A user interface")}</span>{" "}
@@ -47,15 +56,6 @@ const Features = () => {
               icon={users}
             />
           </ul>
-        </div>
-        <div className="first-feature-img">
-          <Image
-            src={classroom}
-            alt="first feature"
-            width={500}
-            height={500}
-            className="image"
-          />
         </div>
       </div>
       <div className="first-feature">

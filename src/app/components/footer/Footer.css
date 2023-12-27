@@ -20,8 +20,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 38.185px; /* 144.444% */
-  letter-spacing: -0.529px;
-  text-align: center;
+  letter-spacing: -0.529px; 
 }
 .span {
   text-align: center;
