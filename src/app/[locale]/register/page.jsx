@@ -41,7 +41,7 @@ const RegisterPage = () => {
             onSubmit={(e) => {
               if (user.referralCode) {
                 verifyReferalCode(e);
-                getTempCode();
+          
               } else {
                 e.preventDefault();
                 getTempCode();

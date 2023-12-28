@@ -135,8 +135,11 @@ const SinglePlayList = ({
             return;
           }
           router.push(
-            `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"F`,
+            `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`,
           );
+          // router.push(
+          //   `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"F`,
+          // );
         }}
       >
         <ToastContainer />
@@ -200,13 +203,14 @@ const SinglePlayList = ({
           videoUrl ? (
             <button
               className="playlist-btn hover"
-              onClick={() =>
+              onClick={
+                () =>
+                  router.push(
+                    `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`,
+                  )
                 // router.push(
-                //   `/courses/${courseId}?category=${categoryId}&url=${videoUrl}`,
+                //   `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"F`,
                 // )
-                router.push(
-                  `/courses/${courseId}?category=${categoryId}&url=https://www.youtube.com/embed/tzEFe4OQ1MU?si=u-mHe04x_SsFgrU9"F`,
-                )
               }
             >
               {t("rewatchBtn")}

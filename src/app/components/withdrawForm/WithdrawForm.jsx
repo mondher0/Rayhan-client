@@ -18,11 +18,12 @@ const WithdrawForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("amount", amount);
       const response = await axiosInstance.post(
         `${baseUrl}/student/withdraw/charge-balance/reward`,
         {
           amount: parseInt(amount),
-        }
+        },
       );
       console.log(response);
       if (response.status) {

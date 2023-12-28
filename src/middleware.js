@@ -42,7 +42,7 @@ export async function middleware(request) {
   }
   if (!isValid && !request.url.includes("/login")) {
     if (
-      request.nextUrl.pathname !== "/register" &&
+      !request.url.includes("/register") &&
       request.nextUrl.pathname !== "/"
     ) {
       return NextResponse.redirect(new URL("/login", request.url));

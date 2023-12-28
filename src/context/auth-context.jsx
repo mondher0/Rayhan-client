@@ -36,7 +36,8 @@ const AuthProvider = ({ children }) => {
       );
       console.log("--------------response from verify referal code", response);
       setIsLoading(false);
-      router.push("/register/register-procces");
+      // router.push("/register/register-procces");
+      getTempCode();
     } catch (error) {
       setIsLoading(false);
       toast.error(error.response.data.message);
@@ -109,7 +110,9 @@ const AuthProvider = ({ children }) => {
         password: user.password,
         phone_verification_code: user.code,
         study_year: study_year,
+        referral: user.referralCode,
       };
+      console.log("--------------data from handle register", data);
       const response = await axios.post(`${baseUrl}/auth/student/store`, data);
       console.log("--------------response from handle register", response);
       setIsLoading(false);
