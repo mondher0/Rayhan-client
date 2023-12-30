@@ -9,12 +9,7 @@ const WatchedCourses = ({ continueCourses }) => {
   console.log(continueCourses);
   const router = useRouter();
   if (continueCourses.length === 0) {
-    return (
-      <div>
-        <p>No courses Yet</p>
-        
-      </div>
-    );
+    return null;
   }
   return (
     <div className="courses">

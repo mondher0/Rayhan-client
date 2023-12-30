@@ -17,10 +17,12 @@ const Home = ({ courses, teachers, continueCourses }) => {
         <section className="hero"></section>
         <section className={locale === "ar" ? "features reversed" : "features"}>
           <div className="watched-and-teachers">
-            <div className="watched">
-              <h1 className="watched-title">{t("continueYourCourses")}</h1>
-              <WatchedCourses continueCourses={continueCourses} />
-            </div>
+            {continueCourses.length > 0 && (
+              <div className="watched">
+                <h1 className="watched-title">{t("continueYourCourses")}</h1>
+                <WatchedCourses continueCourses={continueCourses} />
+              </div>
+            )}
             <div className="teachers">
               <h1 className="watched-title">{t("popularTeacher")}</h1>
               <PopularTeachers teachers={teachers} />

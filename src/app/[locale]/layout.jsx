@@ -24,7 +24,7 @@ export default async function RootLayout({ children, params }) {
   }
   return (
     <html lang={locale}>
-      <body>
+      <body className={locale === "ar" ? "ar-body" : null}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AuthProvider>
             <QuizProvider>{children}</QuizProvider>

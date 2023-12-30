@@ -8,7 +8,7 @@ const intlMiddleware = createMiddleware({
   locales: ["en", "fr", "ar"],
 
   // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: "en",
+  defaultLocale: "ar",
 });
 
 export async function middleware(request) {
@@ -18,33 +18,41 @@ export async function middleware(request) {
   const tokenValue = token?.value;
   console.log("this is tokenValue", tokenValue);
   console.log(typeof tokenValue);
+  console.log(request.nextUrl.pathname);
   const tokenData = {
     type: tokenValue,
   };
 
   if (tokenValue) {
-    const response = await fetch(`${baseUrl}/token/check`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${tokenValue}`, // Specify the content type as JSON
-      },
-      body: JSON.stringify(tokenData),
-    });
-    const data = await response.json();
-    if (data.status) {
-      isValid = true;
-    } else {
-      isValid = false;
+    try {
+      const response = await fetch(`${baseUrl}/token/check`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${tokenValue}`, // Specify the content type as JSON
+        },
+        body: JSON.stringify(tokenData),
+      });
+      const data = await response.json();
+      if (data.status) {
+        isValid = true;
+      } else {
+        isValid = false;
+      }
+      console.log("this is response", data);
+    } catch (error) {
+      console.log(error);
     }
-    console.log("this is response", data);
   } else {
     isValid = false;
   }
   if (!isValid && !request.url.includes("/login")) {
     if (
       !request.url.includes("/register") &&
-      request.nextUrl.pathname !== "/"
+      request.nextUrl.pathname !== "/" &&
+      request.nextUrl.pathname !== "/en" &&
+      request.nextUrl.pathname !== "/fr"
     ) {
+      console.log(request.nextUrl.pathname);
       return NextResponse.redirect(new URL("/login", request.url));
     }
   }
@@ -54,7 +62,11 @@ export async function middleware(request) {
   if (isValid && request.url.includes("/register")) {
     return NextResponse.redirect(new URL("/home", request.url));
   }
-  if (isValid && request.nextUrl.pathname === "/") {
+  if (
+    (isValid && request.nextUrl.pathname === "/") ||
+    request.nextUrl.pathname === "/fr" ||
+    request.nextUrl.pathname === "/en"
+  ) {
     return NextResponse.redirect(new URL("/home", request.url));
   }
 

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap");
 
 :root {
   --primary900: #00ddaf;
@@ -23,6 +24,9 @@ body {
   overflow-x: hidden;
   font-family: "Lexend", sans-serif;
 }
+/* .ar-body {
+  font-family: 'Almarai', sans-serif;
+} */
 html {
   scroll-behavior: smooth;
 }
