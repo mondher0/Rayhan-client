@@ -20,13 +20,13 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
       const teacher = await response.json();
       console.log(
         "------------response from teacher details page-----------",
-        teacher
+        teacher,
       );
       return teacher.data;
     } catch (error) {
       console.log(
         "--------------------error from teacher details page-------------------",
-        error
+        error,
       );
       throw new Error(error);
     }
@@ -37,24 +37,24 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
     try {
       const token = getToken();
       const response = await fetch(
-        `${baseUrl}/course/get/teacher/4?paginate=true&page=${page}`,
+        `${baseUrl}/course/get/teacher/${id}?paginate=true&page=${page}`,
         {
           cache: "no-cache",
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
       const courses = await response.json();
       console.log(
         "------------response from teacher details page-----------",
-        courses
+        courses,
       );
       return courses.data;
     } catch (error) {
       console.log(
         "--------------------error from teacher details page-------------------",
-        error
+        error,
       );
       throw new Error(error);
     }
@@ -73,13 +73,13 @@ const TeacherDetailsPage = async ({ params, searchParams }) => {
       const reviews = await response.json();
       console.log(
         "------------response from teacher reviews page-----------",
-        reviews
+        reviews,
       );
       return reviews.data;
     } catch (error) {
       console.log(
         "--------------------error from teacher reviews page-------------------",
-        error
+        error,
       );
       throw new Error(error);
     }

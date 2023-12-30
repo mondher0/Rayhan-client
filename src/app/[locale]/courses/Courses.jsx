@@ -17,7 +17,7 @@ const Courses = ({ currentPage, courses, totalPage }) => {
       </header>
       <main>
         <section className="hero"></section>
-        <section className={locale === "ar" ? "courses rtl" : "coursess"}>
+        <section className={locale === "ar" ? "coursess rtl" : "coursess"}>
           <p>{t("courses")}</p>
           <SearchInput />
           <AllCourses courses={courses} />
