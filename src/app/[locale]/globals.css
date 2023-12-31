@@ -24,9 +24,9 @@ body {
   overflow-x: hidden;
   font-family: "Lexend", sans-serif;
 }
-/* .ar-body {
-  font-family: 'Almarai', sans-serif;
-} */
+.ar-body {
+  font-family: "Almarai", sans-serif;
+}
 html {
   scroll-behavior: smooth;
 }
