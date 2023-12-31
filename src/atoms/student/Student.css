@@ -6,9 +6,9 @@
 .student-reversed {
   width: 500px;
   height: 500px;
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  top: 0;
+  top: 0; */
 }
 @media screen and (min-width: 1500px) and (min-width : 1699px){
   .student, .student-reversed {
